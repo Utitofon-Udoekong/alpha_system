@@ -22,11 +22,12 @@ class AppBuilder extends StatelessWidget {
         ),
       ],
       child: MaterialApp.router(
+        title: 'Alpha System',
         debugShowCheckedModeBanner: false,
         routerConfig: router,
         theme: ThemeData(
           colorScheme:
-              ColorScheme.fromSeed(seedColor: Colors.blueGrey).copyWith(),
+              ColorScheme.fromSeed(seedColor: Colors.blueGrey),
           textTheme: GoogleFonts.ralewayTextTheme(
             Theme.of(context).textTheme,
           ),
