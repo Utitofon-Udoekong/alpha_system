@@ -1,5 +1,6 @@
 import 'package:alpha_system/presentation/authentication/cubit/auth_cubit.dart';
 import 'package:alpha_system/presentation/widgets/app_button.dart';
+import 'package:alpha_system/presentation/widgets/app_snackbar.dart';
 import 'package:alpha_system/presentation/widgets/app_text_field.dart';
 import 'package:alpha_system/presentation/widgets/hero_image.dart';
 import 'package:flutter/material.dart';
