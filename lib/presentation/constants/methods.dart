@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 /// Uses regex to validate emails
 bool isValidEmail(String email) {
   return RegExp(
@@ -12,3 +14,4 @@ bool isValidPassword(String password) {
   return RegExp(r'^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')
       .hasMatch(password);
 }
+
