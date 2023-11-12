@@ -15,7 +15,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 2), () => context.go('/login'));
+    Future.delayed(const Duration(seconds: 1, milliseconds: 500), () => context.go('/login'));
   }
   @override
   Widget build(BuildContext context) {
