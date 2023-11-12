@@ -1,5 +1,6 @@
 import 'package:alpha_system/presentation/authentication/cubit/auth_cubit.dart';
 import 'package:alpha_system/presentation/widgets/app_button.dart';
+import 'package:alpha_system/presentation/widgets/app_snackbar.dart';
 import 'package:alpha_system/presentation/widgets/app_text_field.dart';
 import 'package:alpha_system/presentation/widgets/hero_image.dart';
 import 'package:flutter/material.dart';
@@ -22,19 +23,7 @@ class RegistrationPage extends StatelessWidget {
           listenWhen: (previous, current) =>
               previous.failure != current.failure && current.failure.isNotEmpty,
           listener: (context, state) {
-            final snackBar = SnackBar(
-              content: Text(
-                state.failure,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium
-                    ?.copyWith(color: Colors.white),
-              ),
-              behavior: SnackBarBehavior.floating,
-              backgroundColor: Colors.redAccent,
-              showCloseIcon: true,
-            );
-            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            AppSnackbar.show(context, state.failure, true);
           },
         ),
         BlocListener<AuthCubit, AuthState>(

@@ -23,19 +23,7 @@ class LoginPage extends StatelessWidget {
           listenWhen: (previous, current) =>
               previous.failure != current.failure && current.failure.isNotEmpty,
           listener: (context, state) {
-            final snackBar = SnackBar(
-              content: Text(
-                state.failure,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium
-                    ?.copyWith(color: Colors.white),
-              ),
-              behavior: SnackBarBehavior.floating,
-              backgroundColor: Colors.redAccent,
-              showCloseIcon: true,
-            );
-            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            AppSnackbar.show(context, state.failure, true);
           },
         ),
         BlocListener<AuthCubit, AuthState>(
