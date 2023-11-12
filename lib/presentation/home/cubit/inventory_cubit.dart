@@ -38,6 +38,11 @@ class InventoryCubit extends HydratedCubit<InventoryState> {
     final itemName = state.newItemName;
     final itemQuantity = state.newItemQuantity;
 
+    if(itemName.isEmpty){
+      fail('Provide a name for the item');
+      return;
+    }
+
     final box = Hive.box<FarmList>(farmInventoryBox);
     final newItem = FarmList(itemName: itemName, quantity: itemQuantity);
     await box.add(newItem);

@@ -17,81 +17,87 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      initialIndex: 1,
-      length: 2,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'Alpha Farm Inventory',
-            style: Theme.of(context)
-                .textTheme
-                .headlineSmall
-                ?.copyWith(fontWeight: FontWeight.bold),
-          ),
-          actions: [
-            IconButton(
-              onPressed: () async {
-                final dialog = ActionDialog(
-                  title: "You're about to clear your inventory",
-                  dialogAction: () async {
-                    final inventoryBox = Hive.box<FarmList>(farmInventoryBox);
-                    context.pop();
-                    await inventoryBox.clear();
-                  },
-                );
-                await showDialog(
-                  context: context,
-                  builder: (context) {
-                    return dialog;
-                  },
-                );
-              },
-              icon: const Icon(
-                Icons.delete_forever,
-                color: Colors.black,
-              ),
+    return BlocListener<InventoryCubit, InventoryState>(
+      listenWhen: (p,c) => c.success == 'Item saved',
+      listener: (context, state) {
+        AppSnackbar.show(context, state.success, false);
+      },
+      child: DefaultTabController(
+        initialIndex: 0,
+        length: 2,
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text(
+              'Alpha Farm Inventory',
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineSmall
+                  ?.copyWith(fontWeight: FontWeight.bold),
             ),
-            IconButton(
-              onPressed: () async {
-                final dialog = ActionDialog(
-                  title: "You're about to logout",
-                  dialogAction: () {
-                    while (context.canPop() == true) {
+            actions: [
+              IconButton(
+                onPressed: () async {
+                  final dialog = ActionDialog(
+                    title: "You're about to clear your inventory",
+                    dialogAction: () async {
+                      final inventoryBox = Hive.box<FarmList>(farmInventoryBox);
                       context.pop();
-                    }
-                    context.read<AuthCubit>().reset();
-                    context.read<InventoryCubit>().reset();
-                    context.pushReplacement('/login');
-                  },
-                );
-                await showDialog(
-                  context: context,
-                  builder: (context) {
-                    return dialog;
-                  },
-                );
-              },
-              icon: const Icon(
-                Icons.logout_outlined,
-                color: Colors.black,
+                      await inventoryBox.clear();
+                    },
+                  );
+                  await showDialog(
+                    context: context,
+                    builder: (context) {
+                      return dialog;
+                    },
+                  );
+                },
+                icon: const Icon(
+                  Icons.delete_forever,
+                  color: Colors.black,
+                ),
               ),
+              IconButton(
+                onPressed: () async {
+                  final dialog = ActionDialog(
+                    title: "You're about to logout",
+                    dialogAction: () {
+                      while (context.canPop() == true) {
+                        context.pop();
+                      }
+                      context.read<AuthCubit>().reset();
+                      context.read<InventoryCubit>().reset();
+                      context.pushReplacement('/login');
+                    },
+                  );
+                  await showDialog(
+                    context: context,
+                    builder: (context) {
+                      return dialog;
+                    },
+                  );
+                },
+                icon: const Icon(
+                  Icons.logout_outlined,
+                  color: Colors.black,
+                ),
+              ),
+            ],
+            bottom: const TabBar(
+              tabs: [
+                Tab(text: 'Farm Inventory'),
+                Tab(text: 'Add Item'),
+              ],
             ),
-          ],
-          bottom: const TabBar(
-            tabs: [
-              Tab(text: 'Farm Inventory'),
-              Tab(text: 'Add Item'),
-            ],
           ),
-        ),
-        body: const Padding(
-          padding: EdgeInsets.all(20),
-          child: TabBarView(
-            children: <Widget>[
-              HomePageTabWidget(),
-              InventoryTabWidget(),
-            ],
+          body: const Padding(
+            padding: EdgeInsets.all(20),
+            child: TabBarView(
+              children: <Widget>[
+                HomePageTabWidget(),
+                InventoryTabWidget(),
+              ],
+            ),
           ),
         ),
       ),

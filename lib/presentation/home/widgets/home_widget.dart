@@ -25,8 +25,8 @@ class HomePageTabWidget extends StatelessWidget {
                 child: Column(
                   children: box.values.map((e) {
                     return InventoryField(
-                        itemName: e.itemName, quantity: e.quantity);
-                  }).toList(),
+                        itemName: e.itemName, quantity: e.quantity,);
+                  }).toList().reversed.toList(),
                 ),
               );
       },
