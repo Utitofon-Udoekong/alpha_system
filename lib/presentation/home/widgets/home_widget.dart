@@ -13,7 +13,6 @@ class HomePageTabWidget extends StatelessWidget {
     return ValueListenableBuilder(
       valueListenable: Hive.box<FarmList>(farmInventoryBox).listenable(),
       builder: (context, box, widget) {
-        box.values.toList().sort();
         return box.isEmpty
             ? const Center(
                 child: Column(

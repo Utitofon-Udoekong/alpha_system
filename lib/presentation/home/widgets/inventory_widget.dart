@@ -34,6 +34,7 @@ class InventoryTabWidget extends StatelessWidget {
                 children: [
                   AppTextField(
                     title: 'Enter Item Name',
+                    textInputAction: TextInputAction.done,
                     obscureText: false,
                     onChanged: (newItemName) =>
                         context.read<InventoryCubit>().setItemName(newItemName),
@@ -92,7 +93,7 @@ class ItemQuantityWidget extends StatelessWidget {
         Text.rich(
           TextSpan(
             children: [
-              const TextSpan(text: 'Quantity'),
+              const TextSpan(text: 'Quantity:'),
               TextSpan(
                 text: ' $itemQuantity',
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(

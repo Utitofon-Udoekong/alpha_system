@@ -35,6 +35,7 @@ class HomePage extends StatelessWidget {
                   title: "You're about to clear your inventory",
                   dialogAction: () async {
                     final inventoryBox = Hive.box<FarmList>(farmInventoryBox);
+                    context.pop();
                     await inventoryBox.clear();
                   },
                 );
@@ -132,7 +133,7 @@ class ActionDialog extends StatelessWidget {
                   color: Colors.redAccent,
                 ),
                 child: Text(
-                  'Logout',
+                  'Continue',
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium
@@ -151,7 +152,7 @@ class ActionDialog extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Colors.grey.shade300,
+                  color: Colors.grey,
                 ),
                 child: Text(
                   'Cancel',
