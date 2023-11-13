@@ -4,6 +4,7 @@ import 'package:alpha_system/presentation/constants/constants.dart';
 import 'package:alpha_system/presentation/home/cubit/inventory_cubit.dart';
 import 'package:alpha_system/presentation/home/widgets/home_widget.dart';
 import 'package:alpha_system/presentation/home/widgets/inventory_widget.dart';
+import 'package:alpha_system/presentation/home/widgets/profile_widget.dart';
 import 'package:alpha_system/presentation/widgets/app_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,8 +24,8 @@ class HomePage extends StatelessWidget {
         AppSnackbar.show(context, state.success, false);
       },
       child: DefaultTabController(
-        initialIndex: 0,
-        length: 2,
+        initialIndex: 2,
+        length: 3,
         child: Scaffold(
           appBar: AppBar(
             title: Text(
@@ -45,7 +46,7 @@ class HomePage extends StatelessWidget {
                       await inventoryBox.clear();
                     },
                   );
-                  await showDialog(
+                  await showDialog<void>(
                     context: context,
                     builder: (context) {
                       return dialog;
@@ -70,7 +71,7 @@ class HomePage extends StatelessWidget {
                       context.pushReplacement('/login');
                     },
                   );
-                  await showDialog(
+                  await showDialog<void>(
                     context: context,
                     builder: (context) {
                       return dialog;
@@ -87,6 +88,7 @@ class HomePage extends StatelessWidget {
               tabs: [
                 Tab(text: 'Farm Inventory'),
                 Tab(text: 'Add Item'),
+                Tab(text: 'Profile'),
               ],
             ),
           ),
@@ -96,6 +98,7 @@ class HomePage extends StatelessWidget {
               children: <Widget>[
                 HomePageTabWidget(),
                 InventoryTabWidget(),
+                ProfileTabWidget(),
               ],
             ),
           ),
