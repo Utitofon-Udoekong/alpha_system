@@ -1,3 +1,4 @@
+import 'package:alpha_system/domain/models/user_model.dart';
 import 'package:alpha_system/presentation/authentication/cubit/auth_cubit.dart';
 import 'package:alpha_system/presentation/widgets/app_button.dart';
 import 'package:alpha_system/presentation/widgets/app_snackbar.dart';
@@ -15,8 +16,10 @@ class RegistrationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isLoading = context.select((AuthCubit bloc) => bloc.state.isLoading);
-    final obscureText =
-        context.select((AuthCubit bloc) => bloc.state.obscureText);
+    final selectedGender =
+        context.select((AuthCubit bloc) => bloc.state.gender);
+    final selectedMaritalStatus =
+        context.select((AuthCubit bloc) => bloc.state.maritalStatus);
     return MultiBlocListener(
       listeners: [
         BlocListener<AuthCubit, AuthState>(
@@ -52,22 +55,113 @@ class RegistrationPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 30),
                   AppTextField(
-                    title: 'Username or Email Address',
-                    obscureText: false,
+                    title: 'Surname',
                     textInputAction: TextInputAction.next,
-                    onChanged: (username) =>
-                        context.read<AuthCubit>().setUsername(username),
+                    onChanged: (surname) =>
+                        context.read<AuthCubit>().setSurname(surname),
                   ),
                   const SizedBox(height: 20),
                   AppTextField(
-                    title: 'Password',
-                    obscureText: obscureText,
-                    isPasswordField: true,
+                    title: 'Othernames',
+                    textInputAction: TextInputAction.next,
+                    onChanged: (othernames) =>
+                        context.read<AuthCubit>().setOtherNames(othernames),
+                  ),
+                  const SizedBox(height: 20),
+                  AppTextField(
+                    title: 'Age',
+                    textInputAction: TextInputAction.next,
+                    onChanged: (age) =>
+                        context.read<AuthCubit>().setAge(int.parse(age)),
+                  ),
+                  const SizedBox(height: 20),
+                  GridView.count(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 20,
+                    padding: EdgeInsets.zero,
+                    mainAxisSpacing: 20,
+                    childAspectRatio: 3,
+                    children: [
+                      AppDropDownField(
+                        title: 'Gender',
+                        items: <DropdownMenuItem<Gender>>[
+                          DropdownMenuItem(
+                            value: Gender.male,
+                            child: Text(Gender.male.name),
+                          ),
+                          DropdownMenuItem(
+                            value: Gender.female,
+                            child: Text(Gender.female.name),
+                          ),
+                        ],
+                        value: selectedGender,
+                        onChanged: (gender) => context
+                            .read<AuthCubit>()
+                            .setGender(gender as Gender),
+                      ),
+                      AppDropDownField(
+                        title: 'Marital Status',
+                        items: <DropdownMenuItem<MaritalStatus>>[
+                          DropdownMenuItem(
+                            value: MaritalStatus.Married,
+                            child: Text(MaritalStatus.Married.name),
+                          ),
+                          DropdownMenuItem(
+                            value: MaritalStatus.Single,
+                            child: Text(MaritalStatus.Single.name),
+                          ),
+                        ],
+                        value: selectedMaritalStatus,
+                        onChanged: (status) => context
+                            .read<AuthCubit>()
+                            .setMaritalStatus(status as MaritalStatus),
+                      ),
+                      AppTextField(
+                        title: 'No of Spouse(s)',
+                        textInputAction: TextInputAction.next,
+                        onChanged: (spouses) => context
+                            .read<AuthCubit>()
+                            .setNoOfSpouses(int.parse(spouses)),
+                      ),
+                      AppTextField(
+                        title: 'No. of Children',
+                        textInputAction: TextInputAction.next,
+                        onChanged: (children) => context
+                            .read<AuthCubit>()
+                            .setNoOfChildren(int.parse(children)),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+                  AppTextField(
+                    title: 'Next of Kin',
+                    textInputAction: TextInputAction.next,
+                    onChanged: (kin) =>
+                        context.read<AuthCubit>().setNextOfKin(kin),
+                  ),
+                  const SizedBox(height: 20),
+                  AppTextField(
+                    title: 'Contact Number',
+                    textInputAction: TextInputAction.next,
+                    onChanged: (phone) =>
+                        context.read<AuthCubit>().setContactNumber(phone),
+                  ),
+                  const SizedBox(height: 20),
+                  AppTextField(
+                    title: 'Alt. Contact Number(optional)',
+                    textInputAction: TextInputAction.next,
+                    onChanged: (altPhone) =>
+                        context.read<AuthCubit>().setAltContactNumber(altPhone),
+                  ),
+                  const SizedBox(height: 20),
+                  AppTextField(
+                    title: 'Phone no. of Next of Kin',
                     textInputAction: TextInputAction.done,
-                    toggleVisibility: () =>
-                        context.read<AuthCubit>().togglePasswordVisibility(),
-                    onChanged: (password) =>
-                        context.read<AuthCubit>().setPassword(password),
+                    onChanged: (kinPhone) => context
+                        .read<AuthCubit>()
+                        .setPhoneNumberOfNextOfKin(kinPhone),
                   ),
                   const SizedBox(height: 30),
                   AppButton(
