@@ -5,10 +5,12 @@ class AppTextField extends StatelessWidget {
   /// Constructor
   const AppTextField({
     required this.title,
-    required this.obscureText,
-    this.isPasswordField = false, super.key,
+    this.obscureText = false,
+    this.isPasswordField = false,
+    super.key,
     this.onChanged,
-    this.toggleVisibility, this.textInputAction,
+    this.toggleVisibility,
+    this.textInputAction,
   });
 
   /// Function which receives typing events and returns the keyed value
@@ -18,7 +20,7 @@ class AppTextField extends StatelessWidget {
   final String title;
 
   /// If true text's will be obscured in the textfield ui
-  final bool obscureText;
+  final bool? obscureText;
 
   /// If true the textfield will be treated as a password field
   final bool? isPasswordField;
@@ -38,14 +40,63 @@ class AppTextField extends StatelessWidget {
         filled: true,
         fillColor: Colors.blueGrey.withOpacity(0.3),
         border: InputBorder.none,
-        suffixIcon: isPasswordField! ? InkWell(
-          onTap: toggleVisibility,
-          child: obscureText
-              ? const Icon(Icons.visibility_outlined, color: Colors.black,)
-              : const Icon(Icons.visibility_off_outlined, color: Colors.black,),
-        ) : null,
+        suffixIcon: isPasswordField!
+            ? InkWell(
+                onTap: toggleVisibility,
+                child: obscureText!
+                    ? const Icon(
+                        Icons.visibility_outlined,
+                        color: Colors.black,
+                      )
+                    : const Icon(
+                        Icons.visibility_off_outlined,
+                        color: Colors.black,
+                      ),
+              )
+            : null,
       ),
-      obscureText: obscureText,
+      obscureText: obscureText!,
+      style: Theme.of(context).textTheme.bodyLarge,
+      onChanged: onChanged,
+    );
+  }
+}
+
+/// Custom Dropdown form field widget. Receives a title, dropdown items and an onchanged handler
+class AppDropDownField extends StatelessWidget {
+  /// Constructor
+  const AppDropDownField({
+    required this.title,
+    required this.items,
+    required this.value,
+    this.onChanged, 
+    super.key,
+  });
+
+  /// currently selected value
+  final dynamic value;
+
+  /// Items to show in drop down
+  final List<DropdownMenuItem<dynamic>> items;
+
+  /// Function which receives typing events and returns the keyed value
+  final void Function(dynamic)? onChanged;
+
+  /// Title of the custom widget
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButtonFormField(
+      // elevation: 8,
+      value: value,
+      items: items,
+      decoration: InputDecoration(
+        hintText: title,
+        filled: true,
+        fillColor: Colors.blueGrey.withOpacity(0.3),
+        border: InputBorder.none,
+      ),
       style: Theme.of(context).textTheme.bodyLarge,
       onChanged: onChanged,
     );

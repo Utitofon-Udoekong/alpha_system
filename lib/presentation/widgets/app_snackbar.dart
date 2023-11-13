@@ -2,7 +2,14 @@ import 'package:flutter/material.dart';
 
 ///App snackbar
 class AppSnackbar {
-  static show(BuildContext context, String message, bool isFailure) {
+  /// Shows the snackbar. Takes the current context, a message and an isFailure 
+  /// boolean. If true, shows an error snackbar with a redAccent else it shows 
+  /// one with a green background.
+  static void show(
+    BuildContext context,
+    String message,
+    bool isFailure,
+  ) {
     final snackBar = SnackBar(
       content: Text(
         message,
