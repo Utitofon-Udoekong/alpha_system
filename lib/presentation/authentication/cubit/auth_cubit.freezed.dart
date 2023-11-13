@@ -18,6 +18,17 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AuthState {
   String get username => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
+  String get surname => throw _privateConstructorUsedError;
+  String get otherNames => throw _privateConstructorUsedError;
+  int get age => throw _privateConstructorUsedError;
+  Gender get gender => throw _privateConstructorUsedError;
+  MaritalStatus get maritalStatus => throw _privateConstructorUsedError;
+  int get noOfChildren => throw _privateConstructorUsedError;
+  int get noOfSpouses => throw _privateConstructorUsedError;
+  String get nextOfKin => throw _privateConstructorUsedError;
+  String get contactNumber => throw _privateConstructorUsedError;
+  String get altContactNumber => throw _privateConstructorUsedError;
+  String get phoneNumberOfNextOfKin => throw _privateConstructorUsedError;
   bool get obscureText => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   String get success => throw _privateConstructorUsedError;
@@ -36,6 +47,17 @@ abstract class $AuthStateCopyWith<$Res> {
   $Res call(
       {String username,
       String password,
+      String surname,
+      String otherNames,
+      int age,
+      Gender gender,
+      MaritalStatus maritalStatus,
+      int noOfChildren,
+      int noOfSpouses,
+      String nextOfKin,
+      String contactNumber,
+      String altContactNumber,
+      String phoneNumberOfNextOfKin,
       bool obscureText,
       bool isLoading,
       String success,
@@ -57,6 +79,17 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   $Res call({
     Object? username = null,
     Object? password = null,
+    Object? surname = null,
+    Object? otherNames = null,
+    Object? age = null,
+    Object? gender = null,
+    Object? maritalStatus = null,
+    Object? noOfChildren = null,
+    Object? noOfSpouses = null,
+    Object? nextOfKin = null,
+    Object? contactNumber = null,
+    Object? altContactNumber = null,
+    Object? phoneNumberOfNextOfKin = null,
     Object? obscureText = null,
     Object? isLoading = null,
     Object? success = null,
@@ -70,6 +103,50 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      surname: null == surname
+          ? _value.surname
+          : surname // ignore: cast_nullable_to_non_nullable
+              as String,
+      otherNames: null == otherNames
+          ? _value.otherNames
+          : otherNames // ignore: cast_nullable_to_non_nullable
+              as String,
+      age: null == age
+          ? _value.age
+          : age // ignore: cast_nullable_to_non_nullable
+              as int,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as Gender,
+      maritalStatus: null == maritalStatus
+          ? _value.maritalStatus
+          : maritalStatus // ignore: cast_nullable_to_non_nullable
+              as MaritalStatus,
+      noOfChildren: null == noOfChildren
+          ? _value.noOfChildren
+          : noOfChildren // ignore: cast_nullable_to_non_nullable
+              as int,
+      noOfSpouses: null == noOfSpouses
+          ? _value.noOfSpouses
+          : noOfSpouses // ignore: cast_nullable_to_non_nullable
+              as int,
+      nextOfKin: null == nextOfKin
+          ? _value.nextOfKin
+          : nextOfKin // ignore: cast_nullable_to_non_nullable
+              as String,
+      contactNumber: null == contactNumber
+          ? _value.contactNumber
+          : contactNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      altContactNumber: null == altContactNumber
+          ? _value.altContactNumber
+          : altContactNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      phoneNumberOfNextOfKin: null == phoneNumberOfNextOfKin
+          ? _value.phoneNumberOfNextOfKin
+          : phoneNumberOfNextOfKin // ignore: cast_nullable_to_non_nullable
               as String,
       obscureText: null == obscureText
           ? _value.obscureText
@@ -102,6 +179,17 @@ abstract class _$$AuthStateImplCopyWith<$Res>
   $Res call(
       {String username,
       String password,
+      String surname,
+      String otherNames,
+      int age,
+      Gender gender,
+      MaritalStatus maritalStatus,
+      int noOfChildren,
+      int noOfSpouses,
+      String nextOfKin,
+      String contactNumber,
+      String altContactNumber,
+      String phoneNumberOfNextOfKin,
       bool obscureText,
       bool isLoading,
       String success,
@@ -121,6 +209,17 @@ class __$$AuthStateImplCopyWithImpl<$Res>
   $Res call({
     Object? username = null,
     Object? password = null,
+    Object? surname = null,
+    Object? otherNames = null,
+    Object? age = null,
+    Object? gender = null,
+    Object? maritalStatus = null,
+    Object? noOfChildren = null,
+    Object? noOfSpouses = null,
+    Object? nextOfKin = null,
+    Object? contactNumber = null,
+    Object? altContactNumber = null,
+    Object? phoneNumberOfNextOfKin = null,
     Object? obscureText = null,
     Object? isLoading = null,
     Object? success = null,
@@ -134,6 +233,50 @@ class __$$AuthStateImplCopyWithImpl<$Res>
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      surname: null == surname
+          ? _value.surname
+          : surname // ignore: cast_nullable_to_non_nullable
+              as String,
+      otherNames: null == otherNames
+          ? _value.otherNames
+          : otherNames // ignore: cast_nullable_to_non_nullable
+              as String,
+      age: null == age
+          ? _value.age
+          : age // ignore: cast_nullable_to_non_nullable
+              as int,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as Gender,
+      maritalStatus: null == maritalStatus
+          ? _value.maritalStatus
+          : maritalStatus // ignore: cast_nullable_to_non_nullable
+              as MaritalStatus,
+      noOfChildren: null == noOfChildren
+          ? _value.noOfChildren
+          : noOfChildren // ignore: cast_nullable_to_non_nullable
+              as int,
+      noOfSpouses: null == noOfSpouses
+          ? _value.noOfSpouses
+          : noOfSpouses // ignore: cast_nullable_to_non_nullable
+              as int,
+      nextOfKin: null == nextOfKin
+          ? _value.nextOfKin
+          : nextOfKin // ignore: cast_nullable_to_non_nullable
+              as String,
+      contactNumber: null == contactNumber
+          ? _value.contactNumber
+          : contactNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      altContactNumber: null == altContactNumber
+          ? _value.altContactNumber
+          : altContactNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      phoneNumberOfNextOfKin: null == phoneNumberOfNextOfKin
+          ? _value.phoneNumberOfNextOfKin
+          : phoneNumberOfNextOfKin // ignore: cast_nullable_to_non_nullable
               as String,
       obscureText: null == obscureText
           ? _value.obscureText
@@ -161,6 +304,17 @@ class _$AuthStateImpl implements _AuthState {
   const _$AuthStateImpl(
       {required this.username,
       required this.password,
+      required this.surname,
+      required this.otherNames,
+      required this.age,
+      required this.gender,
+      required this.maritalStatus,
+      required this.noOfChildren,
+      required this.noOfSpouses,
+      required this.nextOfKin,
+      required this.contactNumber,
+      required this.altContactNumber,
+      required this.phoneNumberOfNextOfKin,
       required this.obscureText,
       required this.isLoading,
       required this.success,
@@ -170,6 +324,28 @@ class _$AuthStateImpl implements _AuthState {
   final String username;
   @override
   final String password;
+  @override
+  final String surname;
+  @override
+  final String otherNames;
+  @override
+  final int age;
+  @override
+  final Gender gender;
+  @override
+  final MaritalStatus maritalStatus;
+  @override
+  final int noOfChildren;
+  @override
+  final int noOfSpouses;
+  @override
+  final String nextOfKin;
+  @override
+  final String contactNumber;
+  @override
+  final String altContactNumber;
+  @override
+  final String phoneNumberOfNextOfKin;
   @override
   final bool obscureText;
   @override
@@ -181,7 +357,7 @@ class _$AuthStateImpl implements _AuthState {
 
   @override
   String toString() {
-    return 'AuthState(username: $username, password: $password, obscureText: $obscureText, isLoading: $isLoading, success: $success, failure: $failure)';
+    return 'AuthState(username: $username, password: $password, surname: $surname, otherNames: $otherNames, age: $age, gender: $gender, maritalStatus: $maritalStatus, noOfChildren: $noOfChildren, noOfSpouses: $noOfSpouses, nextOfKin: $nextOfKin, contactNumber: $contactNumber, altContactNumber: $altContactNumber, phoneNumberOfNextOfKin: $phoneNumberOfNextOfKin, obscureText: $obscureText, isLoading: $isLoading, success: $success, failure: $failure)';
   }
 
   @override
@@ -193,6 +369,25 @@ class _$AuthStateImpl implements _AuthState {
                 other.username == username) &&
             (identical(other.password, password) ||
                 other.password == password) &&
+            (identical(other.surname, surname) || other.surname == surname) &&
+            (identical(other.otherNames, otherNames) ||
+                other.otherNames == otherNames) &&
+            (identical(other.age, age) || other.age == age) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.maritalStatus, maritalStatus) ||
+                other.maritalStatus == maritalStatus) &&
+            (identical(other.noOfChildren, noOfChildren) ||
+                other.noOfChildren == noOfChildren) &&
+            (identical(other.noOfSpouses, noOfSpouses) ||
+                other.noOfSpouses == noOfSpouses) &&
+            (identical(other.nextOfKin, nextOfKin) ||
+                other.nextOfKin == nextOfKin) &&
+            (identical(other.contactNumber, contactNumber) ||
+                other.contactNumber == contactNumber) &&
+            (identical(other.altContactNumber, altContactNumber) ||
+                other.altContactNumber == altContactNumber) &&
+            (identical(other.phoneNumberOfNextOfKin, phoneNumberOfNextOfKin) ||
+                other.phoneNumberOfNextOfKin == phoneNumberOfNextOfKin) &&
             (identical(other.obscureText, obscureText) ||
                 other.obscureText == obscureText) &&
             (identical(other.isLoading, isLoading) ||
@@ -202,8 +397,25 @@ class _$AuthStateImpl implements _AuthState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, username, password, obscureText,
-      isLoading, success, failure);
+  int get hashCode => Object.hash(
+      runtimeType,
+      username,
+      password,
+      surname,
+      otherNames,
+      age,
+      gender,
+      maritalStatus,
+      noOfChildren,
+      noOfSpouses,
+      nextOfKin,
+      contactNumber,
+      altContactNumber,
+      phoneNumberOfNextOfKin,
+      obscureText,
+      isLoading,
+      success,
+      failure);
 
   @JsonKey(ignore: true)
   @override
@@ -216,6 +428,17 @@ abstract class _AuthState implements AuthState {
   const factory _AuthState(
       {required final String username,
       required final String password,
+      required final String surname,
+      required final String otherNames,
+      required final int age,
+      required final Gender gender,
+      required final MaritalStatus maritalStatus,
+      required final int noOfChildren,
+      required final int noOfSpouses,
+      required final String nextOfKin,
+      required final String contactNumber,
+      required final String altContactNumber,
+      required final String phoneNumberOfNextOfKin,
       required final bool obscureText,
       required final bool isLoading,
       required final String success,
@@ -225,6 +448,28 @@ abstract class _AuthState implements AuthState {
   String get username;
   @override
   String get password;
+  @override
+  String get surname;
+  @override
+  String get otherNames;
+  @override
+  int get age;
+  @override
+  Gender get gender;
+  @override
+  MaritalStatus get maritalStatus;
+  @override
+  int get noOfChildren;
+  @override
+  int get noOfSpouses;
+  @override
+  String get nextOfKin;
+  @override
+  String get contactNumber;
+  @override
+  String get altContactNumber;
+  @override
+  String get phoneNumberOfNextOfKin;
   @override
   bool get obscureText;
   @override
