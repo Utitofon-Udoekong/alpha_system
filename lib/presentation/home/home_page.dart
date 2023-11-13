@@ -8,14 +8,19 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Scaffold(
+      body: Padding(
       padding: const EdgeInsets.all(20),
       child: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               'Choose Questionnaire',
               style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            const SizedBox(
+              height: 30,
             ),
             TabButton(
               title: 'Agro',
@@ -32,6 +37,7 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
+    ),
     );
   }
 }
@@ -56,7 +62,9 @@ class TabButton extends StatelessWidget {
         alignment: Alignment.center,
         child: Text(
           title,
-          style: Theme.of(context).textTheme.titleLarge,
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+            color: Colors.black,
+          ),
         ),
       ),
     );

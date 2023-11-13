@@ -24,14 +24,6 @@ class AgroQuestionnaireTabWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 30),
-          const HeroImage(),
-          Text(
-            'Agro Questionnaire',
-            style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
-          ),
-          const SizedBox(height: 30),
           AppTextField(
             title: 'Surname',
             textInputAction: TextInputAction.next,
