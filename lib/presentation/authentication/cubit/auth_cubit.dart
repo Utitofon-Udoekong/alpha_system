@@ -95,6 +95,7 @@ class AuthCubit extends HydratedCubit<AuthState> {
     // final authUserName = encryptedBox.get(encUserName);
     // final authPassword = encryptedBox.get(encPassword);
     if (username.isNotEmpty && password.isNotEmpty) {
+      await Hive.openBox<UserModel>(userModelBox);
       await Hive.openBox<FarmList>(farmInventoryBox);
       pass('Login Successful');
       return true;
