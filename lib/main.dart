@@ -1,4 +1,5 @@
 import 'package:alpha_system/domain/models/farm_list/farm_list.dart';
+import 'package:alpha_system/domain/models/user_model.dart';
 import 'package:alpha_system/presentation/core/app.dart';
 import 'package:alpha_system/presentation/core/bloc_observer.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,14 @@ Future<void> main() async {
     storageDirectory: await getTemporaryDirectory(),
   );
   await Hive.initFlutter(appDocumentDir.path);
-  Hive.registerAdapter(FarmListAdapter());
+  Hive..registerAdapter(UserModelAdapter())
+  ..registerAdapter(FarmListAdapter())
+  ..registerAdapter(GenderAdapter())
+  ..registerAdapter(MaritalStatusAdapter());
+
+  print(Hive.isAdapterRegistered(0));
+  print(Hive.isAdapterRegistered(1));
+  print(Hive.isAdapterRegistered(2));
+  print(Hive.isAdapterRegistered(3));
   runApp(const AppBuilder());
 }
