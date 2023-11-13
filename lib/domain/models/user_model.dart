@@ -5,10 +5,10 @@ part 'user_model.g.dart';
 
 @HiveType(typeId: 0)
 
-/// Usermodel Objects. Extends a Hiveobject to supercharge storing to local storage.
-class Usermodel extends HiveObject {
+/// UserModel class. Extends a Hiveobject to supercharge storing to local storage.
+class UserModel extends HiveObject {
   /// class constructor
-  Usermodel(
+  UserModel(
       {required this.surname,
       required this.otherNames,
       required this.age,
@@ -20,10 +20,10 @@ class Usermodel extends HiveObject {
       required this.contactNumber,
       required this.altContactNumber,
       required this.phoneOfNextOfKin,
-      required this.userLGA,
-      required this.userWard,
-      required this.userCommunity,
-      required this.isYourFarmInTheSameVillageAsYourAddress});
+      this.userLGA,
+      this.userWard,
+      this.userCommunity,
+      this.isYourFarmInTheSameVillageAsYourAddress});
 
   @HiveField(0)
   final String surname;
@@ -48,13 +48,13 @@ class Usermodel extends HiveObject {
   @HiveField(10)
   final String phoneOfNextOfKin;
   @HiveField(11)
-  final String userLGA;
+  String? userLGA;
   @HiveField(12)
-  final String userWard;
+  String? userWard;
   @HiveField(13)
-  final String userCommunity;
+  String? userCommunity;
   @HiveField(14)
-  final bool isYourFarmInTheSameVillageAsYourAddress;
+  bool? isYourFarmInTheSameVillageAsYourAddress;
 }
 // @HiveField(4)
 // final String farmLGA;
@@ -89,11 +89,21 @@ class Usermodel extends HiveObject {
 // @HiveField(4)
 // final String date;
 
-// @HiveType(typeId: 1)
-enum Gender { male, female }
+@HiveType(typeId: 2)
+enum Gender {
+  @HiveField(0)
+  male,
+  @HiveField(1)
+  female,
+}
 
-// @HiveType(typeId: 2)
-enum MaritalStatus { single, married }
+@HiveType(typeId: 3)
+enum MaritalStatus {
+  @HiveField(0)
+  Single,
+  @HiveField(1)
+  Married,
+}
 // @HiveType(typeId: 3)
 // enum SaleMethod{
 //   openMarket, supply

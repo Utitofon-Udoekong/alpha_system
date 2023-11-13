@@ -6,17 +6,17 @@ part of 'user_model.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class UsermodelAdapter extends TypeAdapter<Usermodel> {
+class UserModelAdapter extends TypeAdapter<UserModel> {
   @override
   final int typeId = 0;
 
   @override
-  Usermodel read(BinaryReader reader) {
+  UserModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Usermodel(
+    return UserModel(
       surname: fields[0] as String,
       otherNames: fields[1] as String,
       age: fields[2] as int,
@@ -28,15 +28,15 @@ class UsermodelAdapter extends TypeAdapter<Usermodel> {
       contactNumber: fields[8] as String,
       altContactNumber: fields[9] as String,
       phoneOfNextOfKin: fields[10] as String,
-      userLGA: fields[11] as String,
-      userWard: fields[12] as String,
-      userCommunity: fields[13] as String,
-      isYourFarmInTheSameVillageAsYourAddress: fields[14] as bool,
+      userLGA: fields[11] as String?,
+      userWard: fields[12] as String?,
+      userCommunity: fields[13] as String?,
+      isYourFarmInTheSameVillageAsYourAddress: fields[14] as bool?,
     );
   }
 
   @override
-  void write(BinaryWriter writer, Usermodel obj) {
+  void write(BinaryWriter writer, UserModel obj) {
     writer
       ..writeByte(15)
       ..writeByte(0)
@@ -77,7 +77,85 @@ class UsermodelAdapter extends TypeAdapter<Usermodel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is UsermodelAdapter &&
+      other is UserModelAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class GenderAdapter extends TypeAdapter<Gender> {
+  @override
+  final int typeId = 2;
+
+  @override
+  Gender read(BinaryReader reader) {
+    switch (reader.readByte()) {
+      case 0:
+        return Gender.male;
+      case 1:
+        return Gender.female;
+      default:
+        return Gender.male;
+    }
+  }
+
+  @override
+  void write(BinaryWriter writer, Gender obj) {
+    switch (obj) {
+      case Gender.male:
+        writer.writeByte(0);
+        break;
+      case Gender.female:
+        writer.writeByte(1);
+        break;
+    }
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GenderAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class MaritalStatusAdapter extends TypeAdapter<MaritalStatus> {
+  @override
+  final int typeId = 3;
+
+  @override
+  MaritalStatus read(BinaryReader reader) {
+    switch (reader.readByte()) {
+      case 0:
+        return MaritalStatus.Single;
+      case 1:
+        return MaritalStatus.Married;
+      default:
+        return MaritalStatus.Single;
+    }
+  }
+
+  @override
+  void write(BinaryWriter writer, MaritalStatus obj) {
+    switch (obj) {
+      case MaritalStatus.Single:
+        writer.writeByte(0);
+        break;
+      case MaritalStatus.Married:
+        writer.writeByte(1);
+        break;
+    }
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MaritalStatusAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
