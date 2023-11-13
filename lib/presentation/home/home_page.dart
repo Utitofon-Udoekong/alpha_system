@@ -18,17 +18,17 @@ class HomePage extends StatelessWidget {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             TabButton(
-              title: 'AGRO',
+              title: 'Agro',
               onTap: () => context.push('/agro-form'),
             ),
             const SizedBox(
               height: 20,
             ),
-            const TabButton(title: 'HEALTH'),
+            const TabButton(title: 'Health'),
             const SizedBox(
               height: 20,
             ),
-            const TabButton(title: 'TRANSPORT'),
+            const TabButton(title: 'Transport'),
           ],
         ),
       ),
