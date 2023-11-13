@@ -53,7 +53,6 @@ class LoginPage extends StatelessWidget {
                   const SizedBox(height: 30),
                   AppTextField(
                     title: 'Username or Email Address',
-                    obscureText: false,
                     textInputAction: TextInputAction.next,
                     onChanged: (username) =>
                         context.read<AuthCubit>().setUsername(username),
@@ -75,17 +74,7 @@ class LoginPage extends StatelessWidget {
                     onTap: () => context.read<AuthCubit>().login(),
                     disabled: isLoading,
                   ),
-                  const SizedBox(height: 15),
-                  InkWell(
-                    onTap: () => context.push('/register'),
-                    child: Text(
-                      'Create an account',
-                      style: Theme.of(context)
-                          .textTheme
-                          .labelLarge
-                          ?.copyWith(decoration: TextDecoration.underline),
-                    ),
-                  ),
+                  
                 ],
               ),
             ),
