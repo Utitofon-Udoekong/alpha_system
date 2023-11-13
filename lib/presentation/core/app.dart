@@ -1,5 +1,5 @@
 import 'package:alpha_system/presentation/authentication/cubit/auth_cubit.dart';
-import 'package:alpha_system/presentation/home/cubit/inventory_cubit.dart';
+import 'package:alpha_system/presentation/home/cubit/questionnaire_cubit.dart';
 import 'package:alpha_system/presentation/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,7 +18,7 @@ class AppBuilder extends StatelessWidget {
           create: (context) => AuthCubit(),
         ),
         BlocProvider(
-          create: (context) => InventoryCubit(),
+          create: (context) => QuestionnaireCubit(),
         ),
       ],
       child: MaterialApp.router(
