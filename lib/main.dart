@@ -1,4 +1,5 @@
 import 'package:alpha_system/domain/models/agro/agro_questionnaire_model.dart';
+import 'package:alpha_system/domain/models/health/health_questionnaire_model.dart';
 import 'package:alpha_system/presentation/core/app.dart';
 import 'package:alpha_system/presentation/core/bloc_observer.dart';
 import 'package:flutter/material.dart';
@@ -15,13 +16,9 @@ Future<void> main() async {
   );
   await Hive.initFlutter(appDocumentDir.path);
   Hive..registerAdapter(AgroQuestionnaireModelAdapter())
-  // ..registerAdapter(FarmListAdapter())
-  ..registerAdapter(GenderAdapter())
-  ..registerAdapter(MaritalStatusAdapter());
+  ..registerAdapter(HealthQuestionnaireModelAdapter());
 
   print(Hive.isAdapterRegistered(0));
   print(Hive.isAdapterRegistered(1));
-  print(Hive.isAdapterRegistered(2));
-  print(Hive.isAdapterRegistered(3));
   runApp(const AppBuilder());
 }

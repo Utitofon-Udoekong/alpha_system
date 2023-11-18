@@ -27,9 +27,9 @@ class SavedAgroFormTabWidget extends StatelessWidget {
                   children: box.values
                       .map((e) {
                         return AgroFormField(
-                            surname: e.surname,
-                            otherNames: e.otherNames,
-                            age: e.age);
+                            name: e.name!,
+                            gender: e.gender!,
+                            phone: e.phone!);
                       })
                       .toList()
                       .reversed
@@ -46,20 +46,20 @@ class SavedAgroFormTabWidget extends StatelessWidget {
 class AgroFormField extends StatelessWidget {
   /// Constructors
   const AgroFormField({
-    required this.surname,
-    required this.otherNames,
-    required this.age,
+    required this.name,
+    required this.gender,
+    required this.phone,
     super.key,
   });
 
   /// Item name
-  final String surname;
+  final String name;
 
-  /// Item otherNames in Questionnaire model
-  final String otherNames;
+  /// Item gender in Questionnaire model
+  final String gender;
 
-  /// Item age in Questionnaire model
-  final int age;
+  /// Item phone in Questionnaire model
+  final String phone;
 
   @override
   Widget build(BuildContext context) {
@@ -78,20 +78,20 @@ class AgroFormField extends StatelessWidget {
           Column(
             children: [
               Text(
-                surname,
+                name,
                 style: Theme.of(context)
                     .textTheme
                     .titleLarge
                     ?.copyWith(fontWeight: FontWeight.bold),
               ),
               Text(
-                otherNames,
+                gender,
                 style: Theme.of(context).textTheme.titleMedium,
               ),
             ],
           ),
           Text(
-            '$age',
+            phone,
             style: Theme.of(context).textTheme.labelLarge,
           ),
         ],

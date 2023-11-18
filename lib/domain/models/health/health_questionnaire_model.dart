@@ -2,9 +2,47 @@ import 'package:hive_flutter/hive_flutter.dart';
 part 'health_questionnaire_model.g.dart';
 
 @HiveType(typeId: 1)
-class HealthQuestionnaireModel extends HiveObject {
-  HealthQuestionnaireModel(this.name, this.lga, this.ward, this.gpsLocation, this.photoOfSignPost, this.typeOfCareCenter, this.howManyCareCenters, this.whatTypeOfRoad, this.howManyAmbulances, this.sourceOfPower, this.numberOfSurgeons, this.numberOfDoctors, this.numberOfNurses, this.numberOfNursingAssistants, this.numberOfPharmacists, this.numberOfLabTechnicians, this.numberOfCleaners, this.numberOfDispensaryAssistant, this.numberOfCommunityHealthOfficers, this.numberOfRecordOfficers, this.measuresInplaceForDiseaseControl, this.responseMechanismsToHealthEmergencies, this.availabilityOfCommunityHealthPrograms, this.outreachProgramsForRuralAreas, this.presenceOfHealthEducationPrograms, this.accessibilityOfHealthInformationToThePublic, this.accessibilityOfHealthServicesToDifferentDemographics, this.governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy, this.investmentsAimedatImprovingHealthcareServices, this.collectionOfPublicHealthData, this.SurveillanceSystemsForMonitoringHealthTrends, this.environmentalHealthManagementFacilities, this.doYouHaveAWASHProgram, this.doYouHaveAGoodRefuseDisposalSystemIncenerator);
 
+///HealthQuestionnaireModel
+class HealthQuestionnaireModel extends HiveObject {
+  ///Constructor
+  HealthQuestionnaireModel(
+      this.name,
+      this.lga,
+      this.ward,
+      this.gpsLocation,
+      this.photoOfSignPost,
+      this.typeOfCareCenter,
+      this.howManyCareCenters,
+      this.whatTypeOfRoad,
+      this.howManyAmbulances,
+      this.sourceOfPower,
+      this.numberOfSurgeons,
+      this.numberOfDoctors,
+      this.numberOfNurses,
+      this.numberOfNursingAssistants,
+      this.numberOfPharmacists,
+      this.numberOfLabTechnicians,
+      this.numberOfCleaners,
+      this.numberOfDispensaryAssistant,
+      this.numberOfCommunityHealthOfficers,
+      this.numberOfRecordOfficers,
+      this.measuresInplaceForDiseaseControl,
+      this.responseMechanismsToHealthEmergencies,
+      this.availabilityOfCommunityHealthPrograms,
+      this.outreachProgramsForRuralAreas,
+      this.presenceOfHealthEducationPrograms,
+      this.accessibilityOfHealthInformationToThePublic,
+      this.accessibilityOfHealthServicesToDifferentDemographics,
+      this.governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy,
+      this.investmentsAimedatImprovingHealthcareServices,
+      this.collectionOfPublicHealthData,
+      this.surveillanceSystemsForMonitoringHealthTrends,
+      this.environmentalHealthManagementFacilities,
+      this.doYouHaveAWASHProgram,
+      this.doYouHaveAGoodRefuseDisposalSystemIncenerator);
+
+  //Bio - Data
   @HiveField(0)
   String? name;
   @HiveField(1)
@@ -16,7 +54,7 @@ class HealthQuestionnaireModel extends HiveObject {
   @HiveField(4)
   String? photoOfSignPost;
   @HiveField(5)
-  int? typeOfCareCenter;
+  String? typeOfCareCenter;
   @HiveField(6)
   int? howManyCareCenters;
   @HiveField(7)
@@ -25,6 +63,7 @@ class HealthQuestionnaireModel extends HiveObject {
   int? howManyAmbulances;
   @HiveField(9)
   String? sourceOfPower;
+
   //Medical personnel
   @HiveField(10)
   int? numberOfSurgeons;
@@ -46,34 +85,40 @@ class HealthQuestionnaireModel extends HiveObject {
   int? numberOfCommunityHealthOfficers;
   @HiveField(19)
   int? numberOfRecordOfficers;
+
   //Disease Control
   @HiveField(20)
-  String? measuresInplaceForDiseaseControl;
+  bool? measuresInplaceForDiseaseControl;
   @HiveField(21)
-  String? responseMechanismsToHealthEmergencies;
+  bool? responseMechanismsToHealthEmergencies;
+
   //Community Health Programs
   @HiveField(22)
   String? availabilityOfCommunityHealthPrograms;
   @HiveField(23)
   String? outreachProgramsForRuralAreas;
+
   //Health Education
   @HiveField(24)
-  String? presenceOfHealthEducationPrograms;
+  bool? presenceOfHealthEducationPrograms;
   @HiveField(25)
-  String? accessibilityOfHealthInformationToThePublic;
+  bool? accessibilityOfHealthInformationToThePublic;
+
   //Healthcare Accessiblity
   @HiveField(26)
   String? accessibilityOfHealthServicesToDifferentDemographics;
+
   //Government Initiatives
   @HiveField(27)
-  String? governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy;
+  bool? governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy;
   @HiveField(28)
-  String? investmentsAimedatImprovingHealthcareServices;
+  bool? investmentsAimedatImprovingHealthcareServices;
+
   //Public Health Data
   @HiveField(29)
   String? collectionOfPublicHealthData;
   @HiveField(30)
-  String? SurveillanceSystemsForMonitoringHealthTrends;
+  String? surveillanceSystemsForMonitoringHealthTrends;
   @HiveField(31)
   String? environmentalHealthManagementFacilities;
   @HiveField(32)

@@ -1,4 +1,3 @@
-import 'package:alpha_system/domain/enums/enums.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -8,85 +7,97 @@ part 'agro_questionnaire_model.g.dart';
 
 /// UserModel class. Extends a Hiveobject to supercharge storing to local storage.
 class AgroQuestionnaireModel extends HiveObject {
+  /// Constructor
+  AgroQuestionnaireModel({
+    required this.name,
+    required this.gender,
+    required this.age,
+    required this.educationalLevel,
+    required this.lga,
+    required this.ward,
+    required this.village,
+    required this.phone,
+    required this.yearsOfFarming,
+    required this.typeofFarming,
+    required this.sizeOfFarm,
+    required this.cropsGrown,
+    required this.livestockRaised,
+    required this.methodOfFarming,
+    required this.typesOfMachineryNeeded,
+    required this.phoneOfNextOfKin,
+    required this.useAgroChemicals,
+    required this.useFertilizer,
+    required this.preferredFertilizers,
+    required this.nin,
+    required this.residentialAddress,
+    required this.farmAddress,
+    required this.bankName,
+    required this.accountNumber,
+    required this.bvn,
+    required this.farmersGroup,
+  });
+
   /// class constructor
-  AgroQuestionnaireModel(
-      {required this.name,
-      required this.otherNames,
-      required this.age,
-      required this.gender,
-      required this.maritalStatus,
-      required this.numberOfSpouses,
-      required this.numberOfChildren,
-      required this.nextOfKin,
-      required this.contactNumber,
-      required this.altContactNumber,
-      required this.phoneOfNextOfKin,
-      this.userLGA,
-      this.userWard,
-      this.userCommunity,
-      this.isYourFarmInTheSameVillageAsYourAddress});
+
   //Bio-Data
   @HiveField(0)
-  final String name;
+  String? name;
   @HiveField(1)
-  final Gender gender;
+  String? gender;
   @HiveField(2)
-  final String age;
+  String? age;
   @HiveField(3)
-  final String otherNames;
-  @HiveField(4)
-  final MaritalStatus maritalStatus;
-  @HiveField(5)
-  final int numberOfSpouses;
-  @HiveField(6)
-  final int numberOfChildren;
-  @HiveField(7)
-  final String nextOfKin;
-  @HiveField(8)
-  final String contactNumber;
-  @HiveField(9)
-  final String altContactNumber;
-  @HiveField(10)
-  final String phoneOfNextOfKin;
-  @HiveField(11)
-  String? userLGA;
-  @HiveField(12)
-  String? userWard;
-  @HiveField(13)
-  String? userCommunity;
-  @HiveField(14)
-  bool? isYourFarmInTheSameVillageAsYourAddress;
-}
-// @HiveField(4)
-// final String farmLGA;
-// @HiveField(4)
-// final String farmWard;
-// @HiveField(4)
-// final String farmCommunity;
-// @HiveField(4)
-// final String closestLandmark;
-// @HiveField(4)
-// final Map<String,String> geoCoordinates;
-// @HiveField(4)
-// final String ownershipStatus;
-// @HiveField(4)
-// final String tenure;
-// @HiveField(4)
-// final String whatDoYouProduce;
-// @HiveField(4)
-// final String sizeOfHarvest;
-// @HiveField(4)
-// final SaleMethod howDoYouSellProduce;
-// @HiveField(4)
-// final String inputs;
-// @HiveField(4)
-// final String bvn;
-// @HiveField(4)
-// final String accountNo;
-// @HiveField(4)
-// final String bankName;
-// @HiveField(4)
-// final String date;
-// @HiveField(4)
-// final String date;
+  String? educationalLevel;
 
+  //Contact Information
+  @HiveField(4)
+  String? lga;
+  @HiveField(5)
+  String? ward;
+  @HiveField(6)
+  String? village;
+  @HiveField(7)
+  String? phone;
+
+  //Farmers Profile
+  @HiveField(8)
+  int? yearsOfFarming;
+  @HiveField(9)
+  String? typeofFarming;
+  @HiveField(10)
+  double? sizeOfFarm;
+  @HiveField(11)
+  List<String>? cropsGrown;
+  @HiveField(12)
+  List<String>? livestockRaised;
+
+  //Agricultural Practices
+  @HiveField(13)
+  List<String>? methodOfFarming;
+  @HiveField(14)
+  List<String>? typesOfMachineryNeeded;
+  @HiveField(15)
+  String? phoneOfNextOfKin;
+  @HiveField(16)
+  bool? useAgroChemicals;
+  @HiveField(17)
+  bool? useFertilizer;
+  @HiveField(18)
+  List<String>? preferredFertilizers;
+
+  //Additional Information
+  @HiveField(19)
+  String? nin;
+  @HiveField(20)
+  String? residentialAddress;
+  @HiveField(21)
+  String? farmAddress;
+  @HiveField(22)
+  String? bankName;
+  @HiveField(23)
+  String? accountNumber;
+  @HiveField(24)
+  String? bvn;
+  @HiveField(25)
+  String? farmersGroup;
+}

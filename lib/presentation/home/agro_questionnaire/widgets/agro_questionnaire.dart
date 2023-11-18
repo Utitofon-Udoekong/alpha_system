@@ -1,4 +1,3 @@
-import 'package:alpha_system/domain/enums/enums.dart';
 import 'package:alpha_system/domain/models/agro/agro_questionnaire_model.dart';
 import 'package:alpha_system/presentation/home/cubit/questionnaire_cubit.dart';
 import 'package:alpha_system/presentation/widgets/app_button.dart';
@@ -56,37 +55,37 @@ class AgroQuestionnaireTabWidget extends StatelessWidget {
             children: [
               AppDropDownField(
                 title: 'Gender',
-                items: <DropdownMenuItem<Gender>>[
+                items: <DropdownMenuItem<String>>[
                   DropdownMenuItem(
-                    value: Gender.male,
-                    child: Text(Gender.male.name),
+                    value: 'Male',
+                    child: Text('Male'),
                   ),
                   DropdownMenuItem(
-                    value: Gender.female,
-                    child: Text(Gender.female.name),
+                    value: 'Female',
+                    child: Text('Female'),
                   ),
                 ],
                 value: selectedGender,
                 onChanged: (gender) => context
                     .read<QuestionnaireCubit>()
-                    .setGender(gender as Gender),
+                    .setGender(gender as String),
               ),
               AppDropDownField(
                 title: 'Marital Status',
-                items: <DropdownMenuItem<MaritalStatus>>[
+                items: <DropdownMenuItem<String>>[
                   DropdownMenuItem(
-                    value: MaritalStatus.Married,
-                    child: Text(MaritalStatus.Married.name),
+                    value: 'Married',
+                    child: Text('Married'),
                   ),
                   DropdownMenuItem(
-                    value: MaritalStatus.Single,
-                    child: Text(MaritalStatus.Single.name),
+                    value: 'Single',
+                    child: Text('Single'),
                   ),
                 ],
                 value: selectedMaritalStatus,
                 onChanged: (status) => context
                     .read<QuestionnaireCubit>()
-                    .setMaritalStatus(status as MaritalStatus),
+                    .setMaritalStatus(status as String),
               ),
               AppTextField(
                 title: 'No of Spouse(s)',

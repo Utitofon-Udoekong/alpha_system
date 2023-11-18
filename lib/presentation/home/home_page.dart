@@ -30,10 +30,10 @@ class HomePage extends StatelessWidget {
               height: 20,
             ),
             const TabButton(title: 'Health'),
-            const SizedBox(
-              height: 20,
-            ),
-            const TabButton(title: 'Transport'),
+            // const SizedBox(
+            //   height: 20,
+            // ),
+            // const TabButton(title: 'Transport'),
           ],
         ),
       ),
