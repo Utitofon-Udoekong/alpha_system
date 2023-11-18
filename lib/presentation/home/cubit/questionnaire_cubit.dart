@@ -1,6 +1,7 @@
 import 'dart:convert';
 
-import 'package:alpha_system/domain/models/agro_questionnaire_model.dart';
+import 'package:alpha_system/domain/enums/enums.dart';
+import 'package:alpha_system/domain/models/agro/agro_questionnaire_model.dart';
 import 'package:alpha_system/presentation/constants/constants.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

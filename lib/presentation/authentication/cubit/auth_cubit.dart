@@ -1,5 +1,5 @@
 
-import 'package:alpha_system/domain/models/agro_questionnaire_model.dart';
+import 'package:alpha_system/domain/models/agro/agro_questionnaire_model.dart';
 import 'package:alpha_system/presentation/constants/constants.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';

@@ -1,3 +1,4 @@
+import 'package:alpha_system/domain/enums/enums.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -9,7 +10,7 @@ part 'agro_questionnaire_model.g.dart';
 class AgroQuestionnaireModel extends HiveObject {
   /// class constructor
   AgroQuestionnaireModel(
-      {required this.surname,
+      {required this.name,
       required this.otherNames,
       required this.age,
       required this.gender,
@@ -24,15 +25,15 @@ class AgroQuestionnaireModel extends HiveObject {
       this.userWard,
       this.userCommunity,
       this.isYourFarmInTheSameVillageAsYourAddress});
-
+  //Bio-Data
   @HiveField(0)
-  final String surname;
+  final String name;
   @HiveField(1)
-  final String otherNames;
-  @HiveField(2)
-  final int age;
-  @HiveField(3)
   final Gender gender;
+  @HiveField(2)
+  final String age;
+  @HiveField(3)
+  final String otherNames;
   @HiveField(4)
   final MaritalStatus maritalStatus;
   @HiveField(5)
@@ -89,22 +90,3 @@ class AgroQuestionnaireModel extends HiveObject {
 // @HiveField(4)
 // final String date;
 
-@HiveType(typeId: 2)
-enum Gender {
-  @HiveField(0)
-  male,
-  @HiveField(1)
-  female,
-}
-
-@HiveType(typeId: 3)
-enum MaritalStatus {
-  @HiveField(0)
-  Single,
-  @HiveField(1)
-  Married,
-}
-// @HiveType(typeId: 3)
-// enum SaleMethod{
-//   openMarket, supply
-// }

@@ -1,4 +1,4 @@
-import 'package:alpha_system/domain/models/agro_questionnaire_model.dart';
+import 'package:alpha_system/domain/models/agro/agro_questionnaire_model.dart';
 import 'package:alpha_system/presentation/core/app.dart';
 import 'package:alpha_system/presentation/core/bloc_observer.dart';
 import 'package:flutter/material.dart';

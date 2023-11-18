@@ -1,4 +1,4 @@
-import 'package:alpha_system/domain/models/agro_questionnaire_model.dart';
+import 'package:alpha_system/domain/models/agro/agro_questionnaire_model.dart';
 import 'package:alpha_system/presentation/authentication/cubit/auth_cubit.dart';
 import 'package:alpha_system/presentation/constants/constants.dart';
 import 'package:alpha_system/presentation/home/agro_questionnaire/widgets/agro_questionnaire.dart';
