@@ -25,7 +25,7 @@ mixin _$QuestionnaireState {
 
   ///----------AGRO QUESTIONNAIRE------------///
   String get gender => throw _privateConstructorUsedError;
-  int get age => throw _privateConstructorUsedError;
+  String get age => throw _privateConstructorUsedError;
   String get educationalLevel =>
       throw _privateConstructorUsedError; //Contact Information
   String get village => throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$QuestionnaireState {
   List<String> get cropsGrown => throw _privateConstructorUsedError;
   List<String> get livestockRaised =>
       throw _privateConstructorUsedError; //Agricultural Practices
-  List<String> get methodOfFarming => throw _privateConstructorUsedError;
+  String get methodOfFarming => throw _privateConstructorUsedError;
   List<String> get typesOfMachineryNeeded => throw _privateConstructorUsedError;
   String get phoneOfNextOfKin => throw _privateConstructorUsedError;
   bool get useAgroChemicals => throw _privateConstructorUsedError;
@@ -55,6 +55,9 @@ mixin _$QuestionnaireState {
 //Bio - Data
   String get gpsLocation => throw _privateConstructorUsedError;
   String get photoOfSignPost => throw _privateConstructorUsedError;
+  String get photoOfFront => throw _privateConstructorUsedError;
+  String get photoOfSide => throw _privateConstructorUsedError;
+  String get photoOfReception => throw _privateConstructorUsedError;
   String get typeOfCareCenter => throw _privateConstructorUsedError;
   int get howManyCareCenters => throw _privateConstructorUsedError;
   String get whatTypeOfRoad => throw _privateConstructorUsedError;
@@ -119,7 +122,7 @@ abstract class $QuestionnaireStateCopyWith<$Res> {
       String lga,
       String ward,
       String gender,
-      int age,
+      String age,
       String educationalLevel,
       String village,
       String phone,
@@ -128,7 +131,7 @@ abstract class $QuestionnaireStateCopyWith<$Res> {
       double sizeOfFarm,
       List<String> cropsGrown,
       List<String> livestockRaised,
-      List<String> methodOfFarming,
+      String methodOfFarming,
       List<String> typesOfMachineryNeeded,
       String phoneOfNextOfKin,
       bool useAgroChemicals,
@@ -143,6 +146,9 @@ abstract class $QuestionnaireStateCopyWith<$Res> {
       String farmersGroup,
       String gpsLocation,
       String photoOfSignPost,
+      String photoOfFront,
+      String photoOfSide,
+      String photoOfReception,
       String typeOfCareCenter,
       int howManyCareCenters,
       String whatTypeOfRoad,
@@ -218,6 +224,9 @@ class _$QuestionnaireStateCopyWithImpl<$Res, $Val extends QuestionnaireState>
     Object? farmersGroup = null,
     Object? gpsLocation = null,
     Object? photoOfSignPost = null,
+    Object? photoOfFront = null,
+    Object? photoOfSide = null,
+    Object? photoOfReception = null,
     Object? typeOfCareCenter = null,
     Object? howManyCareCenters = null,
     Object? whatTypeOfRoad = null,
@@ -281,7 +290,7 @@ class _$QuestionnaireStateCopyWithImpl<$Res, $Val extends QuestionnaireState>
       age: null == age
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       educationalLevel: null == educationalLevel
           ? _value.educationalLevel
           : educationalLevel // ignore: cast_nullable_to_non_nullable
@@ -317,7 +326,7 @@ class _$QuestionnaireStateCopyWithImpl<$Res, $Val extends QuestionnaireState>
       methodOfFarming: null == methodOfFarming
           ? _value.methodOfFarming
           : methodOfFarming // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as String,
       typesOfMachineryNeeded: null == typesOfMachineryNeeded
           ? _value.typesOfMachineryNeeded
           : typesOfMachineryNeeded // ignore: cast_nullable_to_non_nullable
@@ -373,6 +382,18 @@ class _$QuestionnaireStateCopyWithImpl<$Res, $Val extends QuestionnaireState>
       photoOfSignPost: null == photoOfSignPost
           ? _value.photoOfSignPost
           : photoOfSignPost // ignore: cast_nullable_to_non_nullable
+              as String,
+      photoOfFront: null == photoOfFront
+          ? _value.photoOfFront
+          : photoOfFront // ignore: cast_nullable_to_non_nullable
+              as String,
+      photoOfSide: null == photoOfSide
+          ? _value.photoOfSide
+          : photoOfSide // ignore: cast_nullable_to_non_nullable
+              as String,
+      photoOfReception: null == photoOfReception
+          ? _value.photoOfReception
+          : photoOfReception // ignore: cast_nullable_to_non_nullable
               as String,
       typeOfCareCenter: null == typeOfCareCenter
           ? _value.typeOfCareCenter
@@ -521,7 +542,7 @@ abstract class _$$QuestionnaireStateImplCopyWith<$Res>
       String lga,
       String ward,
       String gender,
-      int age,
+      String age,
       String educationalLevel,
       String village,
       String phone,
@@ -530,7 +551,7 @@ abstract class _$$QuestionnaireStateImplCopyWith<$Res>
       double sizeOfFarm,
       List<String> cropsGrown,
       List<String> livestockRaised,
-      List<String> methodOfFarming,
+      String methodOfFarming,
       List<String> typesOfMachineryNeeded,
       String phoneOfNextOfKin,
       bool useAgroChemicals,
@@ -545,6 +566,9 @@ abstract class _$$QuestionnaireStateImplCopyWith<$Res>
       String farmersGroup,
       String gpsLocation,
       String photoOfSignPost,
+      String photoOfFront,
+      String photoOfSide,
+      String photoOfReception,
       String typeOfCareCenter,
       int howManyCareCenters,
       String whatTypeOfRoad,
@@ -618,6 +642,9 @@ class __$$QuestionnaireStateImplCopyWithImpl<$Res>
     Object? farmersGroup = null,
     Object? gpsLocation = null,
     Object? photoOfSignPost = null,
+    Object? photoOfFront = null,
+    Object? photoOfSide = null,
+    Object? photoOfReception = null,
     Object? typeOfCareCenter = null,
     Object? howManyCareCenters = null,
     Object? whatTypeOfRoad = null,
@@ -681,7 +708,7 @@ class __$$QuestionnaireStateImplCopyWithImpl<$Res>
       age: null == age
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       educationalLevel: null == educationalLevel
           ? _value.educationalLevel
           : educationalLevel // ignore: cast_nullable_to_non_nullable
@@ -715,9 +742,9 @@ class __$$QuestionnaireStateImplCopyWithImpl<$Res>
           : livestockRaised // ignore: cast_nullable_to_non_nullable
               as List<String>,
       methodOfFarming: null == methodOfFarming
-          ? _value._methodOfFarming
+          ? _value.methodOfFarming
           : methodOfFarming // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as String,
       typesOfMachineryNeeded: null == typesOfMachineryNeeded
           ? _value._typesOfMachineryNeeded
           : typesOfMachineryNeeded // ignore: cast_nullable_to_non_nullable
@@ -773,6 +800,18 @@ class __$$QuestionnaireStateImplCopyWithImpl<$Res>
       photoOfSignPost: null == photoOfSignPost
           ? _value.photoOfSignPost
           : photoOfSignPost // ignore: cast_nullable_to_non_nullable
+              as String,
+      photoOfFront: null == photoOfFront
+          ? _value.photoOfFront
+          : photoOfFront // ignore: cast_nullable_to_non_nullable
+              as String,
+      photoOfSide: null == photoOfSide
+          ? _value.photoOfSide
+          : photoOfSide // ignore: cast_nullable_to_non_nullable
+              as String,
+      photoOfReception: null == photoOfReception
+          ? _value.photoOfReception
+          : photoOfReception // ignore: cast_nullable_to_non_nullable
               as String,
       typeOfCareCenter: null == typeOfCareCenter
           ? _value.typeOfCareCenter
@@ -925,7 +964,7 @@ class _$QuestionnaireStateImpl implements _QuestionnaireState {
       required this.sizeOfFarm,
       required final List<String> cropsGrown,
       required final List<String> livestockRaised,
-      required final List<String> methodOfFarming,
+      required this.methodOfFarming,
       required final List<String> typesOfMachineryNeeded,
       required this.phoneOfNextOfKin,
       required this.useAgroChemicals,
@@ -940,6 +979,9 @@ class _$QuestionnaireStateImpl implements _QuestionnaireState {
       required this.farmersGroup,
       required this.gpsLocation,
       required this.photoOfSignPost,
+      required this.photoOfFront,
+      required this.photoOfSide,
+      required this.photoOfReception,
       required this.typeOfCareCenter,
       required this.howManyCareCenters,
       required this.whatTypeOfRoad,
@@ -971,7 +1013,6 @@ class _$QuestionnaireStateImpl implements _QuestionnaireState {
       required this.doYouHaveAGoodRefuseDisposalSystemIncenerator})
       : _cropsGrown = cropsGrown,
         _livestockRaised = livestockRaised,
-        _methodOfFarming = methodOfFarming,
         _typesOfMachineryNeeded = typesOfMachineryNeeded,
         _preferredFertilizers = preferredFertilizers;
 
@@ -993,7 +1034,7 @@ class _$QuestionnaireStateImpl implements _QuestionnaireState {
   @override
   final String gender;
   @override
-  final int age;
+  final String age;
   @override
   final String educationalLevel;
 //Contact Information
@@ -1025,15 +1066,8 @@ class _$QuestionnaireStateImpl implements _QuestionnaireState {
   }
 
 //Agricultural Practices
-  final List<String> _methodOfFarming;
-//Agricultural Practices
   @override
-  List<String> get methodOfFarming {
-    if (_methodOfFarming is EqualUnmodifiableListView) return _methodOfFarming;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_methodOfFarming);
-  }
-
+  final String methodOfFarming;
   final List<String> _typesOfMachineryNeeded;
   @override
   List<String> get typesOfMachineryNeeded {
@@ -1080,6 +1114,12 @@ class _$QuestionnaireStateImpl implements _QuestionnaireState {
   final String gpsLocation;
   @override
   final String photoOfSignPost;
+  @override
+  final String photoOfFront;
+  @override
+  final String photoOfSide;
+  @override
+  final String photoOfReception;
   @override
   final String typeOfCareCenter;
   @override
@@ -1149,7 +1189,7 @@ class _$QuestionnaireStateImpl implements _QuestionnaireState {
 
   @override
   String toString() {
-    return 'QuestionnaireState(isLoading: $isLoading, success: $success, failure: $failure, name: $name, lga: $lga, ward: $ward, gender: $gender, age: $age, educationalLevel: $educationalLevel, village: $village, phone: $phone, yearsOfFarming: $yearsOfFarming, typeofFarming: $typeofFarming, sizeOfFarm: $sizeOfFarm, cropsGrown: $cropsGrown, livestockRaised: $livestockRaised, methodOfFarming: $methodOfFarming, typesOfMachineryNeeded: $typesOfMachineryNeeded, phoneOfNextOfKin: $phoneOfNextOfKin, useAgroChemicals: $useAgroChemicals, useFertilizer: $useFertilizer, preferredFertilizers: $preferredFertilizers, nin: $nin, residentialAddress: $residentialAddress, farmAddress: $farmAddress, bankName: $bankName, accountNumber: $accountNumber, bvn: $bvn, farmersGroup: $farmersGroup, gpsLocation: $gpsLocation, photoOfSignPost: $photoOfSignPost, typeOfCareCenter: $typeOfCareCenter, howManyCareCenters: $howManyCareCenters, whatTypeOfRoad: $whatTypeOfRoad, howManyAmbulances: $howManyAmbulances, sourceOfPower: $sourceOfPower, numberOfSurgeons: $numberOfSurgeons, numberOfDoctors: $numberOfDoctors, numberOfNurses: $numberOfNurses, numberOfNursingAssistants: $numberOfNursingAssistants, numberOfPharmacists: $numberOfPharmacists, numberOfLabTechnicians: $numberOfLabTechnicians, numberOfCleaners: $numberOfCleaners, numberOfDispensaryAssistant: $numberOfDispensaryAssistant, numberOfCommunityHealthOfficers: $numberOfCommunityHealthOfficers, numberOfRecordOfficers: $numberOfRecordOfficers, measuresInplaceForDiseaseControl: $measuresInplaceForDiseaseControl, responseMechanismsToHealthEmergencies: $responseMechanismsToHealthEmergencies, availabilityOfCommunityHealthPrograms: $availabilityOfCommunityHealthPrograms, outreachProgramsForRuralAreas: $outreachProgramsForRuralAreas, presenceOfHealthEducationPrograms: $presenceOfHealthEducationPrograms, accessibilityOfHealthInformationToThePublic: $accessibilityOfHealthInformationToThePublic, accessibilityOfHealthServicesToDifferentDemographics: $accessibilityOfHealthServicesToDifferentDemographics, governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy: $governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy, investmentsAimedatImprovingHealthcareServices: $investmentsAimedatImprovingHealthcareServices, collectionOfPublicHealthData: $collectionOfPublicHealthData, surveillanceSystemsForMonitoringHealthTrends: $surveillanceSystemsForMonitoringHealthTrends, environmentalHealthManagementFacilities: $environmentalHealthManagementFacilities, doYouHaveAWASHProgram: $doYouHaveAWASHProgram, doYouHaveAGoodRefuseDisposalSystemIncenerator: $doYouHaveAGoodRefuseDisposalSystemIncenerator)';
+    return 'QuestionnaireState(isLoading: $isLoading, success: $success, failure: $failure, name: $name, lga: $lga, ward: $ward, gender: $gender, age: $age, educationalLevel: $educationalLevel, village: $village, phone: $phone, yearsOfFarming: $yearsOfFarming, typeofFarming: $typeofFarming, sizeOfFarm: $sizeOfFarm, cropsGrown: $cropsGrown, livestockRaised: $livestockRaised, methodOfFarming: $methodOfFarming, typesOfMachineryNeeded: $typesOfMachineryNeeded, phoneOfNextOfKin: $phoneOfNextOfKin, useAgroChemicals: $useAgroChemicals, useFertilizer: $useFertilizer, preferredFertilizers: $preferredFertilizers, nin: $nin, residentialAddress: $residentialAddress, farmAddress: $farmAddress, bankName: $bankName, accountNumber: $accountNumber, bvn: $bvn, farmersGroup: $farmersGroup, gpsLocation: $gpsLocation, photoOfSignPost: $photoOfSignPost, photoOfFront: $photoOfFront, photoOfSide: $photoOfSide, photoOfReception: $photoOfReception, typeOfCareCenter: $typeOfCareCenter, howManyCareCenters: $howManyCareCenters, whatTypeOfRoad: $whatTypeOfRoad, howManyAmbulances: $howManyAmbulances, sourceOfPower: $sourceOfPower, numberOfSurgeons: $numberOfSurgeons, numberOfDoctors: $numberOfDoctors, numberOfNurses: $numberOfNurses, numberOfNursingAssistants: $numberOfNursingAssistants, numberOfPharmacists: $numberOfPharmacists, numberOfLabTechnicians: $numberOfLabTechnicians, numberOfCleaners: $numberOfCleaners, numberOfDispensaryAssistant: $numberOfDispensaryAssistant, numberOfCommunityHealthOfficers: $numberOfCommunityHealthOfficers, numberOfRecordOfficers: $numberOfRecordOfficers, measuresInplaceForDiseaseControl: $measuresInplaceForDiseaseControl, responseMechanismsToHealthEmergencies: $responseMechanismsToHealthEmergencies, availabilityOfCommunityHealthPrograms: $availabilityOfCommunityHealthPrograms, outreachProgramsForRuralAreas: $outreachProgramsForRuralAreas, presenceOfHealthEducationPrograms: $presenceOfHealthEducationPrograms, accessibilityOfHealthInformationToThePublic: $accessibilityOfHealthInformationToThePublic, accessibilityOfHealthServicesToDifferentDemographics: $accessibilityOfHealthServicesToDifferentDemographics, governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy: $governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy, investmentsAimedatImprovingHealthcareServices: $investmentsAimedatImprovingHealthcareServices, collectionOfPublicHealthData: $collectionOfPublicHealthData, surveillanceSystemsForMonitoringHealthTrends: $surveillanceSystemsForMonitoringHealthTrends, environmentalHealthManagementFacilities: $environmentalHealthManagementFacilities, doYouHaveAWASHProgram: $doYouHaveAWASHProgram, doYouHaveAGoodRefuseDisposalSystemIncenerator: $doYouHaveAGoodRefuseDisposalSystemIncenerator)';
   }
 
   @override
@@ -1180,8 +1220,8 @@ class _$QuestionnaireStateImpl implements _QuestionnaireState {
                 .equals(other._cropsGrown, _cropsGrown) &&
             const DeepCollectionEquality()
                 .equals(other._livestockRaised, _livestockRaised) &&
-            const DeepCollectionEquality()
-                .equals(other._methodOfFarming, _methodOfFarming) &&
+            (identical(other.methodOfFarming, methodOfFarming) ||
+                other.methodOfFarming == methodOfFarming) &&
             const DeepCollectionEquality().equals(
                 other._typesOfMachineryNeeded, _typesOfMachineryNeeded) &&
             (identical(other.phoneOfNextOfKin, phoneOfNextOfKin) ||
@@ -1208,6 +1248,12 @@ class _$QuestionnaireStateImpl implements _QuestionnaireState {
                 other.gpsLocation == gpsLocation) &&
             (identical(other.photoOfSignPost, photoOfSignPost) ||
                 other.photoOfSignPost == photoOfSignPost) &&
+            (identical(other.photoOfFront, photoOfFront) ||
+                other.photoOfFront == photoOfFront) &&
+            (identical(other.photoOfSide, photoOfSide) ||
+                other.photoOfSide == photoOfSide) &&
+            (identical(other.photoOfReception, photoOfReception) ||
+                other.photoOfReception == photoOfReception) &&
             (identical(other.typeOfCareCenter, typeOfCareCenter) ||
                 other.typeOfCareCenter == typeOfCareCenter) &&
             (identical(other.howManyCareCenters, howManyCareCenters) ||
@@ -1243,9 +1289,7 @@ class _$QuestionnaireStateImpl implements _QuestionnaireState {
             (identical(other.measuresInplaceForDiseaseControl, measuresInplaceForDiseaseControl) ||
                 other.measuresInplaceForDiseaseControl ==
                     measuresInplaceForDiseaseControl) &&
-            (identical(other.responseMechanismsToHealthEmergencies, responseMechanismsToHealthEmergencies) ||
-                other.responseMechanismsToHealthEmergencies ==
-                    responseMechanismsToHealthEmergencies) &&
+            (identical(other.responseMechanismsToHealthEmergencies, responseMechanismsToHealthEmergencies) || other.responseMechanismsToHealthEmergencies == responseMechanismsToHealthEmergencies) &&
             (identical(other.availabilityOfCommunityHealthPrograms, availabilityOfCommunityHealthPrograms) || other.availabilityOfCommunityHealthPrograms == availabilityOfCommunityHealthPrograms) &&
             (identical(other.outreachProgramsForRuralAreas, outreachProgramsForRuralAreas) || other.outreachProgramsForRuralAreas == outreachProgramsForRuralAreas) &&
             (identical(other.presenceOfHealthEducationPrograms, presenceOfHealthEducationPrograms) || other.presenceOfHealthEducationPrograms == presenceOfHealthEducationPrograms) &&
@@ -1279,7 +1323,7 @@ class _$QuestionnaireStateImpl implements _QuestionnaireState {
         sizeOfFarm,
         const DeepCollectionEquality().hash(_cropsGrown),
         const DeepCollectionEquality().hash(_livestockRaised),
-        const DeepCollectionEquality().hash(_methodOfFarming),
+        methodOfFarming,
         const DeepCollectionEquality().hash(_typesOfMachineryNeeded),
         phoneOfNextOfKin,
         useAgroChemicals,
@@ -1294,6 +1338,9 @@ class _$QuestionnaireStateImpl implements _QuestionnaireState {
         farmersGroup,
         gpsLocation,
         photoOfSignPost,
+        photoOfFront,
+        photoOfSide,
+        photoOfReception,
         typeOfCareCenter,
         howManyCareCenters,
         whatTypeOfRoad,
@@ -1342,7 +1389,7 @@ abstract class _QuestionnaireState implements QuestionnaireState {
           required final String lga,
           required final String ward,
           required final String gender,
-          required final int age,
+          required final String age,
           required final String educationalLevel,
           required final String village,
           required final String phone,
@@ -1351,7 +1398,7 @@ abstract class _QuestionnaireState implements QuestionnaireState {
           required final double sizeOfFarm,
           required final List<String> cropsGrown,
           required final List<String> livestockRaised,
-          required final List<String> methodOfFarming,
+          required final String methodOfFarming,
           required final List<String> typesOfMachineryNeeded,
           required final String phoneOfNextOfKin,
           required final bool useAgroChemicals,
@@ -1366,6 +1413,9 @@ abstract class _QuestionnaireState implements QuestionnaireState {
           required final String farmersGroup,
           required final String gpsLocation,
           required final String photoOfSignPost,
+          required final String photoOfFront,
+          required final String photoOfSide,
+          required final String photoOfReception,
           required final String typeOfCareCenter,
           required final int howManyCareCenters,
           required final String whatTypeOfRoad,
@@ -1416,7 +1466,7 @@ abstract class _QuestionnaireState implements QuestionnaireState {
   ///----------AGRO QUESTIONNAIRE------------///
   String get gender;
   @override
-  int get age;
+  String get age;
   @override
   String get educationalLevel;
   @override //Contact Information
@@ -1434,7 +1484,7 @@ abstract class _QuestionnaireState implements QuestionnaireState {
   @override
   List<String> get livestockRaised;
   @override //Agricultural Practices
-  List<String> get methodOfFarming;
+  String get methodOfFarming;
   @override
   List<String> get typesOfMachineryNeeded;
   @override
@@ -1466,6 +1516,12 @@ abstract class _QuestionnaireState implements QuestionnaireState {
   String get gpsLocation;
   @override
   String get photoOfSignPost;
+  @override
+  String get photoOfFront;
+  @override
+  String get photoOfSide;
+  @override
+  String get photoOfReception;
   @override
   String get typeOfCareCenter;
   @override

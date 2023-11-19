@@ -1,5 +1,6 @@
 
 import 'package:alpha_system/domain/models/agro/agro_questionnaire_model.dart';
+import 'package:alpha_system/domain/models/health/health_questionnaire_model.dart';
 import 'package:alpha_system/presentation/constants/constants.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -50,13 +51,14 @@ class AuthCubit extends HydratedCubit<AuthState> {
     // );
     // final authUserName = encryptedBox.get(encUserName);
     // final authPassword = encryptedBox.get(encPassword);
-    if (username.isNotEmpty && password.isNotEmpty) {
+    // if (username.isNotEmpty && password.isNotEmpty) {
+    // }
       await Hive.openBox<AgroQuestionnaireModel>(encAgroFromBox);
+      await Hive.openBox<HealthQuestionnaireModel>(encHealthFormBox);
       pass('Login Successful');
       return true;
-    }
-    fail('Incorrect credentials');
-    return false;
+    // fail('Incorrect credentials');
+    // return false;
   }
 
   /// HELPER FUNCTION TO SAVE SUCCESS STATES

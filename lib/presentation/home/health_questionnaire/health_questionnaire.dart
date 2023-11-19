@@ -1,19 +1,19 @@
 import 'package:alpha_system/domain/models/agro/agro_questionnaire_model.dart';
 import 'package:alpha_system/presentation/authentication/cubit/auth_cubit.dart';
 import 'package:alpha_system/presentation/constants/constants.dart';
-import 'package:alpha_system/presentation/home/agro_questionnaire/widgets/agro_questionnaire.dart';
-import 'package:alpha_system/presentation/home/agro_questionnaire/widgets/saved_questions.dart';
 import 'package:alpha_system/presentation/home/cubit/questionnaire_cubit.dart';
+import 'package:alpha_system/presentation/home/health_questionnaire/widget/health_questionnaire.dart';
+import 'package:alpha_system/presentation/home/health_questionnaire/widget/saved_questions.dart';
 import 'package:alpha_system/presentation/widgets/app_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-/// Agro questionnaire
-class AgroQuestionnairePage extends StatelessWidget {
-  /// Agro questionnaire constructor
-  const AgroQuestionnairePage({super.key});
+/// Health questionnaire page
+class HealthQuestionnairePage extends StatelessWidget {
+  /// Health questionnaire page constructor
+  const HealthQuestionnairePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class AgroQuestionnairePage extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             title: Text(
-              'Agro Questionnaire',
+              'Health Questionnaire',
               style: Theme.of(context)
                   .textTheme
                   .headlineSmall
@@ -108,8 +108,8 @@ class AgroQuestionnairePage extends StatelessWidget {
             padding: EdgeInsets.all(20),
             child: TabBarView(
               children: <Widget>[
-                AgroQuestionnaireTabWidget(),
-                SavedAgroFormTabWidget(),
+                HealthQuestionnaireTabWidget(),
+                SavedHealthFormTabWidget(),
               ],
             ),
           ),

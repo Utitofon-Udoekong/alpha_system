@@ -10,34 +10,37 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-      padding: const EdgeInsets.all(20),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Choose Questionnaire',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            TabButton(
-              title: 'Agro',
-              onTap: () => context.push('/agro-form'),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            const TabButton(title: 'Health'),
-            // const SizedBox(
-            //   height: 20,
-            // ),
-            // const TabButton(title: 'Transport'),
-          ],
+        padding: const EdgeInsets.all(20),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Choose Questionnaire',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              TabButton(
+                title: 'Agro',
+                onTap: () => context.push('/agro-form'),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              TabButton(
+                title: 'Health',
+                onTap: () => context.push('/health-form'),
+              ),
+              // const SizedBox(
+              //   height: 20,
+              // ),
+              // const TabButton(title: 'Transport'),
+            ],
+          ),
         ),
       ),
-    ),
     );
   }
 }
@@ -63,8 +66,8 @@ class TabButton extends StatelessWidget {
         child: Text(
           title,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
-            color: Colors.black,
-          ),
+                color: Colors.black,
+              ),
         ),
       ),
     );

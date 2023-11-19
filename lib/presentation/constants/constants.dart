@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 ///Hive box name for Forms
 const encAuthBoxKey = 'auth_box_enc_key';
 const encAgroFromBox = 'agro_form_box_enc_key';
@@ -12,3 +14,6 @@ class Images{
   /// app logo address
   static const logo = 'images/alpha.png';
 }
+
+///Constants color class
+const kPrimaryColor = Color(0x81A6B9C4);

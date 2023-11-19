@@ -20,7 +20,9 @@ class AgroQuestionnaireModelAdapter
     return AgroQuestionnaireModel(
       name: fields[0] as String?,
       gender: fields[1] as String?,
-      age: fields[2] as int?,
+      age: fields[2] as String?,
+      createdAt: fields[26] as DateTime?,
+      modifiedAt: fields[27] as DateTime?,
       educationalLevel: fields[3] as String?,
       lga: fields[4] as String?,
       ward: fields[5] as String?,
@@ -31,7 +33,7 @@ class AgroQuestionnaireModelAdapter
       sizeOfFarm: fields[10] as double?,
       cropsGrown: (fields[11] as List?)?.cast<String>(),
       livestockRaised: (fields[12] as List?)?.cast<String>(),
-      methodOfFarming: (fields[13] as List?)?.cast<String>(),
+      methodOfFarming: fields[13] as String?,
       typesOfMachineryNeeded: (fields[14] as List?)?.cast<String>(),
       phoneOfNextOfKin: fields[15] as String?,
       useAgroChemicals: fields[16] as bool?,
@@ -50,7 +52,7 @@ class AgroQuestionnaireModelAdapter
   @override
   void write(BinaryWriter writer, AgroQuestionnaireModel obj) {
     writer
-      ..writeByte(26)
+      ..writeByte(28)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
@@ -102,7 +104,11 @@ class AgroQuestionnaireModelAdapter
       ..writeByte(24)
       ..write(obj.bvn)
       ..writeByte(25)
-      ..write(obj.farmersGroup);
+      ..write(obj.farmersGroup)
+      ..writeByte(26)
+      ..write(obj.createdAt)
+      ..writeByte(27)
+      ..write(obj.modifiedAt);
   }
 
   @override

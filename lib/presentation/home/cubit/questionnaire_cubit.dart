@@ -24,7 +24,7 @@ class QuestionnaireCubit extends HydratedCubit<QuestionnaireState> {
   void setName(String name) => emit(state.copyWith(name: name));
 
   /// Sets the age in the cubit state
-  void setAge(int age) => emit(state.copyWith(age: age));
+  void setAge(String age) => emit(state.copyWith(age: age));
 
   /// Sets the gender in the cubit state
   void setGender(String gender) => emit(state.copyWith(gender: gender));
@@ -72,16 +72,17 @@ class QuestionnaireCubit extends HydratedCubit<QuestionnaireState> {
   }
 
   /// Sets the methodOfFarming in the cubit state
-  void setMethodOfFarming(String methods) {
-    final selectedMethods = methods.split(',');
-    print(selectedMethods);
-    emit(state.copyWith(methodOfFarming: selectedMethods));
-  }
+  void setMethodOfFarming(String method) =>
+      emit(state.copyWith(methodOfFarming: method));
 
   /// Sets the typesOfMachineryNeeded in the cubit state
-  void setTypesOfMachineryNeeded(String typesOfMachinery) {
-    final selectedMachinery = typesOfMachinery.split(',');
-    print(selectedMachinery);
+  void setTypesOfMachineryNeeded(String machine) {
+    final selectedMachinery = state.typesOfMachineryNeeded;
+    if (selectedMachinery.contains(machine)) {
+      selectedMachinery.remove(machine);
+    } else {
+      selectedMachinery.add(machine);
+    }
     emit(state.copyWith(typesOfMachineryNeeded: selectedMachinery));
   }
 
@@ -136,6 +137,18 @@ class QuestionnaireCubit extends HydratedCubit<QuestionnaireState> {
   /// Sets the photoOfSignPost in the cubit state
   void setPhotoOfSignPost(String photoOfSignPost) =>
       emit(state.copyWith(photoOfSignPost: photoOfSignPost));
+      
+  /// Sets the photoOfFront in the cubit state
+  void setPhotoOfFront(String photoOfFront) =>
+      emit(state.copyWith(photoOfFront: photoOfFront));
+
+  /// Sets the photoOfSide in the cubit state
+  void setPhotoOfSide(String photoOfSide) =>
+      emit(state.copyWith(photoOfSide: photoOfSide));
+
+  /// Sets the photoOfReception in the cubit state
+  void setPhotoOfReception(String photoOfReception) =>
+      emit(state.copyWith(photoOfReception: photoOfReception));
 
   /// Sets the typeOfCareCenter in the cubit state
   void setTypeOfCareCenter(String typeOfCareCenter) =>
@@ -290,6 +303,17 @@ class QuestionnaireCubit extends HydratedCubit<QuestionnaireState> {
           doYouHaveAGoodRefuseDisposalSystemIncenerator:
               doYouHaveAGoodRefuseDisposalSystemIncenerator));
 
+  Future<void> clearQuestionnaires() async {
+    const secureStorage = FlutterSecureStorage();
+    final encryptionKey = await secureStorage.read(key: encAuthBoxKey);
+    if(encryptionKey == null){
+      print('Not initiated');
+      return;
+    }
+    secureStorage.delete(key: encryptionKey);
+    await Hive.deleteFromDisk();
+  }
+
   /// Signup function. Creates a vault and stores the username and password.
   /// Returns true for the above
   Future<bool> saveAgroForm() async {
@@ -349,17 +373,22 @@ class QuestionnaireCubit extends HydratedCubit<QuestionnaireState> {
       accountNumber: accountNumber,
       bvn: bvn,
       farmersGroup: farmersGroup,
+      createdAt: DateTime.now(),
+      modifiedAt: DateTime.now(),
     );
 
     const secureStorage = FlutterSecureStorage();
-    // final encryptionKey = await secureStorage.read(key: encAuthBoxKey);
+    final encryptionKey = await secureStorage.read(key: encAuthBoxKey);
+    if(encryptionKey == null){
+      final key = Hive.generateSecureKey();
+      await secureStorage.write(
+        key: encAuthBoxKey,
+        value: base64UrlEncode(key),
+      );
 
-    final key = Hive.generateSecureKey();
-    await secureStorage.write(
-      key: encAuthBoxKey,
-      value: base64UrlEncode(key),
-    );
-    final encryptionKeyUint8List = key;
+    }
+
+    final encryptionKeyUint8List = base64Decode(encryptionKey!);
     final encryptedAgroQuestionnaireBox =
         await Hive.openBox<AgroQuestionnaireModel>(
       encAgroFromBox,
@@ -380,6 +409,9 @@ class QuestionnaireCubit extends HydratedCubit<QuestionnaireState> {
     final ward = state.ward;
     final gpsLocation = state.gpsLocation;
     final photoOfSignPost = state.photoOfSignPost;
+    final photoOfFront = state.photoOfFront;
+    final photoOfSide = state.photoOfSide;
+    final photoOfReception = state.photoOfReception;
     final typeOfCareCenter = state.typeOfCareCenter;
     final howManyCareCenters = state.howManyCareCenters;
     final whatTypeOfRoad = state.whatTypeOfRoad;
@@ -424,62 +456,70 @@ class QuestionnaireCubit extends HydratedCubit<QuestionnaireState> {
         state.doYouHaveAGoodRefuseDisposalSystemIncenerator;
 
     final newForm = HealthQuestionnaireModel(
-        name: name,
-        lga: lga,
-        ward: ward,
-        gpsLocation: gpsLocation,
-        photoOfSignPost: photoOfSignPost,
-        typeOfCareCenter: typeOfCareCenter,
-        howManyCareCenters: howManyCareCenters,
-        whatTypeOfRoad: whatTypeOfRoad,
-        howManyAmbulances: howManyAmbulances,
-        sourceOfPower: sourceOfPower,
-        numberOfSurgeons: numberOfSurgeons,
-        numberOfDoctors: numberOfDoctors,
-        numberOfNurses: numberOfNurses,
-        numberOfNursingAssistants: numberOfNursingAssistants,
-        numberOfPharmacists: numberOfPharmacists,
-        numberOfLabTechnicians: numberOfLabTechnicians,
-        numberOfCleaners: numberOfCleaners,
-        numberOfDispensaryAssistant: numberOfDispensaryAssistant,
-        numberOfCommunityHealthOfficers: numberOfCommunityHealthOfficers,
-        numberOfRecordOfficers: numberOfRecordOfficers,
-        measuresInplaceForDiseaseControl: measuresInplaceForDiseaseControl,
-        responseMechanismsToHealthEmergencies:
-            responseMechanismsToHealthEmergencies,
-        availabilityOfCommunityHealthPrograms:
-            availabilityOfCommunityHealthPrograms,
-        outreachProgramsForRuralAreas: outreachProgramsForRuralAreas,
-        presenceOfHealthEducationPrograms: presenceOfHealthEducationPrograms,
-        accessibilityOfHealthInformationToThePublic:
-            accessibilityOfHealthInformationToThePublic,
-        accessibilityOfHealthServicesToDifferentDemographics:
-            accessibilityOfHealthServicesToDifferentDemographics,
-        governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy:
-            governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy,
-        investmentsAimedatImprovingHealthcareServices:
-            investmentsAimedatImprovingHealthcareServices,
-        collectionOfPublicHealthData: collectionOfPublicHealthData,
-        surveillanceSystemsForMonitoringHealthTrends:
-            surveillanceSystemsForMonitoringHealthTrends,
-        environmentalHealthManagementFacilities:
-            environmentalHealthManagementFacilities,
-        doYouHaveAWASHProgram: doYouHaveAWASHProgram,
-        doYouHaveAGoodRefuseDisposalSystemIncenerator:
-            doYouHaveAGoodRefuseDisposalSystemIncenerator,);
+      name: name,
+      lga: lga,
+      ward: ward,
+      gpsLocation: gpsLocation,
+      photoOfSignPost: photoOfSignPost,
+      typeOfCareCenter: typeOfCareCenter,
+      howManyCareCenters: howManyCareCenters,
+      whatTypeOfRoad: whatTypeOfRoad,
+      howManyAmbulances: howManyAmbulances,
+      sourceOfPower: sourceOfPower,
+      numberOfSurgeons: numberOfSurgeons,
+      numberOfDoctors: numberOfDoctors,
+      numberOfNurses: numberOfNurses,
+      numberOfNursingAssistants: numberOfNursingAssistants,
+      numberOfPharmacists: numberOfPharmacists,
+      numberOfLabTechnicians: numberOfLabTechnicians,
+      numberOfCleaners: numberOfCleaners,
+      numberOfDispensaryAssistant: numberOfDispensaryAssistant,
+      numberOfCommunityHealthOfficers: numberOfCommunityHealthOfficers,
+      numberOfRecordOfficers: numberOfRecordOfficers,
+      measuresInplaceForDiseaseControl: measuresInplaceForDiseaseControl,
+      responseMechanismsToHealthEmergencies:
+          responseMechanismsToHealthEmergencies,
+      availabilityOfCommunityHealthPrograms:
+          availabilityOfCommunityHealthPrograms,
+      outreachProgramsForRuralAreas: outreachProgramsForRuralAreas,
+      presenceOfHealthEducationPrograms: presenceOfHealthEducationPrograms,
+      accessibilityOfHealthInformationToThePublic:
+          accessibilityOfHealthInformationToThePublic,
+      accessibilityOfHealthServicesToDifferentDemographics:
+          accessibilityOfHealthServicesToDifferentDemographics,
+      governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy:
+          governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy,
+      investmentsAimedatImprovingHealthcareServices:
+          investmentsAimedatImprovingHealthcareServices,
+      collectionOfPublicHealthData: collectionOfPublicHealthData,
+      surveillanceSystemsForMonitoringHealthTrends:
+          surveillanceSystemsForMonitoringHealthTrends,
+      environmentalHealthManagementFacilities:
+          environmentalHealthManagementFacilities,
+      doYouHaveAWASHProgram: doYouHaveAWASHProgram,
+      doYouHaveAGoodRefuseDisposalSystemIncenerator:
+          doYouHaveAGoodRefuseDisposalSystemIncenerator,
+      createdAt: DateTime.now(),
+      modifiedAt: DateTime.now(),
+      photoOfFront: photoOfFront,
+      photoOfSide: photoOfSide,
+      photoOfReception: photoOfReception,
+    );
 
     const secureStorage = FlutterSecureStorage();
-    // final encryptionKey = await secureStorage.read(key: encAuthBoxKey);
+    final encryptionKey = await secureStorage.read(key: encAuthBoxKey);
+    if(encryptionKey == null){
+      final key = Hive.generateSecureKey();
+      await secureStorage.write(
+        key: encAuthBoxKey,
+        value: base64UrlEncode(key),
+      );
+    }
 
-    final key = Hive.generateSecureKey();
-    await secureStorage.write(
-      key: encAuthBoxKey,
-      value: base64UrlEncode(key),
-    );
-    final encryptionKeyUint8List = key;
+    final encryptionKeyUint8List = base64Decode(encryptionKey!);
     final encryptedAgroQuestionnaireBox =
         await Hive.openBox<HealthQuestionnaireModel>(
-      encAgroFromBox,
+      encHealthFormBox,
       encryptionCipher: HiveAesCipher(encryptionKeyUint8List),
     );
 
@@ -497,7 +537,7 @@ class QuestionnaireCubit extends HydratedCubit<QuestionnaireState> {
       failure: json['failure'] as String,
       name: json['name'] as String,
       gender: json['gender'] as String,
-      age: json['age'] as int,
+      age: json['age'] as String,
       educationalLevel: json['educationalLevel'] as String,
       lga: json['lga'] as String,
       ward: json['ward'] as String,
@@ -508,7 +548,7 @@ class QuestionnaireCubit extends HydratedCubit<QuestionnaireState> {
       sizeOfFarm: json['sizeOfFarm'] as double,
       cropsGrown: json['cropsGrown'] as List<String>,
       livestockRaised: json['livestockRaised'] as List<String>,
-      methodOfFarming: json['methodOfFarming'] as List<String>,
+      methodOfFarming: json['methodOfFarming'] as String,
       typesOfMachineryNeeded: json['typesOfMachineryNeeded'] as List<String>,
       phoneOfNextOfKin: json['phoneOfNextOfKin'] as String,
       useAgroChemicals: json['useAgroChemicals'] as bool,
@@ -521,8 +561,13 @@ class QuestionnaireCubit extends HydratedCubit<QuestionnaireState> {
       accountNumber: json['accountNumber'] as String,
       bvn: json['bvn'] as String,
       farmersGroup: json['farmersGroup'] as String,
+
+      //--------HEALTH QUESTIONNAIRE-------------//
       gpsLocation: json['gpsLocation'] as String,
       photoOfSignPost: json['photoOfSignPost'] as String,
+      photoOfFront: json['photoOfFront'] as String,
+      photoOfSide: json['photoOfSide'] as String,
+      photoOfReception: json['photoOfReception'] as String,
       typeOfCareCenter: json['typeOfCareCenter'] as String,
       howManyCareCenters: json['howManyCareCenters'] as int,
       whatTypeOfRoad: json['whatTypeOfRoad'] as String,
@@ -603,8 +648,13 @@ class QuestionnaireCubit extends HydratedCubit<QuestionnaireState> {
       'accountNumber': state.accountNumber,
       'bvn': state.bvn,
       'farmersGroup': state.farmersGroup,
+
+      //-----------HEALTH QUESTIONNAIRE-----------------//
       'gpsLocation': state.gpsLocation,
       'photoOfSignPost': state.photoOfSignPost,
+      'photoOfFront': state.photoOfFront,
+      'photoOfSide': state.photoOfSide,
+      'photoOfReception': state.photoOfReception,
       'typeOfCareCenter': state.typeOfCareCenter,
       'howManyCareCenters': state.howManyCareCenters,
       'whatTypeOfRoad': state.whatTypeOfRoad,

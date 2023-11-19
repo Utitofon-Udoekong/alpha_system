@@ -12,6 +12,7 @@ class AgroQuestionnaireModel extends HiveObject {
     required this.name,
     required this.gender,
     required this.age,
+    required this.createdAt, required this.modifiedAt, 
     required this.educationalLevel,
     required this.lga,
     required this.ward,
@@ -45,7 +46,7 @@ class AgroQuestionnaireModel extends HiveObject {
   @HiveField(1)
   String? gender;
   @HiveField(2)
-  int? age;
+  String? age;
   @HiveField(3)
   String? educationalLevel;
 
@@ -73,7 +74,7 @@ class AgroQuestionnaireModel extends HiveObject {
 
   //Agricultural Practices
   @HiveField(13)
-  List<String>? methodOfFarming;
+  String? methodOfFarming;
   @HiveField(14)
   List<String>? typesOfMachineryNeeded;
   @HiveField(15)
@@ -100,4 +101,8 @@ class AgroQuestionnaireModel extends HiveObject {
   String? bvn;
   @HiveField(25)
   String? farmersGroup;
+  @HiveField(26)
+  DateTime? createdAt;
+  @HiveField(27)
+  DateTime? modifiedAt;
 }

@@ -18,47 +18,54 @@ class HealthQuestionnaireModelAdapter
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return HealthQuestionnaireModel(
-      fields[0] as String?,
-      fields[1] as String?,
-      fields[2] as String?,
-      fields[3] as String?,
-      fields[4] as String?,
-      fields[5] as String?,
-      fields[6] as int?,
-      fields[7] as String?,
-      fields[8] as int?,
-      fields[9] as String?,
-      fields[10] as int?,
-      fields[11] as int?,
-      fields[12] as int?,
-      fields[13] as int?,
-      fields[14] as int?,
-      fields[15] as int?,
-      fields[16] as int?,
-      fields[17] as int?,
-      fields[18] as int?,
-      fields[19] as int?,
-      fields[20] as bool?,
-      fields[21] as bool?,
-      fields[22] as String?,
-      fields[23] as String?,
-      fields[24] as bool?,
-      fields[25] as bool?,
-      fields[26] as String?,
-      fields[27] as bool?,
-      fields[28] as bool?,
-      fields[29] as String?,
-      fields[30] as String?,
-      fields[31] as String?,
-      fields[32] as bool?,
-      fields[33] as bool?,
+      name: fields[0] as String?,
+      createdAt: fields[37] as DateTime?,
+      modifiedAt: fields[38] as DateTime?,
+      lga: fields[1] as String?,
+      ward: fields[2] as String?,
+      gpsLocation: fields[3] as String?,
+      photoOfSignPost: fields[4] as String?,
+      photoOfFront: fields[5] as String?,
+      photoOfSide: fields[6] as String?,
+      photoOfReception: fields[7] as String?,
+      typeOfCareCenter: fields[8] as String?,
+      howManyCareCenters: fields[9] as int?,
+      whatTypeOfRoad: fields[10] as String?,
+      howManyAmbulances: fields[11] as int?,
+      sourceOfPower: fields[12] as String?,
+      numberOfSurgeons: fields[13] as int?,
+      numberOfDoctors: fields[14] as int?,
+      numberOfNurses: fields[15] as int?,
+      numberOfNursingAssistants: fields[16] as int?,
+      numberOfPharmacists: fields[17] as int?,
+      numberOfLabTechnicians: fields[18] as int?,
+      numberOfCleaners: fields[19] as int?,
+      numberOfDispensaryAssistant: fields[20] as int?,
+      numberOfCommunityHealthOfficers: fields[21] as int?,
+      numberOfRecordOfficers: fields[22] as int?,
+      measuresInplaceForDiseaseControl: fields[23] as bool?,
+      responseMechanismsToHealthEmergencies: fields[24] as bool?,
+      availabilityOfCommunityHealthPrograms: fields[25] as String?,
+      outreachProgramsForRuralAreas: fields[26] as String?,
+      presenceOfHealthEducationPrograms: fields[27] as bool?,
+      accessibilityOfHealthInformationToThePublic: fields[28] as bool?,
+      accessibilityOfHealthServicesToDifferentDemographics:
+          fields[29] as String?,
+      governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy:
+          fields[30] as bool?,
+      investmentsAimedatImprovingHealthcareServices: fields[31] as bool?,
+      collectionOfPublicHealthData: fields[32] as String?,
+      surveillanceSystemsForMonitoringHealthTrends: fields[33] as String?,
+      environmentalHealthManagementFacilities: fields[34] as String?,
+      doYouHaveAWASHProgram: fields[35] as bool?,
+      doYouHaveAGoodRefuseDisposalSystemIncenerator: fields[36] as bool?,
     );
   }
 
   @override
   void write(BinaryWriter writer, HealthQuestionnaireModel obj) {
     writer
-      ..writeByte(34)
+      ..writeByte(39)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
@@ -70,64 +77,74 @@ class HealthQuestionnaireModelAdapter
       ..writeByte(4)
       ..write(obj.photoOfSignPost)
       ..writeByte(5)
-      ..write(obj.typeOfCareCenter)
+      ..write(obj.photoOfFront)
       ..writeByte(6)
-      ..write(obj.howManyCareCenters)
+      ..write(obj.photoOfSide)
       ..writeByte(7)
-      ..write(obj.whatTypeOfRoad)
+      ..write(obj.photoOfReception)
       ..writeByte(8)
-      ..write(obj.howManyAmbulances)
+      ..write(obj.typeOfCareCenter)
       ..writeByte(9)
-      ..write(obj.sourceOfPower)
+      ..write(obj.howManyCareCenters)
       ..writeByte(10)
-      ..write(obj.numberOfSurgeons)
+      ..write(obj.whatTypeOfRoad)
       ..writeByte(11)
-      ..write(obj.numberOfDoctors)
+      ..write(obj.howManyAmbulances)
       ..writeByte(12)
-      ..write(obj.numberOfNurses)
+      ..write(obj.sourceOfPower)
       ..writeByte(13)
-      ..write(obj.numberOfNursingAssistants)
+      ..write(obj.numberOfSurgeons)
       ..writeByte(14)
-      ..write(obj.numberOfPharmacists)
+      ..write(obj.numberOfDoctors)
       ..writeByte(15)
-      ..write(obj.numberOfLabTechnicians)
+      ..write(obj.numberOfNurses)
       ..writeByte(16)
-      ..write(obj.numberOfCleaners)
+      ..write(obj.numberOfNursingAssistants)
       ..writeByte(17)
-      ..write(obj.numberOfDispensaryAssistant)
+      ..write(obj.numberOfPharmacists)
       ..writeByte(18)
-      ..write(obj.numberOfCommunityHealthOfficers)
+      ..write(obj.numberOfLabTechnicians)
       ..writeByte(19)
-      ..write(obj.numberOfRecordOfficers)
+      ..write(obj.numberOfCleaners)
       ..writeByte(20)
-      ..write(obj.measuresInplaceForDiseaseControl)
+      ..write(obj.numberOfDispensaryAssistant)
       ..writeByte(21)
-      ..write(obj.responseMechanismsToHealthEmergencies)
+      ..write(obj.numberOfCommunityHealthOfficers)
       ..writeByte(22)
-      ..write(obj.availabilityOfCommunityHealthPrograms)
+      ..write(obj.numberOfRecordOfficers)
       ..writeByte(23)
-      ..write(obj.outreachProgramsForRuralAreas)
+      ..write(obj.measuresInplaceForDiseaseControl)
       ..writeByte(24)
-      ..write(obj.presenceOfHealthEducationPrograms)
+      ..write(obj.responseMechanismsToHealthEmergencies)
       ..writeByte(25)
-      ..write(obj.accessibilityOfHealthInformationToThePublic)
+      ..write(obj.availabilityOfCommunityHealthPrograms)
       ..writeByte(26)
-      ..write(obj.accessibilityOfHealthServicesToDifferentDemographics)
+      ..write(obj.outreachProgramsForRuralAreas)
       ..writeByte(27)
+      ..write(obj.presenceOfHealthEducationPrograms)
+      ..writeByte(28)
+      ..write(obj.accessibilityOfHealthInformationToThePublic)
+      ..writeByte(29)
+      ..write(obj.accessibilityOfHealthServicesToDifferentDemographics)
+      ..writeByte(30)
       ..write(obj
           .governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy)
-      ..writeByte(28)
-      ..write(obj.investmentsAimedatImprovingHealthcareServices)
-      ..writeByte(29)
-      ..write(obj.collectionOfPublicHealthData)
-      ..writeByte(30)
-      ..write(obj.surveillanceSystemsForMonitoringHealthTrends)
       ..writeByte(31)
-      ..write(obj.environmentalHealthManagementFacilities)
+      ..write(obj.investmentsAimedatImprovingHealthcareServices)
       ..writeByte(32)
-      ..write(obj.doYouHaveAWASHProgram)
+      ..write(obj.collectionOfPublicHealthData)
       ..writeByte(33)
-      ..write(obj.doYouHaveAGoodRefuseDisposalSystemIncenerator);
+      ..write(obj.surveillanceSystemsForMonitoringHealthTrends)
+      ..writeByte(34)
+      ..write(obj.environmentalHealthManagementFacilities)
+      ..writeByte(35)
+      ..write(obj.doYouHaveAWASHProgram)
+      ..writeByte(36)
+      ..write(obj.doYouHaveAGoodRefuseDisposalSystemIncenerator)
+      ..writeByte(37)
+      ..write(obj.createdAt)
+      ..writeByte(38)
+      ..write(obj.modifiedAt);
   }
 
   @override

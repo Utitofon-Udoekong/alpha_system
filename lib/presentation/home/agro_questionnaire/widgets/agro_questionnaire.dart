@@ -1,6 +1,7 @@
-import 'package:alpha_system/domain/models/agro/agro_questionnaire_model.dart';
+import 'package:alpha_system/presentation/constants/enums.dart';
 import 'package:alpha_system/presentation/home/cubit/questionnaire_cubit.dart';
 import 'package:alpha_system/presentation/widgets/app_button.dart';
+import 'package:alpha_system/presentation/widgets/app_radio_groups.dart';
 import 'package:alpha_system/presentation/widgets/app_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,124 +17,283 @@ class AgroQuestionnaireTabWidget extends StatelessWidget {
         context.select((QuestionnaireCubit bloc) => bloc.state.isLoading);
     final selectedGender =
         context.select((QuestionnaireCubit bloc) => bloc.state.gender);
-    final selectedMaritalStatus =
-        context.select((QuestionnaireCubit bloc) => bloc.state.maritalStatus);
+    final selectedAge =
+        context.select((QuestionnaireCubit bloc) => bloc.state.age);
+    final selectedEducationalLevel =
+        context.select((QuestionnaireCubit bloc) => bloc.state.educationalLevel);
+    final methodOfFarming =
+        context.select((QuestionnaireCubit bloc) => bloc.state.methodOfFarming);
+    final preferredFertilizers = context
+        .select((QuestionnaireCubit bloc) => bloc.state.preferredFertilizers);
+    final typeOfFarming =
+        context.select((QuestionnaireCubit bloc) => bloc.state.typeofFarming);
+    final typesOfMachineryNeeded = context
+        .select((QuestionnaireCubit bloc) => bloc.state.typesOfMachineryNeeded);
+    final useAgroChemicals = context
+        .select((QuestionnaireCubit bloc) => bloc.state.useAgroChemicals);
+    final useFertilizer =
+        context.select((QuestionnaireCubit bloc) => bloc.state.useFertilizer);
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 30),
-          AppTextField(
-            title: 'Surname',
-            textInputAction: TextInputAction.next,
-            onChanged: (surname) =>
-                context.read<QuestionnaireCubit>().setSurname(surname),
+
+          ///////////////////////////////////////////////////////
+          //--------------------BIO DATA-----------------------//
+          ///////////////////////////////////////////////////////
+          Text(
+            'BIO DATA',
+            style: Theme.of(context)
+                .textTheme
+                .headlineSmall
+                ?.copyWith(fontWeight: FontWeight.bold),
           ),
-          const SizedBox(height: 20),
-          AppTextField(
-            title: 'Othernames',
+          const SizedBox(height: 10),
+          TextWithAppTextField(
+            title: 'Name',
             textInputAction: TextInputAction.next,
-            onChanged: (othernames) =>
-                context.read<QuestionnaireCubit>().setOtherNames(othernames),
+            onChanged: (name) =>
+                context.read<QuestionnaireCubit>().setName(name),
           ),
-          const SizedBox(height: 20),
-          AppTextField(
+          AppDropDownField(
+            title: 'Gender',
+            items: genderEnum,
+            value: selectedGender,
+            onChanged: (gender) =>
+                context.read<QuestionnaireCubit>().setGender(gender as String),
+          ),
+          AppDropDownField(
             title: 'Age',
-            textInputAction: TextInputAction.next,
+            items: ageEnum,
+            value: selectedAge,
             onChanged: (age) =>
-                context.read<QuestionnaireCubit>().setAge(int.parse(age)),
+                context.read<QuestionnaireCubit>().setAge(age as String),
           ),
-          const SizedBox(height: 20),
-          GridView.count(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            crossAxisCount: 2,
-            crossAxisSpacing: 20,
-            padding: EdgeInsets.zero,
-            mainAxisSpacing: 20,
-            childAspectRatio: 3,
-            children: [
-              AppDropDownField(
-                title: 'Gender',
-                items: <DropdownMenuItem<String>>[
-                  DropdownMenuItem(
-                    value: 'Male',
-                    child: Text('Male'),
-                  ),
-                  DropdownMenuItem(
-                    value: 'Female',
-                    child: Text('Female'),
-                  ),
-                ],
-                value: selectedGender,
-                onChanged: (gender) => context
-                    .read<QuestionnaireCubit>()
-                    .setGender(gender as String),
-              ),
-              AppDropDownField(
-                title: 'Marital Status',
-                items: <DropdownMenuItem<String>>[
-                  DropdownMenuItem(
-                    value: 'Married',
-                    child: Text('Married'),
-                  ),
-                  DropdownMenuItem(
-                    value: 'Single',
-                    child: Text('Single'),
-                  ),
-                ],
-                value: selectedMaritalStatus,
-                onChanged: (status) => context
-                    .read<QuestionnaireCubit>()
-                    .setMaritalStatus(status as String),
-              ),
-              AppTextField(
-                title: 'No of Spouse(s)',
-                textInputAction: TextInputAction.next,
-                onChanged: (spouses) => context
-                    .read<QuestionnaireCubit>()
-                    .setNoOfSpouses(int.parse(spouses)),
-              ),
-              AppTextField(
-                title: 'No. of Children',
-                textInputAction: TextInputAction.next,
-                onChanged: (children) => context
-                    .read<QuestionnaireCubit>()
-                    .setNoOfChildren(int.parse(children)),
-              ),
-            ],
+          AppDropDownField(
+            title: 'Educational Level',
+            items: educationalLevelEnum,
+            value: selectedEducationalLevel,
+            onChanged: (educationalLevel) => context
+                .read<QuestionnaireCubit>()
+                .setEducationalLevel(educationalLevel as String),
           ),
-          const SizedBox(height: 20),
-          AppTextField(
-            title: 'Next of Kin',
+          TextWithAppTextField(
+            title: 'LGA',
             textInputAction: TextInputAction.next,
-            onChanged: (kin) =>
-                context.read<QuestionnaireCubit>().setNextOfKin(kin),
+            onChanged: (lga) => context.read<QuestionnaireCubit>().setLGA(lga),
           ),
-          const SizedBox(height: 20),
-          AppTextField(
-            title: 'Contact Number',
+          TextWithAppTextField(
+            title: 'Ward',
+            textInputAction: TextInputAction.next,
+            onChanged: (ward) =>
+                context.read<QuestionnaireCubit>().setWard(ward),
+          ),
+          TextWithAppTextField(
+            title: 'Village',
+            textInputAction: TextInputAction.next,
+            onChanged: (village) =>
+                context.read<QuestionnaireCubit>().setVillage(village),
+          ),
+          TextWithAppTextField(
+            title: 'Phone',
             textInputAction: TextInputAction.next,
             onChanged: (phone) =>
-                context.read<QuestionnaireCubit>().setContactNumber(phone),
+                context.read<QuestionnaireCubit>().setPhone(phone),
           ),
-          const SizedBox(height: 20),
-          AppTextField(
-            title: 'Alt. Contact Number(optional)',
+
+          ///////////////////////////////////////////////////////
+          //-----------------FARMER PROFILE--------------------//
+          ///////////////////////////////////////////////////////
+          const SizedBox(height: 10),
+          Text(
+            'FARMER PROFILE',
+            style: Theme.of(context)
+                .textTheme
+                .headlineSmall
+                ?.copyWith(fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 10),
+
+          TextWithAppTextField(
+            title: 'How many years have you been engaged in farming',
             textInputAction: TextInputAction.next,
-            onChanged: (altPhone) => context
+            onChanged: (years) => context
                 .read<QuestionnaireCubit>()
-                .setAltContactNumber(altPhone),
+                .setYearsOfFarming(int.parse(years)),
           ),
-          const SizedBox(height: 20),
-          AppTextField(
-            title: 'Phone no. of Next of Kin',
-            textInputAction: TextInputAction.done,
-            onChanged: (kinPhone) => context
+          AppDropDownField(
+            title: 'Type of farming',
+            items: typeOfFarmingEnum,
+            value: typeOfFarming,
+            onChanged: (typeOfFarming) => context
                 .read<QuestionnaireCubit>()
-                .setPhoneNumberOfNextOfKin(kinPhone),
+                .setTypeofFarming(typeOfFarming as String),
           ),
-          const SizedBox(height: 30),
+          TextWithAppTextField(
+            title: 'What is the size of your farm (in hectares)?',
+            textInputAction: TextInputAction.next,
+            onChanged: (size) => context
+                .read<QuestionnaireCubit>()
+                .setSizeOfFarm(double.parse(size)),
+          ),
+          TextWithAppTextField(
+            title: 'Crops Grown (List the primary crops you cultivate)',
+            hintText:
+                'Seperate the crops with a comma (e.g maize, carrot, mango)',
+            textInputAction: TextInputAction.next,
+            onChanged: (crops) =>
+                context.read<QuestionnaireCubit>().setCropsGrown(crops),
+          ),
+          TextWithAppTextField(
+            title: 'Livestock Raised (List the primary livestock you rear)',
+            hintText:
+                'Seperate the livestock with a comma (e.g goat, cow, rabbit)',
+            textInputAction: TextInputAction.next,
+            onChanged: (livestocks) => context
+                .read<QuestionnaireCubit>()
+                .setLivestockRaised(livestocks),
+          ),
+
+          ///////////////////////////////////////////////////////
+          //-------------AGRICULTURAL PRACTICES----------------//
+          ///////////////////////////////////////////////////////
+          const SizedBox(height: 10),
+          Text(
+            'AGRICULTURAL PRACTICES',
+            style: Theme.of(context)
+                .textTheme
+                .headlineSmall
+                ?.copyWith(fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 10),
+          AppDropDownField(
+            title: 'What is your method of farming?',
+            items: methodOfFarmingEnum,
+            value: methodOfFarming,
+            onChanged: (methodOfFarming) => context
+                .read<QuestionnaireCubit>()
+                .setMethodOfFarming(methodOfFarming as String),
+          ),
+          Column(
+            children: [
+              Text(
+                'What types of machinery and equipment do you need on your farm? (Select all that apply)',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: typesOfMachineryNeededEnum.map((title) {
+                  return AppCheckboxTile(
+                    title: title,
+                    value: typesOfMachineryNeeded.contains(title),
+                    onChanged: (bool? value) => context
+                        .read<QuestionnaireCubit>()
+                        .setTypesOfMachineryNeeded(title),
+                  );
+                }).toList(),
+              ),
+              const SizedBox(height: 20),
+            ],
+          ),
+          AppDropDownField(
+            title:
+                'Do you use agro-chemicals (pesticides/herbicides) on your farm?',
+            items: const [true, false],
+            value: useAgroChemicals,
+            onChanged: (useAgroChemicals) => context
+                .read<QuestionnaireCubit>()
+                .setUseAgroChemicals(useAgroChemicals as bool),
+          ),
+          AppDropDownField(
+            title: 'Do you use fertilizers on your farm?',
+            items: const [true, false],
+            value: useFertilizer,
+            onChanged: (useFertilizer) => context
+                .read<QuestionnaireCubit>()
+                .setUseFertilizer(useFertilizer as bool),
+          ),
+          Column(
+            children: [
+              Text(
+                'If you need to use fertilizers, which types do you prefer? (Select all that apply)',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: preferredFertilizersEnum.map((title) {
+                  return AppCheckboxTile(
+                    title: title,
+                    value: preferredFertilizers.contains(title),
+                    onChanged: (bool? value) => context
+                        .read<QuestionnaireCubit>()
+                        .setPreferredFertilizers(title),
+                  );
+                }).toList(),
+              ),
+              const SizedBox(height: 20),
+            ],
+          ),
+
+          ///////////////////////////////////////////////////////
+          //-------------ADDITIONAL INFORMATION----------------//
+          ///////////////////////////////////////////////////////
+          const SizedBox(height: 10),
+          Text(
+            'ADDITIONAL INFORMATION',
+            style: Theme.of(context)
+                .textTheme
+                .headlineSmall
+                ?.copyWith(fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 10),
+          TextWithAppTextField(
+            title: 'National Identification Number (NIN)',
+            textInputAction: TextInputAction.next,
+            onChanged: (nin) => context.read<QuestionnaireCubit>().setNIN(nin),
+          ),
+          TextWithAppTextField(
+            title: 'Residential Address',
+            textInputAction: TextInputAction.next,
+            onChanged: (address) => context
+                .read<QuestionnaireCubit>()
+                .setResidentialAddress(address),
+          ),
+          TextWithAppTextField(
+            title: 'Farm Address',
+            textInputAction: TextInputAction.next,
+            onChanged: (farmAddress) =>
+                context.read<QuestionnaireCubit>().setFarmAddress(farmAddress),
+          ),
+          TextWithAppTextField(
+            title: 'Bank',
+            textInputAction: TextInputAction.next,
+            onChanged: (bank) =>
+                context.read<QuestionnaireCubit>().setBankName(bank),
+          ),
+          TextWithAppTextField(
+            title: 'Account Number',
+            textInputAction: TextInputAction.next,
+            onChanged: (acc) =>
+                context.read<QuestionnaireCubit>().setAccountNumber(acc),
+          ),
+          TextWithAppTextField(
+            title: 'Bank Verification Number (BVN)',
+            textInputAction: TextInputAction.next,
+            onChanged: (bvn) => context.read<QuestionnaireCubit>().setBVN(bvn),
+          ),
+          TextWithAppTextField(
+            title: "Farmers' Group or Cooperative (if applicable)",
+            textInputAction: TextInputAction.next,
+            onChanged: (fg) =>
+                context.read<QuestionnaireCubit>().setFarmersGroup(fg),
+          ),
+
+          const SizedBox(height: 10),
           AppButton(
             title: 'Save Form',
             onTap: () => context.read<QuestionnaireCubit>().saveAgroForm(),
