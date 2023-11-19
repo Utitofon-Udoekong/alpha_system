@@ -45,7 +45,7 @@ class AgroQuestionnaireModel extends HiveObject {
   @HiveField(1)
   String? gender;
   @HiveField(2)
-  String? age;
+  int? age;
   @HiveField(3)
   String? educationalLevel;
 

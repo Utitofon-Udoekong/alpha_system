@@ -17,8 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$QuestionnaireState {
   bool get isLoading => throw _privateConstructorUsedError;
-  String get success => throw _privateConstructorUsedError;
-  String get failure => throw _privateConstructorUsedError; // General Values
+  String? get success => throw _privateConstructorUsedError;
+  String? get failure => throw _privateConstructorUsedError; // General Values
   String get name => throw _privateConstructorUsedError;
   String get lga => throw _privateConstructorUsedError;
   String get ward => throw _privateConstructorUsedError;
@@ -113,8 +113,8 @@ abstract class $QuestionnaireStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isLoading,
-      String success,
-      String failure,
+      String? success,
+      String? failure,
       String name,
       String lga,
       String ward,
@@ -188,8 +188,8 @@ class _$QuestionnaireStateCopyWithImpl<$Res, $Val extends QuestionnaireState>
   @override
   $Res call({
     Object? isLoading = null,
-    Object? success = null,
-    Object? failure = null,
+    Object? success = freezed,
+    Object? failure = freezed,
     Object? name = null,
     Object? lga = null,
     Object? ward = null,
@@ -254,14 +254,14 @@ class _$QuestionnaireStateCopyWithImpl<$Res, $Val extends QuestionnaireState>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      success: null == success
+      success: freezed == success
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
-              as String,
-      failure: null == failure
+              as String?,
+      failure: freezed == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -515,8 +515,8 @@ abstract class _$$QuestionnaireStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {bool isLoading,
-      String success,
-      String failure,
+      String? success,
+      String? failure,
       String name,
       String lga,
       String ward,
@@ -588,8 +588,8 @@ class __$$QuestionnaireStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
-    Object? success = null,
-    Object? failure = null,
+    Object? success = freezed,
+    Object? failure = freezed,
     Object? name = null,
     Object? lga = null,
     Object? ward = null,
@@ -654,14 +654,14 @@ class __$$QuestionnaireStateImplCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      success: null == success
+      success: freezed == success
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
-              as String,
-      failure: null == failure
+              as String?,
+      failure: freezed == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -910,8 +910,8 @@ class __$$QuestionnaireStateImplCopyWithImpl<$Res>
 class _$QuestionnaireStateImpl implements _QuestionnaireState {
   const _$QuestionnaireStateImpl(
       {required this.isLoading,
-      required this.success,
-      required this.failure,
+      this.success,
+      this.failure,
       required this.name,
       required this.lga,
       required this.ward,
@@ -978,9 +978,9 @@ class _$QuestionnaireStateImpl implements _QuestionnaireState {
   @override
   final bool isLoading;
   @override
-  final String success;
+  final String? success;
   @override
-  final String failure;
+  final String? failure;
 // General Values
   @override
   final String name;
@@ -1336,8 +1336,8 @@ class _$QuestionnaireStateImpl implements _QuestionnaireState {
 abstract class _QuestionnaireState implements QuestionnaireState {
   const factory _QuestionnaireState(
           {required final bool isLoading,
-          required final String success,
-          required final String failure,
+          final String? success,
+          final String? failure,
           required final String name,
           required final String lga,
           required final String ward,
@@ -1402,9 +1402,9 @@ abstract class _QuestionnaireState implements QuestionnaireState {
   @override
   bool get isLoading;
   @override
-  String get success;
+  String? get success;
   @override
-  String get failure;
+  String? get failure;
   @override // General Values
   String get name;
   @override

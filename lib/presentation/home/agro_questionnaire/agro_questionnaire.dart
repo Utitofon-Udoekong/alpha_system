@@ -17,13 +17,25 @@ class AgroQuestionnairePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<QuestionnaireCubit, QuestionnaireState>(
-      listenWhen: (p, c) => c.success == 'Form saved to device',
-      listener: (context, state) {
-        AppSnackbar.show(context, state.success, false);
-        Future.delayed(const Duration(seconds: 2),
-            () => context.read<QuestionnaireCubit>().reset());
-      },
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<QuestionnaireCubit, QuestionnaireState>(
+          listenWhen: (p, c) => c.success == noNetworkFormSavedToDevice,
+          listener: (context, state) {
+            AppSnackbar.show(context, state.success!, false);
+            Future.delayed(const Duration(seconds: 2),
+                () => context.read<QuestionnaireCubit>().clearForm(),);
+          },
+        ),
+        BlocListener<QuestionnaireCubit, QuestionnaireState>(
+          listenWhen: (p, c) => c.success == formSentToServer,
+          listener: (context, state) {
+            AppSnackbar.show(context, state.success!, false);
+            Future.delayed(const Duration(seconds: 2),
+                () => context.read<QuestionnaireCubit>().clearForm(),);
+          },
+        ),
+      ],
       child: DefaultTabController(
         length: 2,
         child: Scaffold(

@@ -14,7 +14,7 @@ part 'questionnaire_state.dart';
 
 @lazySingleton
 
-/// Authentication cubit. Singleton that manages suthentication states and
+/// Authentication cubit. Singleton that manages authentication states and
 /// fucntions
 class QuestionnaireCubit extends HydratedCubit<QuestionnaireState> {
   /// Constructor
@@ -23,10 +23,6 @@ class QuestionnaireCubit extends HydratedCubit<QuestionnaireState> {
   /// Sets the name in the cubit state
   void setName(String name) => emit(state.copyWith(name: name));
 
-  /// Sets Other users name in the cubit state
-  void setAge(int age) =>
-      emit(state.copyWith(age: age));
-
   /// Sets the age in the cubit state
   void setAge(int age) => emit(state.copyWith(age: age));
 
@@ -34,134 +30,330 @@ class QuestionnaireCubit extends HydratedCubit<QuestionnaireState> {
   void setGender(String gender) => emit(state.copyWith(gender: gender));
 
   /// Sets the marital status in the cubit state
-  void setMaritalStatus(String maritalStatus) =>
-      emit(state.copyWith(maritalStatus: maritalStatus));
+  void setEducationalLevel(String educationalLevel) =>
+      emit(state.copyWith(educationalLevel: educationalLevel));
 
-  /// Sets the number of children in the cubit state
-  void setNoOfChildren(int noOfChildren) =>
-      emit(state.copyWith(noOfChildren: noOfChildren));
+  /// Sets the LGA in the cubit state
+  void setLGA(String lga) => emit(state.copyWith(lga: lga));
 
-  /// Sets the numbe rof spouses in the cubit state
-  void setNoOfSpouses(int noOfSpouses) =>
-      emit(state.copyWith(noOfSpouses: noOfSpouses));
+  /// Sets the ward in the cubit state
+  void setWard(String ward) => emit(state.copyWith(ward: ward));
 
-  /// Sets the next of kin in the cubit state
-  void setNextOfKin(String nextOfKin) =>
-      emit(state.copyWith(nextOfKin: nextOfKin));
+  /// Sets the village in the cubit state
+  void setVillage(String village) => emit(state.copyWith(village: village));
 
   /// Sets the contact number in the cubit state
-  void setContactNumber(String contactNumber) =>
-      emit(state.copyWith(contactNumber: contactNumber));
+  void setPhone(String phone) => emit(state.copyWith(phone: phone));
 
-  /// Sets the alternate contact number in the cubit state
-  void setAltContactNumber(String altContactNumber) =>
-      emit(state.copyWith(altContactNumber: altContactNumber));
+  /// Sets the yearsOfFarming in the cubit state
+  void setYearsOfFarming(int yearsOfFarming) =>
+      emit(state.copyWith(yearsOfFarming: yearsOfFarming));
 
-  /// Sets the contact number of the next of kin in the cubit state
-  void setPhoneNumberOfNextOfKin(String phoneNumberOfNextOfKin) =>
-      emit(state.copyWith(phoneNumberOfNextOfKin: phoneNumberOfNextOfKin));
+  /// Sets the typeofFarming in the cubit state
+  void setTypeofFarming(String typeofFarming) =>
+      emit(state.copyWith(typeofFarming: typeofFarming));
 
-  ///Toggle password visibility
-  void togglePasswordVisibility() {
-    final obscureText = state.obscureText;
-    emit(state.copyWith(obscureText: !obscureText));
+  /// Sets the sizeOfFarm in the cubit state
+  void setSizeOfFarm(double sizeOfFarm) =>
+      emit(state.copyWith(sizeOfFarm: sizeOfFarm));
+
+  /// Sets the cropsGrown in the cubit state
+  void setCropsGrown(String crops) {
+    final selectedCrops = crops.split(',');
+    print(selectedCrops);
+    emit(state.copyWith(cropsGrown: selectedCrops));
   }
+
+  /// Sets the livestockRaised in the cubit state
+  void setLivestockRaised(String livestocks) {
+    final selectedLivestocks = livestocks.split(',');
+    print(selectedLivestocks);
+    emit(state.copyWith(livestockRaised: selectedLivestocks));
+  }
+
+  /// Sets the methodOfFarming in the cubit state
+  void setMethodOfFarming(String methods) {
+    final selectedMethods = methods.split(',');
+    print(selectedMethods);
+    emit(state.copyWith(methodOfFarming: selectedMethods));
+  }
+
+  /// Sets the typesOfMachineryNeeded in the cubit state
+  void setTypesOfMachineryNeeded(String typesOfMachinery) {
+    final selectedMachinery = typesOfMachinery.split(',');
+    print(selectedMachinery);
+    emit(state.copyWith(typesOfMachineryNeeded: selectedMachinery));
+  }
+
+  /// Sets the phoneOfNextOfKin in the cubit state
+  void setPhoneOfNextOfKin(String phoneOfNextOfKin) =>
+      emit(state.copyWith(phoneOfNextOfKin: phoneOfNextOfKin));
+
+  /// Sets the useAgroChemicals in the cubit state
+  void setUseAgroChemicals(bool useAgroChemicals) =>
+      emit(state.copyWith(useAgroChemicals: useAgroChemicals));
+
+  /// Sets the useFertilizer in the cubit state
+  void setUseFertilizer(bool useFertilizer) =>
+      emit(state.copyWith(useFertilizer: useFertilizer));
+
+  /// Sets the preferredFertilizers in the cubit state
+  void setPreferredFertilizers(String preferredFertilizers) {
+    final selectedFertilizers = preferredFertilizers.split(',');
+    print(selectedFertilizers);
+    emit(state.copyWith(preferredFertilizers: selectedFertilizers));
+  }
+
+  /// Sets the nin in the cubit state
+  void setNIN(String nin) => emit(state.copyWith(nin: nin));
+
+  /// Sets the residentialAddress in the cubit state
+  void setResidentialAddress(String residentialAddress) =>
+      emit(state.copyWith(residentialAddress: residentialAddress));
+
+  /// Sets the farmAddress in the cubit state
+  void setFarmAddress(String farmAddress) =>
+      emit(state.copyWith(farmAddress: farmAddress));
+
+  /// Sets the bankName in the cubit state
+  void setBankName(String bankName) => emit(state.copyWith(bankName: bankName));
+
+  /// Sets the accountNumber in the cubit state
+  void setAccountNumber(String accountNumber) =>
+      emit(state.copyWith(accountNumber: accountNumber));
+
+  /// Sets the bvn in the cubit state
+  void setBVN(String bvn) => emit(state.copyWith(bvn: bvn));
+
+  /// Sets the farmersGroup in the cubit state
+  void setFarmersGroup(String farmersGroup) =>
+      emit(state.copyWith(farmersGroup: farmersGroup));
+
+  /// Sets the gpsLocation in the cubit state
+  void setGpsLocation(String gpsLocation) =>
+      emit(state.copyWith(gpsLocation: gpsLocation));
+
+  /// Sets the photoOfSignPost in the cubit state
+  void setPhotoOfSignPost(String photoOfSignPost) =>
+      emit(state.copyWith(photoOfSignPost: photoOfSignPost));
+
+  /// Sets the typeOfCareCenter in the cubit state
+  void setTypeOfCareCenter(String typeOfCareCenter) =>
+      emit(state.copyWith(typeOfCareCenter: typeOfCareCenter));
+
+  /// Sets the howManyCareCenters in the cubit state
+  void setHowManyCareCenters(int howManyCareCenters) =>
+      emit(state.copyWith(howManyCareCenters: howManyCareCenters));
+
+  /// Sets the whatTypeOfRoad in the cubit state
+  void setWhatTypeOfRoad(String whatTypeOfRoad) =>
+      emit(state.copyWith(whatTypeOfRoad: whatTypeOfRoad));
+
+  /// Sets the howManyAmbulances in the cubit state
+  void setHowManyAmbulances(int howManyAmbulances) =>
+      emit(state.copyWith(howManyAmbulances: howManyAmbulances));
+
+  /// Sets the sourceOfPower in the cubit state
+  void setSourceOfPower(String sourceOfPower) =>
+      emit(state.copyWith(sourceOfPower: sourceOfPower));
+
+  /// Sets the numberOfSurgeons in the cubit state
+  void setNumberOfSurgeons(int numberOfSurgeons) =>
+      emit(state.copyWith(numberOfSurgeons: numberOfSurgeons));
+
+  /// Sets the numberOfDoctors in the cubit state
+  void setNumberOfDoctors(int numberOfDoctors) =>
+      emit(state.copyWith(numberOfDoctors: numberOfDoctors));
+
+  /// Sets the numberOfNurses in the cubit state
+  void setNumberOfNurses(int numberOfNurses) =>
+      emit(state.copyWith(numberOfNurses: numberOfNurses));
+
+  /// Sets the numberOfNursingAssistants in the cubit state
+  void setNumberOfNursingAssistants(int numberOfNursingAssistants) => emit(
+      state.copyWith(numberOfNursingAssistants: numberOfNursingAssistants));
+
+  /// Sets the numberOfPharmacists in the cubit state
+  void setNumberOfPharmacists(int numberOfPharmacists) =>
+      emit(state.copyWith(numberOfPharmacists: numberOfPharmacists));
+
+  /// Sets the numberOfLabTechnicians in the cubit state
+  void setNumberOfLabTechnicians(int numberOfLabTechnicians) =>
+      emit(state.copyWith(numberOfLabTechnicians: numberOfLabTechnicians));
+
+  /// Sets the numberOfCleaners in the cubit state
+  void setNumberOfCleaners(int numberOfCleaners) =>
+      emit(state.copyWith(numberOfCleaners: numberOfCleaners));
+
+  /// Sets the numberOfDispensaryAssistant in the cubit state
+  void setNumberOfDispensaryAssistant(int numberOfDispensaryAssistant) => emit(
+      state.copyWith(numberOfDispensaryAssistant: numberOfDispensaryAssistant));
+
+  /// Sets the numberOfCommunityHealthOfficers in the cubit state
+  void setNumberOfCommunityHealthOfficers(
+          int numberOfCommunityHealthOfficers) =>
+      emit(state.copyWith(
+          numberOfCommunityHealthOfficers: numberOfCommunityHealthOfficers));
+
+  /// Sets the numberOfRecordOfficers in the cubit state
+  void setNumberOfRecordOfficers(int numberOfRecordOfficers) =>
+      emit(state.copyWith(numberOfRecordOfficers: numberOfRecordOfficers));
+
+  /// Sets the measuresInplaceForDiseaseControl in the cubit state
+  void setMeasuresInplaceForDiseaseControl(
+          bool measuresInplaceForDiseaseControl) =>
+      emit(state.copyWith(
+          measuresInplaceForDiseaseControl: measuresInplaceForDiseaseControl));
+
+  /// Sets the responseMechanismsToHealthEmergencies in the cubit state
+  void setResponseMechanismsToHealthEmergencies(
+          bool responseMechanismsToHealthEmergencies) =>
+      emit(state.copyWith(
+          responseMechanismsToHealthEmergencies:
+              responseMechanismsToHealthEmergencies));
+
+  /// Sets the availabilityOfCommunityHealthPrograms in the cubit state
+  void setAvailabilityOfCommunityHealthPrograms(
+          String availabilityOfCommunityHealthPrograms) =>
+      emit(state.copyWith(
+          availabilityOfCommunityHealthPrograms:
+              availabilityOfCommunityHealthPrograms));
+
+  /// Sets the outreachProgramsForRuralAreas in the cubit state
+  void setOutreachProgramsForRuralAreas(String outreachProgramsForRuralAreas) =>
+      emit(state.copyWith(
+          outreachProgramsForRuralAreas: outreachProgramsForRuralAreas));
+
+  /// Sets the presenceOfHealthEducationPrograms in the cubit state
+  void setPresenceOfHealthEducationPrograms(
+          bool presenceOfHealthEducationPrograms) =>
+      emit(state.copyWith(
+          presenceOfHealthEducationPrograms:
+              presenceOfHealthEducationPrograms));
+
+  /// Sets the accessibilityOfHealthInformationToThePublic in the cubit state
+  void setAccessibilityOfHealthInformationToThePublic(
+          bool accessibilityOfHealthInformationToThePublic) =>
+      emit(state.copyWith(
+          accessibilityOfHealthInformationToThePublic:
+              accessibilityOfHealthInformationToThePublic));
+
+  /// Sets the accessibilityOfHealthServicesToDifferentDemographics in the cubit state
+  void setAccessibilityOfHealthServicesToDifferentDemographics(
+          String accessibilityOfHealthServicesToDifferentDemographics) =>
+      emit(state.copyWith(
+          accessibilityOfHealthServicesToDifferentDemographics:
+              accessibilityOfHealthServicesToDifferentDemographics));
+
+  /// Sets the governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy in the cubit state
+  void setGovernmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy(
+          bool
+              governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy) =>
+      emit(state.copyWith(
+          governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy:
+              governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy));
+
+  /// Sets the investmentsAimedatImprovingHealthcareServices in the cubit state
+  void setInvestmentsAimedatImprovingHealthcareServices(
+          bool investmentsAimedatImprovingHealthcareServices) =>
+      emit(state.copyWith(
+          investmentsAimedatImprovingHealthcareServices:
+              investmentsAimedatImprovingHealthcareServices));
+
+  /// Sets the collectionOfPublicHealthData in the cubit state
+  void setCollectionOfPublicHealthData(String collectionOfPublicHealthData) =>
+      emit(state.copyWith(
+          collectionOfPublicHealthData: collectionOfPublicHealthData));
+
+  /// Sets the surveillanceSystemsForMonitoringHealthTrends in the cubit state
+  void setSurveillanceSystemsForMonitoringHealthTrends(
+          String surveillanceSystemsForMonitoringHealthTrends) =>
+      emit(state.copyWith(
+          surveillanceSystemsForMonitoringHealthTrends:
+              surveillanceSystemsForMonitoringHealthTrends));
+
+  /// Sets the environmentalHealthManagementFacilities in the cubit state
+  void setEnvironmentalHealthManagementFacilities(
+          String environmentalHealthManagementFacilities) =>
+      emit(state.copyWith(
+          environmentalHealthManagementFacilities:
+              environmentalHealthManagementFacilities));
+
+  /// Sets the doYouHaveAWASHProgram in the cubit state
+  void setDoYouHaveAWASHProgram(bool doYouHaveAWASHProgram) =>
+      emit(state.copyWith(doYouHaveAWASHProgram: doYouHaveAWASHProgram));
+
+  /// Sets the doYouHaveAGoodRefuseDisposalSystemIncenerator in the cubit state
+  void setDoYouHaveAGoodRefuseDisposalSystemIncenerator(
+          bool doYouHaveAGoodRefuseDisposalSystemIncenerator) =>
+      emit(state.copyWith(
+          doYouHaveAGoodRefuseDisposalSystemIncenerator:
+              doYouHaveAGoodRefuseDisposalSystemIncenerator));
 
   /// Signup function. Creates a vault and stores the username and password.
   /// Returns true for the above
   Future<bool> saveAgroForm() async {
     load();
 
-    // final surname = state.surname;
-    // final otherNames = state.otherNames;
-    // final age = state.age;
-    // final gender = state.gender;
-    // final maritalStatus = state.maritalStatus;
-    // final numberOfChildren = state.noOfChildren;
-    // final numberOfSpouses = state.noOfSpouses;
-    // final nextOfKin = state.nextOfKin;
-    // final contactNumber = state.contactNumber;
-    // final altContactNumber = state.altContactNumber;
-    // final phoneNumberOfNextOfKin = state.phoneNumberOfNextOfKin;
+    final name = state.name;
+    final gender = state.gender;
+    final age = state.age;
+    final educationalLevel = state.educationalLevel;
+    final lga = state.lga;
+    final ward = state.ward;
+    final village = state.village;
+    final phone = state.phone;
+    final yearsOfFarming = state.yearsOfFarming;
+    final typeofFarming = state.typeofFarming;
+    final sizeOfFarm = state.sizeOfFarm;
+    final cropsGrown = state.cropsGrown;
+    final livestockRaised = state.livestockRaised;
+    final methodOfFarming = state.methodOfFarming;
+    final typesOfMachineryNeeded = state.typesOfMachineryNeeded;
+    final phoneOfNextOfKin = state.phoneOfNextOfKin;
+    final useAgroChemicals = state.useAgroChemicals;
+    final useFertilizer = state.useFertilizer;
+    final preferredFertilizers = state.preferredFertilizers;
+    final nin = state.nin;
+    final residentialAddress = state.residentialAddress;
+    final farmAddress = state.farmAddress;
+    final bankName = state.bankName;
+    final accountNumber = state.accountNumber;
+    final bvn = state.bvn;
+    final farmersGroup = state.farmersGroup;
 
-    // final newUser = AgroQuestionnaireModel(
-    //     name: name,
-    //     gender: gender,
-    //     age: age,
-    //     educationalLevel: educationalLevel,
-    //     lga: lga,
-    //     ward: ward,
-    //     village: village,
-    //     phone: phone,
-    //     yearsOfFarming: yearsOfFarming,
-    //     typeofFarming: typeofFarming,
-    //     sizeOfFarm: sizeOfFarm,
-    //     cropsGrown: cropsGrown,
-    //     livestockRaised: livestockRaised,
-    //     methodOfFarming: methodOfFarming,
-    //     typesOfMachineryNeeded: typesOfMachineryNeeded,
-    //     phoneOfNextOfKin: phoneOfNextOfKin,
-    //     useAgroChemicals: useAgroChemicals,
-    //     useFertilizer: useFertilizer,
-    //     preferredFertilizers: preferredFertilizers,
-    //     nin: nin,
-    //     residentialAddress: residentialAddress,
-    //     farmAddress: farmAddress,
-    //     bankName: bankName,
-    //     accountNumber: accountNumber,
-    //     bvn: bvn,
-    //     farmersGroup: farmersGroup);
-    // final healthModel = HealthQuestionnaireModel(
-    //     name: name,
-    //     lga: lga,
-    //     ward: ward,
-    //     gpsLocation: gpsLocation,
-    //     photoOfSignPost: photoOfSignPost,
-    //     typeOfCareCenter: typeOfCareCenter,
-    //     howManyCareCenters: howManyCareCenters,
-    //     whatTypeOfRoad: whatTypeOfRoad,
-    //     howManyAmbulances: howManyAmbulances,
-    //     sourceOfPower: sourceOfPower,
-    //     numberOfSurgeons: numberOfSurgeons,
-    //     numberOfDoctors: numberOfDoctors,
-    //     numberOfNurses: numberOfNurses,
-    //     numberOfNursingAssistants: numberOfNursingAssistants,
-    //     numberOfPharmacists: numberOfPharmacists,
-    //     numberOfLabTechnicians: numberOfLabTechnicians,
-    //     numberOfCleaners: numberOfCleaners,
-    //     numberOfDispensaryAssistant: numberOfDispensaryAssistant,
-    //     numberOfCommunityHealthOfficers: numberOfCommunityHealthOfficers,
-    //     numberOfRecordOfficers: numberOfRecordOfficers,
-    //     measuresInplaceForDiseaseControl: measuresInplaceForDiseaseControl,
-    //     responseMechanismsToHealthEmergencies:
-    //         responseMechanismsToHealthEmergencies,
-    //     availabilityOfCommunityHealthPrograms:
-    //         availabilityOfCommunityHealthPrograms,
-    //     outreachProgramsForRuralAreas: outreachProgramsForRuralAreas,
-    //     presenceOfHealthEducationPrograms: presenceOfHealthEducationPrograms,
-    //     accessibilityOfHealthInformationToThePublic:
-    //         accessibilityOfHealthInformationToThePublic,
-    //     accessibilityOfHealthServicesToDifferentDemographics:
-    //         accessibilityOfHealthServicesToDifferentDemographics,
-    //     governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy:
-    //         governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy,
-    //     investmentsAimedatImprovingHealthcareServices:
-    //         investmentsAimedatImprovingHealthcareServices,
-    //     collectionOfPublicHealthData: collectionOfPublicHealthData,
-    //     surveillanceSystemsForMonitoringHealthTrends:
-    //         surveillanceSystemsForMonitoringHealthTrends,
-    //     environmentalHealthManagementFacilities:
-    //         environmentalHealthManagementFacilities,
-    //     doYouHaveAWASHProgram: doYouHaveAWASHProgram,
-    //     doYouHaveAGoodRefuseDisposalSystemIncenerator:
-    //         doYouHaveAGoodRefuseDisposalSystemIncenerator);
+    final newForm = AgroQuestionnaireModel(
+      name: name,
+      gender: gender,
+      age: age,
+      educationalLevel: educationalLevel,
+      lga: lga,
+      ward: ward,
+      village: village,
+      phone: phone,
+      yearsOfFarming: yearsOfFarming,
+      typeofFarming: typeofFarming,
+      sizeOfFarm: sizeOfFarm,
+      cropsGrown: cropsGrown,
+      livestockRaised: livestockRaised,
+      methodOfFarming: methodOfFarming,
+      typesOfMachineryNeeded: typesOfMachineryNeeded,
+      phoneOfNextOfKin: phoneOfNextOfKin,
+      useAgroChemicals: useAgroChemicals,
+      useFertilizer: useFertilizer,
+      preferredFertilizers: preferredFertilizers,
+      nin: nin,
+      residentialAddress: residentialAddress,
+      farmAddress: farmAddress,
+      bankName: bankName,
+      accountNumber: accountNumber,
+      bvn: bvn,
+      farmersGroup: farmersGroup,
+    );
 
     const secureStorage = FlutterSecureStorage();
-    final encryptionKey = await secureStorage.read(key: encAuthBoxKey);
-    if (encryptionKey != null) {
-      // fail('User already exists. Login instead!');
-      return false;
-    }
+    // final encryptionKey = await secureStorage.read(key: encAuthBoxKey);
+
     final key = Hive.generateSecureKey();
     await secureStorage.write(
       key: encAuthBoxKey,
@@ -174,26 +366,128 @@ class QuestionnaireCubit extends HydratedCubit<QuestionnaireState> {
       encryptionCipher: HiveAesCipher(encryptionKeyUint8List),
     );
 
-    // await encryptedAgroQuestionnaireBox.add(newUser);
-    // await newUser.save();
-    pass('Form saved to device');
+    await encryptedAgroQuestionnaireBox.add(newForm);
+    await newForm.save();
+    pass(noNetworkFormSavedToDevice);
     return true;
   }
 
-  /// HELPER FUNCTION TO SAVE SUCCESS STATES
-  void pass(String success) =>
-      emit(state.copyWith(success: success, isLoading: false));
+  /// Saves the health form
+  Future<bool> saveHealthForm() async {
+    load();
+    final name = state.name;
+    final lga = state.lga;
+    final ward = state.ward;
+    final gpsLocation = state.gpsLocation;
+    final photoOfSignPost = state.photoOfSignPost;
+    final typeOfCareCenter = state.typeOfCareCenter;
+    final howManyCareCenters = state.howManyCareCenters;
+    final whatTypeOfRoad = state.whatTypeOfRoad;
+    final howManyAmbulances = state.howManyAmbulances;
+    final sourceOfPower = state.sourceOfPower;
+    final numberOfSurgeons = state.numberOfSurgeons;
+    final numberOfDoctors = state.numberOfDoctors;
+    final numberOfNurses = state.numberOfNurses;
+    final numberOfNursingAssistants = state.numberOfNursingAssistants;
+    final numberOfPharmacists = state.numberOfPharmacists;
+    final numberOfLabTechnicians = state.numberOfLabTechnicians;
+    final numberOfCleaners = state.numberOfCleaners;
+    final numberOfDispensaryAssistant = state.numberOfDispensaryAssistant;
+    final numberOfCommunityHealthOfficers =
+        state.numberOfCommunityHealthOfficers;
+    final numberOfRecordOfficers = state.numberOfRecordOfficers;
+    final measuresInplaceForDiseaseControl =
+        state.measuresInplaceForDiseaseControl;
+    final responseMechanismsToHealthEmergencies =
+        state.responseMechanismsToHealthEmergencies;
+    final availabilityOfCommunityHealthPrograms =
+        state.availabilityOfCommunityHealthPrograms;
+    final outreachProgramsForRuralAreas = state.outreachProgramsForRuralAreas;
+    final presenceOfHealthEducationPrograms =
+        state.presenceOfHealthEducationPrograms;
+    final accessibilityOfHealthInformationToThePublic =
+        state.accessibilityOfHealthInformationToThePublic;
+    final accessibilityOfHealthServicesToDifferentDemographics =
+        state.accessibilityOfHealthServicesToDifferentDemographics;
+    final governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy =
+        state
+            .governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy;
+    final investmentsAimedatImprovingHealthcareServices =
+        state.investmentsAimedatImprovingHealthcareServices;
+    final collectionOfPublicHealthData = state.collectionOfPublicHealthData;
+    final surveillanceSystemsForMonitoringHealthTrends =
+        state.surveillanceSystemsForMonitoringHealthTrends;
+    final environmentalHealthManagementFacilities =
+        state.environmentalHealthManagementFacilities;
+    final doYouHaveAWASHProgram = state.doYouHaveAWASHProgram;
+    final doYouHaveAGoodRefuseDisposalSystemIncenerator =
+        state.doYouHaveAGoodRefuseDisposalSystemIncenerator;
 
-  /// HELPER FUNCTION TO SAVE FAILURE STATES
-  void fail(String failure) =>
-      emit(state.copyWith(failure: failure, isLoading: false));
+    final newForm = HealthQuestionnaireModel(
+        name: name,
+        lga: lga,
+        ward: ward,
+        gpsLocation: gpsLocation,
+        photoOfSignPost: photoOfSignPost,
+        typeOfCareCenter: typeOfCareCenter,
+        howManyCareCenters: howManyCareCenters,
+        whatTypeOfRoad: whatTypeOfRoad,
+        howManyAmbulances: howManyAmbulances,
+        sourceOfPower: sourceOfPower,
+        numberOfSurgeons: numberOfSurgeons,
+        numberOfDoctors: numberOfDoctors,
+        numberOfNurses: numberOfNurses,
+        numberOfNursingAssistants: numberOfNursingAssistants,
+        numberOfPharmacists: numberOfPharmacists,
+        numberOfLabTechnicians: numberOfLabTechnicians,
+        numberOfCleaners: numberOfCleaners,
+        numberOfDispensaryAssistant: numberOfDispensaryAssistant,
+        numberOfCommunityHealthOfficers: numberOfCommunityHealthOfficers,
+        numberOfRecordOfficers: numberOfRecordOfficers,
+        measuresInplaceForDiseaseControl: measuresInplaceForDiseaseControl,
+        responseMechanismsToHealthEmergencies:
+            responseMechanismsToHealthEmergencies,
+        availabilityOfCommunityHealthPrograms:
+            availabilityOfCommunityHealthPrograms,
+        outreachProgramsForRuralAreas: outreachProgramsForRuralAreas,
+        presenceOfHealthEducationPrograms: presenceOfHealthEducationPrograms,
+        accessibilityOfHealthInformationToThePublic:
+            accessibilityOfHealthInformationToThePublic,
+        accessibilityOfHealthServicesToDifferentDemographics:
+            accessibilityOfHealthServicesToDifferentDemographics,
+        governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy:
+            governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy,
+        investmentsAimedatImprovingHealthcareServices:
+            investmentsAimedatImprovingHealthcareServices,
+        collectionOfPublicHealthData: collectionOfPublicHealthData,
+        surveillanceSystemsForMonitoringHealthTrends:
+            surveillanceSystemsForMonitoringHealthTrends,
+        environmentalHealthManagementFacilities:
+            environmentalHealthManagementFacilities,
+        doYouHaveAWASHProgram: doYouHaveAWASHProgram,
+        doYouHaveAGoodRefuseDisposalSystemIncenerator:
+            doYouHaveAGoodRefuseDisposalSystemIncenerator,);
 
-  /// HELPER FUNCTION TO SET LOADING STATE
-  void load() =>
-      emit(state.copyWith(success: '', failure: '', isLoading: true));
+    const secureStorage = FlutterSecureStorage();
+    // final encryptionKey = await secureStorage.read(key: encAuthBoxKey);
 
-  /// HELPER FUNCTION TO RESET LOADING STATE
-  void reset() => emit(QuestionnaireState.empty());
+    final key = Hive.generateSecureKey();
+    await secureStorage.write(
+      key: encAuthBoxKey,
+      value: base64UrlEncode(key),
+    );
+    final encryptionKeyUint8List = key;
+    final encryptedAgroQuestionnaireBox =
+        await Hive.openBox<HealthQuestionnaireModel>(
+      encAgroFromBox,
+      encryptionCipher: HiveAesCipher(encryptionKeyUint8List),
+    );
+
+    await encryptedAgroQuestionnaireBox.add(newForm);
+    await newForm.save();
+    pass(noNetworkFormSavedToDevice);
+    return true;
+  }
 
   @override
   QuestionnaireState? fromJson(Map<String, dynamic> json) {
@@ -353,6 +647,24 @@ class QuestionnaireCubit extends HydratedCubit<QuestionnaireState> {
           state.doYouHaveAGoodRefuseDisposalSystemIncenerator,
     };
   }
+
+  /// HELPER FUNCTION TO SAVE SUCCESS STATES
+  void pass(String success) =>
+      emit(state.copyWith(success: success, isLoading: false));
+
+  /// HELPER FUNCTION TO SAVE FAILURE STATES
+  void fail(String failure) =>
+      emit(state.copyWith(failure: failure, isLoading: false));
+
+  /// HELPER FUNCTION TO SET LOADING STATE
+  void load() =>
+      emit(state.copyWith(success: '', failure: '', isLoading: true));
+
+  /// HELPER FUNCTION TO RESET LOADING STATE
+  void reset() => emit(QuestionnaireState.empty());
+
+  /// HELPER FUNCTION TO CLEAR FORM STATE
+  void clearForm() => emit(QuestionnaireState.clearForm());
 
   @override
   Future<void> close() async {

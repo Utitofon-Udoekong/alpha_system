@@ -20,7 +20,7 @@ class AgroQuestionnaireModelAdapter
     return AgroQuestionnaireModel(
       name: fields[0] as String?,
       gender: fields[1] as String?,
-      age: fields[2] as String?,
+      age: fields[2] as int?,
       educationalLevel: fields[3] as String?,
       lga: fields[4] as String?,
       ward: fields[5] as String?,

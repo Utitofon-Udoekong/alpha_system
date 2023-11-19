@@ -7,40 +7,40 @@ part 'health_questionnaire_model.g.dart';
 class HealthQuestionnaireModel extends HiveObject {
   ///Constructor
   HealthQuestionnaireModel(
-      this.name,
-      this.lga,
-      this.ward,
-      this.gpsLocation,
-      this.photoOfSignPost,
-      this.typeOfCareCenter,
-      this.howManyCareCenters,
-      this.whatTypeOfRoad,
-      this.howManyAmbulances,
-      this.sourceOfPower,
-      this.numberOfSurgeons,
-      this.numberOfDoctors,
-      this.numberOfNurses,
-      this.numberOfNursingAssistants,
-      this.numberOfPharmacists,
-      this.numberOfLabTechnicians,
-      this.numberOfCleaners,
-      this.numberOfDispensaryAssistant,
-      this.numberOfCommunityHealthOfficers,
-      this.numberOfRecordOfficers,
-      this.measuresInplaceForDiseaseControl,
-      this.responseMechanismsToHealthEmergencies,
-      this.availabilityOfCommunityHealthPrograms,
-      this.outreachProgramsForRuralAreas,
-      this.presenceOfHealthEducationPrograms,
-      this.accessibilityOfHealthInformationToThePublic,
-      this.accessibilityOfHealthServicesToDifferentDemographics,
-      this.governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy,
-      this.investmentsAimedatImprovingHealthcareServices,
-      this.collectionOfPublicHealthData,
-      this.surveillanceSystemsForMonitoringHealthTrends,
-      this.environmentalHealthManagementFacilities,
-      this.doYouHaveAWASHProgram,
-      this.doYouHaveAGoodRefuseDisposalSystemIncenerator);
+      {required this.name,
+      required this.lga,
+      required this.ward,
+      required this.gpsLocation,
+      required this.photoOfSignPost,
+      required this.typeOfCareCenter,
+      required this.howManyCareCenters,
+      required this.whatTypeOfRoad,
+      required this.howManyAmbulances,
+      required this.sourceOfPower,
+      required this.numberOfSurgeons,
+      required this.numberOfDoctors,
+      required this.numberOfNurses,
+      required this.numberOfNursingAssistants,
+      required this.numberOfPharmacists,
+      required this.numberOfLabTechnicians,
+      required this.numberOfCleaners,
+      required this.numberOfDispensaryAssistant,
+      required this.numberOfCommunityHealthOfficers,
+      required this.numberOfRecordOfficers,
+      required this.measuresInplaceForDiseaseControl,
+      required this.responseMechanismsToHealthEmergencies,
+      required this.availabilityOfCommunityHealthPrograms,
+      required this.outreachProgramsForRuralAreas,
+      required this.presenceOfHealthEducationPrograms,
+      required this.accessibilityOfHealthInformationToThePublic,
+      required this.accessibilityOfHealthServicesToDifferentDemographics,
+      required this.governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy,
+      required this.investmentsAimedatImprovingHealthcareServices,
+      required this.collectionOfPublicHealthData,
+      required this.surveillanceSystemsForMonitoringHealthTrends,
+      required this.environmentalHealthManagementFacilities,
+      required this.doYouHaveAWASHProgram,
+      required this.doYouHaveAGoodRefuseDisposalSystemIncenerator});
 
   //Bio - Data
   @HiveField(0)
@@ -48,7 +48,7 @@ class HealthQuestionnaireModel extends HiveObject {
   @HiveField(1)
   String? lga;
   @HiveField(2)
-  int? ward;
+  String? ward;
   @HiveField(3)
   String? gpsLocation;
   @HiveField(4)
