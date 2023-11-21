@@ -22,7 +22,7 @@ class AppBuilder extends StatelessWidget {
         ),
       ],
       child: MaterialApp.router(
-        title: 'Alpha System',
+        title: 'NSIDI',
         debugShowCheckedModeBanner: false,
         routerConfig: router,
         theme: ThemeData(
