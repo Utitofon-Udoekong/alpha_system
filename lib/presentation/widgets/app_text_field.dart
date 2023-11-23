@@ -78,6 +78,7 @@ class TextWithAppTextField extends StatelessWidget {
     this.toggleVisibility,
     this.textInputAction,
     this.hintText,
+    this.keyboardType = TextInputType.text
   });
 
   /// Function which receives typing events and returns the keyed value
@@ -101,6 +102,9 @@ class TextWithAppTextField extends StatelessWidget {
   ///Specifies the text input action can be done or next.
   final TextInputAction? textInputAction;
 
+  ///Specifies the keyboard type to be used. Defaults to [TextInputType.text].
+  final TextInputType? keyboardType;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -112,6 +116,7 @@ class TextWithAppTextField extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         TextField(
+          keyboardType: keyboardType,
           textInputAction: textInputAction,
           decoration: InputDecoration(
             hintText: hintText,
@@ -182,11 +187,12 @@ class AppDropDownField extends StatelessWidget {
           height: 8,
         ),
         DropdownButtonFormField(
+          isExpanded: true,
           value: value,
           items: items.map(
                   (e) => DropdownMenuItem(
                     value: e,
-                    child: Text('$e'),
+                    child: Text('$e',overflow: TextOverflow.ellipsis,),
                   ),
                 )
                 .toList(),

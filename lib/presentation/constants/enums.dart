@@ -70,3 +70,4 @@ const sourceOfPowerEnum = [
   'Power Holding company diesel generator and solar power',
   'Solar power',
 ];
+

@@ -57,7 +57,6 @@ class LoginPage extends StatelessWidget {
                     onChanged: (username) =>
                         context.read<AuthCubit>().setUsername(username),
                   ),
-                  const SizedBox(height: 20),
                   AppTextField(
                     title: 'Password',
                     obscureText: obscureText,
