@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Choose Questionnaire',
+                'Choose Sector',
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
               const SizedBox(

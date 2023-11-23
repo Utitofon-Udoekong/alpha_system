@@ -1,6 +1,8 @@
 import 'package:alpha_system/presentation/constants/enums.dart';
+import 'package:alpha_system/presentation/constants/methods.dart';
 import 'package:alpha_system/presentation/home/cubit/questionnaire_cubit.dart';
 import 'package:alpha_system/presentation/widgets/app_button.dart';
+import 'package:alpha_system/presentation/widgets/app_picker.dart';
 import 'package:alpha_system/presentation/widgets/app_radio_groups.dart';
 import 'package:alpha_system/presentation/widgets/app_text_field.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +16,16 @@ class HealthQuestionnaireTabWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final isLoading =
         context.select((QuestionnaireCubit bloc) => bloc.state.isLoading);
+    final gpsLocation =
+        context.select((QuestionnaireCubit bloc) => bloc.state.gpsLocation);
+    final photoOfFront =
+        context.select((QuestionnaireCubit bloc) => bloc.state.photoOfFront);
+    final photoOfSide =
+        context.select((QuestionnaireCubit bloc) => bloc.state.photoOfSide);
+    final photoOfReception = context
+        .select((QuestionnaireCubit bloc) => bloc.state.photoOfReception);
+    final photoOfSignPost =
+        context.select((QuestionnaireCubit bloc) => bloc.state.photoOfSignPost);
     final typeOfCareCenter = context
         .select((QuestionnaireCubit bloc) => bloc.state.typeOfCareCenter);
     final sourceOfPower =
@@ -103,35 +115,58 @@ class HealthQuestionnaireTabWidget extends StatelessWidget {
             onChanged: (ward) =>
                 context.read<QuestionnaireCubit>().setWard(ward),
           ),
-          TextWithAppTextField(
-            title: 'GPS Location',
-            textInputAction: TextInputAction.next,
-            onChanged: (gps) =>
-                context.read<QuestionnaireCubit>().setGpsLocation(gps),
+          AppPicker(
+            title: gpsLocation.isEmpty ? 'GPS Location' : gpsLocation,
+            onTap: () async {
+              final locationData = await getLocation();
+              if (locationData != null) {
+                final gpsCoordinates =
+                    '${locationData.latitude}, ${locationData.longitude}';
+                context
+                    .read<QuestionnaireCubit>()
+                    .setGpsLocation(gpsCoordinates);
+              }
+            },
           ),
-          TextWithAppTextField(
-            title: 'Photo of Sign Post',
-            textInputAction: TextInputAction.next,
-            onChanged: (photo) =>
-                context.read<QuestionnaireCubit>().setPhotoOfSignPost(photo),
+          AppPicker(
+            title: photoOfSignPost.isEmpty
+                ? 'Photo of Sign Post'
+                : 'Image selected',
+            onTap: () async {
+              final file = await snapPhoto();
+              context
+                  .read<QuestionnaireCubit>()
+                  .setPhotoOfSignPost(await file.readAsString());
+            },
           ),
-          TextWithAppTextField(
-            title: 'Photo of Front',
-            textInputAction: TextInputAction.next,
-            onChanged: (photo) =>
-                context.read<QuestionnaireCubit>().setPhotoOfFront(photo),
+          AppPicker(
+            title: photoOfFront.isEmpty ? 'Photo of Front' : 'Image selected',
+            onTap: () async {
+              final file = await snapPhoto();
+              context
+                  .read<QuestionnaireCubit>()
+                  .setPhotoOfFront(await file.readAsString());
+            },
           ),
-          TextWithAppTextField(
-            title: 'Photo of Side',
-            textInputAction: TextInputAction.next,
-            onChanged: (photo) =>
-                context.read<QuestionnaireCubit>().setPhotoOfSide(photo),
+          AppPicker(
+            title: photoOfSide.isEmpty ? 'Photo of Side' : 'Image selected',
+            onTap: () async {
+              final file = await snapPhoto();
+              context
+                  .read<QuestionnaireCubit>()
+                  .setPhotoOfSide(await file.readAsString());
+            },
           ),
-          TextWithAppTextField(
-            title: 'Photo of Reception',
-            textInputAction: TextInputAction.next,
-            onChanged: (photo) =>
-                context.read<QuestionnaireCubit>().setPhotoOfReception(photo),
+          AppPicker(
+            title: photoOfReception.isEmpty
+                ? 'Photo of Reception'
+                : 'Image selected',
+            onTap: () async {
+              final file = await snapPhoto();
+              context
+                  .read<QuestionnaireCubit>()
+                  .setPhotoOfReception(await file.readAsString());
+            },
           ),
           AppDropDownField(
             title: 'Type of care center?',

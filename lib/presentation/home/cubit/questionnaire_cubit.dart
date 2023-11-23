@@ -34,7 +34,9 @@ class QuestionnaireCubit extends HydratedCubit<QuestionnaireState> {
       emit(state.copyWith(educationalLevel: educationalLevel));
 
   /// Sets the LGA in the cubit state
-  void setLGA(String lga) => emit(state.copyWith(lga: lga));
+  void setLGA(String lga) {
+    emit(state.copyWith(lga: lga, ward: 'SELECT WARD'));
+  }
 
   /// Sets the ward in the cubit state
   void setWard(String ward) => emit(state.copyWith(ward: ward));

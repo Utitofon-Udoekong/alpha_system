@@ -1,4 +1,5 @@
 import 'package:alpha_system/presentation/constants/enums.dart';
+import 'package:alpha_system/presentation/constants/methods.dart';
 import 'package:alpha_system/presentation/home/cubit/questionnaire_cubit.dart';
 import 'package:alpha_system/presentation/widgets/app_button.dart';
 import 'package:alpha_system/presentation/widgets/app_radio_groups.dart';
@@ -19,6 +20,10 @@ class AgroQuestionnaireTabWidget extends StatelessWidget {
         context.select((QuestionnaireCubit bloc) => bloc.state.gender);
     final selectedAge =
         context.select((QuestionnaireCubit bloc) => bloc.state.age);
+    final selectedLGA =
+        context.select((QuestionnaireCubit bloc) => bloc.state.lga);
+    final selectedWard =
+        context.select((QuestionnaireCubit bloc) => bloc.state.ward);
     final selectedEducationalLevel =
         context.select((QuestionnaireCubit bloc) => bloc.state.educationalLevel);
     final methodOfFarming =
@@ -78,16 +83,19 @@ class AgroQuestionnaireTabWidget extends StatelessWidget {
                 .read<QuestionnaireCubit>()
                 .setEducationalLevel(educationalLevel as String),
           ),
-          TextWithAppTextField(
+          AppDropDownField(
             title: 'LGA',
-            textInputAction: TextInputAction.next,
-            onChanged: (lga) => context.read<QuestionnaireCubit>().setLGA(lga),
+            items: getLGAFromLGAMapping(),
+            value: selectedLGA,
+            onChanged: (lga) => context.read<QuestionnaireCubit>().setLGA(lga as String),
           ),
-          TextWithAppTextField(
+          AppDropDownField(
             title: 'Ward',
-            textInputAction: TextInputAction.next,
-            onChanged: (ward) =>
-                context.read<QuestionnaireCubit>().setWard(ward),
+            items: getWardsFromLGA(selectedLGA),
+            value: selectedWard,
+            onChanged: (ward) => context
+                .read<QuestionnaireCubit>()
+                .setWard(ward as String),
           ),
           TextWithAppTextField(
             title: 'Village',
@@ -118,6 +126,7 @@ class AgroQuestionnaireTabWidget extends StatelessWidget {
           TextWithAppTextField(
             title: 'How many years have you been engaged in farming',
             textInputAction: TextInputAction.next,
+            keyboardType: TextInputType.number,
             onChanged: (years) => context
                 .read<QuestionnaireCubit>()
                 .setYearsOfFarming(int.parse(years)),
@@ -133,6 +142,7 @@ class AgroQuestionnaireTabWidget extends StatelessWidget {
           TextWithAppTextField(
             title: 'What is the size of your farm (in hectares)?',
             textInputAction: TextInputAction.next,
+            keyboardType: const TextInputType.numberWithOptions(decimal: true),
             onChanged: (size) => context
                 .read<QuestionnaireCubit>()
                 .setSizeOfFarm(double.parse(size)),
