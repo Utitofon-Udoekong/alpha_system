@@ -12,7 +12,7 @@ const formSentToServer = 'Form sent to server';
 /// Image constant class
 class Images{
   /// app logo address
-  static const logo = 'images/alpha.png';
+  static const logo = 'images/logo.png';
 }
 
 ///Constants color class

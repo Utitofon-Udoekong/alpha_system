@@ -4,6 +4,7 @@ import 'package:alpha_system/presentation/home/cubit/questionnaire_cubit.dart';
 import 'package:alpha_system/presentation/widgets/app_button.dart';
 import 'package:alpha_system/presentation/widgets/app_radio_groups.dart';
 import 'package:alpha_system/presentation/widgets/app_text_field.dart';
+import 'package:alpha_system/presentation/widgets/hero_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -43,7 +44,8 @@ class AgroQuestionnaireTabWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 30),
-
+          const HeroImage(),
+          const SizedBox(height: 10),
           ///////////////////////////////////////////////////////
           //--------------------BIO DATA-----------------------//
           ///////////////////////////////////////////////////////
