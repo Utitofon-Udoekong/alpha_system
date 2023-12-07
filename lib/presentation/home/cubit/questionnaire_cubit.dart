@@ -186,7 +186,7 @@ class QuestionnaireCubit extends HydratedCubit<QuestionnaireState> {
 
   /// Sets the numberOfNursingAssistants in the cubit state
   void setNumberOfNursingAssistants(int numberOfNursingAssistants) => emit(
-      state.copyWith(numberOfNursingAssistants: numberOfNursingAssistants));
+      state.copyWith(numberOfNursingAssistants: numberOfNursingAssistants),);
 
   /// Sets the numberOfPharmacists in the cubit state
   void setNumberOfPharmacists(int numberOfPharmacists) =>
@@ -202,13 +202,13 @@ class QuestionnaireCubit extends HydratedCubit<QuestionnaireState> {
 
   /// Sets the numberOfDispensaryAssistant in the cubit state
   void setNumberOfDispensaryAssistant(int numberOfDispensaryAssistant) => emit(
-      state.copyWith(numberOfDispensaryAssistant: numberOfDispensaryAssistant));
+      state.copyWith(numberOfDispensaryAssistant: numberOfDispensaryAssistant),);
 
   /// Sets the numberOfCommunityHealthOfficers in the cubit state
   void setNumberOfCommunityHealthOfficers(
-          int numberOfCommunityHealthOfficers) =>
+          int numberOfCommunityHealthOfficers,) =>
       emit(state.copyWith(
-          numberOfCommunityHealthOfficers: numberOfCommunityHealthOfficers));
+          numberOfCommunityHealthOfficers: numberOfCommunityHealthOfficers,),);
 
   /// Sets the numberOfRecordOfficers in the cubit state
   void setNumberOfRecordOfficers(int numberOfRecordOfficers) =>
@@ -216,83 +216,83 @@ class QuestionnaireCubit extends HydratedCubit<QuestionnaireState> {
 
   /// Sets the measuresInplaceForDiseaseControl in the cubit state
   void setMeasuresInplaceForDiseaseControl(
-          bool measuresInplaceForDiseaseControl) =>
+          bool measuresInplaceForDiseaseControl,) =>
       emit(state.copyWith(
-          measuresInplaceForDiseaseControl: measuresInplaceForDiseaseControl));
+          measuresInplaceForDiseaseControl: measuresInplaceForDiseaseControl,),);
 
   /// Sets the responseMechanismsToHealthEmergencies in the cubit state
   void setResponseMechanismsToHealthEmergencies(
-          bool responseMechanismsToHealthEmergencies) =>
+          bool responseMechanismsToHealthEmergencies,) =>
       emit(state.copyWith(
           responseMechanismsToHealthEmergencies:
-              responseMechanismsToHealthEmergencies));
+              responseMechanismsToHealthEmergencies,),);
 
   /// Sets the availabilityOfCommunityHealthPrograms in the cubit state
   void setAvailabilityOfCommunityHealthPrograms(
-          String availabilityOfCommunityHealthPrograms) =>
+          String availabilityOfCommunityHealthPrograms,) =>
       emit(state.copyWith(
           availabilityOfCommunityHealthPrograms:
-              availabilityOfCommunityHealthPrograms));
+              availabilityOfCommunityHealthPrograms,),);
 
   /// Sets the outreachProgramsForRuralAreas in the cubit state
   void setOutreachProgramsForRuralAreas(String outreachProgramsForRuralAreas) =>
       emit(state.copyWith(
-          outreachProgramsForRuralAreas: outreachProgramsForRuralAreas));
+          outreachProgramsForRuralAreas: outreachProgramsForRuralAreas,),);
 
   /// Sets the presenceOfHealthEducationPrograms in the cubit state
   void setPresenceOfHealthEducationPrograms(
-          bool presenceOfHealthEducationPrograms) =>
+          bool presenceOfHealthEducationPrograms,) =>
       emit(state.copyWith(
           presenceOfHealthEducationPrograms:
-              presenceOfHealthEducationPrograms));
+              presenceOfHealthEducationPrograms,),);
 
   /// Sets the accessibilityOfHealthInformationToThePublic in the cubit state
   void setAccessibilityOfHealthInformationToThePublic(
-          bool accessibilityOfHealthInformationToThePublic) =>
+          bool accessibilityOfHealthInformationToThePublic,) =>
       emit(state.copyWith(
           accessibilityOfHealthInformationToThePublic:
-              accessibilityOfHealthInformationToThePublic));
+              accessibilityOfHealthInformationToThePublic,),);
 
   /// Sets the accessibilityOfHealthServicesToDifferentDemographics in the cubit state
   void setAccessibilityOfHealthServicesToDifferentDemographics(
-          String accessibilityOfHealthServicesToDifferentDemographics) =>
+          String accessibilityOfHealthServicesToDifferentDemographics,) =>
       emit(state.copyWith(
           accessibilityOfHealthServicesToDifferentDemographics:
-              accessibilityOfHealthServicesToDifferentDemographics));
+              accessibilityOfHealthServicesToDifferentDemographics,),);
 
   /// Sets the governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy in the cubit state
   void setGovernmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy(
           bool
-              governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy) =>
+              governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy,) =>
       emit(state.copyWith(
           governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy:
-              governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy));
+              governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy,),);
 
   /// Sets the investmentsAimedatImprovingHealthcareServices in the cubit state
   void setInvestmentsAimedatImprovingHealthcareServices(
-          bool investmentsAimedatImprovingHealthcareServices) =>
+          bool investmentsAimedatImprovingHealthcareServices,) =>
       emit(state.copyWith(
           investmentsAimedatImprovingHealthcareServices:
-              investmentsAimedatImprovingHealthcareServices));
+              investmentsAimedatImprovingHealthcareServices,),);
 
   /// Sets the collectionOfPublicHealthData in the cubit state
   void setCollectionOfPublicHealthData(String collectionOfPublicHealthData) =>
       emit(state.copyWith(
-          collectionOfPublicHealthData: collectionOfPublicHealthData));
+          collectionOfPublicHealthData: collectionOfPublicHealthData,),);
 
   /// Sets the surveillanceSystemsForMonitoringHealthTrends in the cubit state
   void setSurveillanceSystemsForMonitoringHealthTrends(
-          String surveillanceSystemsForMonitoringHealthTrends) =>
+          String surveillanceSystemsForMonitoringHealthTrends,) =>
       emit(state.copyWith(
           surveillanceSystemsForMonitoringHealthTrends:
-              surveillanceSystemsForMonitoringHealthTrends));
+              surveillanceSystemsForMonitoringHealthTrends,),);
 
   /// Sets the environmentalHealthManagementFacilities in the cubit state
   void setEnvironmentalHealthManagementFacilities(
-          String environmentalHealthManagementFacilities) =>
+          String environmentalHealthManagementFacilities,) =>
       emit(state.copyWith(
           environmentalHealthManagementFacilities:
-              environmentalHealthManagementFacilities));
+              environmentalHealthManagementFacilities,),);
 
   /// Sets the doYouHaveAWASHProgram in the cubit state
   void setDoYouHaveAWASHProgram(bool doYouHaveAWASHProgram) =>
@@ -300,10 +300,10 @@ class QuestionnaireCubit extends HydratedCubit<QuestionnaireState> {
 
   /// Sets the doYouHaveAGoodRefuseDisposalSystemIncenerator in the cubit state
   void setDoYouHaveAGoodRefuseDisposalSystemIncenerator(
-          bool doYouHaveAGoodRefuseDisposalSystemIncenerator) =>
+          bool doYouHaveAGoodRefuseDisposalSystemIncenerator,) =>
       emit(state.copyWith(
           doYouHaveAGoodRefuseDisposalSystemIncenerator:
-              doYouHaveAGoodRefuseDisposalSystemIncenerator));
+              doYouHaveAGoodRefuseDisposalSystemIncenerator,),);
 
   Future<void> clearQuestionnaires() async {
     const secureStorage = FlutterSecureStorage();
@@ -312,7 +312,7 @@ class QuestionnaireCubit extends HydratedCubit<QuestionnaireState> {
       print('Not initiated');
       return;
     }
-    secureStorage.delete(key: encryptionKey);
+    await secureStorage.delete(key: encryptionKey);
     await Hive.deleteFromDisk();
   }
 

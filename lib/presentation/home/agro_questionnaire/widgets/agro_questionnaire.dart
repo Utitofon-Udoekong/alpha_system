@@ -193,7 +193,7 @@ class AgroQuestionnaireTabWidget extends StatelessWidget {
                 'What types of machinery and equipment do you need on your farm? (Select all that apply)',
                 style: Theme.of(context)
                     .textTheme
-                    .titleMedium
+                    .titleMedium,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -233,7 +233,7 @@ class AgroQuestionnaireTabWidget extends StatelessWidget {
                 'If you need to use fertilizers, which types do you prefer? (Select all that apply)',
                 style: Theme.of(context)
                     .textTheme
-                    .titleMedium
+                    .titleMedium,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

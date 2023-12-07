@@ -1,11 +1,11 @@
 import 'package:alpha_system/presentation/constants/LGA_mappings.dart';
-import 'package:location/location.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:location/location.dart';
 
 /// Uses regex to validate emails
 bool isValidEmail(String email) {
   return RegExp(
-          r"""^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+""")
+          r"""^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+""",)
       .hasMatch(email);
 }
 

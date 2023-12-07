@@ -7,7 +7,6 @@ import 'package:alpha_system/presentation/widgets/app_radio_groups.dart';
 import 'package:alpha_system/presentation/widgets/app_text_field.dart';
 import 'package:alpha_system/presentation/widgets/hero_image.dart';
 import 'package:flutter/material.dart';
-import 'package:numberpicker/numberpicker.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HealthQuestionnaireTabWidget extends StatelessWidget {
@@ -44,7 +43,7 @@ class HealthQuestionnaireTabWidget extends StatelessWidget {
     final numberOfNurses =
         context.select((QuestionnaireCubit bloc) => bloc.state.numberOfNurses);
     final numberOfNursingAssistants = context.select(
-        (QuestionnaireCubit bloc) => bloc.state.numberOfNursingAssistants);
+        (QuestionnaireCubit bloc) => bloc.state.numberOfNursingAssistants,);
     final numberOfPharmacists = context
         .select((QuestionnaireCubit bloc) => bloc.state.numberOfPharmacists);
     final numberOfLabTechnicians = context
@@ -52,35 +51,35 @@ class HealthQuestionnaireTabWidget extends StatelessWidget {
     final numberOfCleaners = context
         .select((QuestionnaireCubit bloc) => bloc.state.numberOfCleaners);
     final numberOfDispensaryAssistant = context.select(
-        (QuestionnaireCubit bloc) => bloc.state.numberOfDispensaryAssistant);
+        (QuestionnaireCubit bloc) => bloc.state.numberOfDispensaryAssistant,);
     final numberOfCommunityHealthOfficers = context.select(
         (QuestionnaireCubit bloc) =>
-            bloc.state.numberOfCommunityHealthOfficers);
+            bloc.state.numberOfCommunityHealthOfficers,);
     final numberOfRecordOfficers = context
         .select((QuestionnaireCubit bloc) => bloc.state.numberOfRecordOfficers);
     final measuresInplaceForDiseaseControl = context.select(
         (QuestionnaireCubit bloc) =>
-            bloc.state.measuresInplaceForDiseaseControl);
+            bloc.state.measuresInplaceForDiseaseControl,);
     final responseMechanismsToHealthEmergencies = context.select(
         (QuestionnaireCubit bloc) =>
-            bloc.state.responseMechanismsToHealthEmergencies);
+            bloc.state.responseMechanismsToHealthEmergencies,);
     final presenceOfHealthEducationPrograms = context.select(
         (QuestionnaireCubit bloc) =>
-            bloc.state.presenceOfHealthEducationPrograms);
+            bloc.state.presenceOfHealthEducationPrograms,);
     final accessibilityOfHealthInformationToThePublic = context.select(
         (QuestionnaireCubit bloc) =>
-            bloc.state.accessibilityOfHealthInformationToThePublic);
+            bloc.state.accessibilityOfHealthInformationToThePublic,);
     final governmentPoliciesInHealthSector = context.select(
         (QuestionnaireCubit bloc) => bloc.state
-            .governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy);
+            .governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy,);
     final investmentsAimedatImprovingHealthcareServices = context.select(
         (QuestionnaireCubit bloc) =>
-            bloc.state.investmentsAimedatImprovingHealthcareServices);
+            bloc.state.investmentsAimedatImprovingHealthcareServices,);
     final doYouHaveAWASHProgram = context
         .select((QuestionnaireCubit bloc) => bloc.state.doYouHaveAWASHProgram);
     final doYouHaveAGoodRefuseDisposalSystemIncenerator = context.select(
         (QuestionnaireCubit bloc) =>
-            bloc.state.doYouHaveAGoodRefuseDisposalSystemIncenerator);
+            bloc.state.doYouHaveAGoodRefuseDisposalSystemIncenerator,);
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -408,7 +407,7 @@ class HealthQuestionnaireTabWidget extends StatelessWidget {
             onChanged: (answer) => context
                 .read<QuestionnaireCubit>()
                 .setAccessibilityOfHealthServicesToDifferentDemographics(
-                    answer),
+                    answer,),
           ),
 
           ///////////////////////////////////////////////////////

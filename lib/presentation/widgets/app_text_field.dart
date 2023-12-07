@@ -78,7 +78,7 @@ class TextWithAppTextField extends StatelessWidget {
     this.toggleVisibility,
     this.textInputAction,
     this.hintText,
-    this.keyboardType = TextInputType.text
+    this.keyboardType = TextInputType.text,
   });
 
   /// Function which receives typing events and returns the keyed value
