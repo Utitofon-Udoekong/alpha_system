@@ -1,6 +1,7 @@
 import 'package:alpha_system/presentation/constants/LGA_mappings.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:location/location.dart';
+// import 'package:geolocator/geolocator.dart';
+
 
 /// Uses regex to validate emails
 bool isValidEmail(String email) {
@@ -34,28 +35,40 @@ Future<XFile> snapPhoto()async{
 }
 
 /// Gets the device location
-Future<LocationData?> getLocation()async{
-  final location = Location();
-  await location.enableBackgroundMode();
+Future<String> getLocation()async{
+  // bool serviceEnabled;
+  // LocationPermission permission;
 
-  bool serviceEnabled;
-  PermissionStatus permissionGranted;
+  // // Test if location services are enabled.
+  // serviceEnabled = await Geolocator.isLocationServiceEnabled();
+  // if (!serviceEnabled) {
+  //   // Location services are not enabled don't continue
+  //   // accessing the position and request users of the 
+  //   // App to enable the location services.
+  //   return Future.error('Location services are disabled.');
+  // }
 
-  serviceEnabled = await location.serviceEnabled();
-  if (!serviceEnabled) {
-    serviceEnabled = await location.requestService();
-    if (!serviceEnabled) {
-      return null;
-    }
-  }
+  // permission = await Geolocator.checkPermission();
+  // if (permission == LocationPermission.denied) {
+  //   permission = await Geolocator.requestPermission();
+  //   if (permission == LocationPermission.denied) {
+  //     // Permissions are denied, next time you could try
+  //     // requesting permissions again (this is also where
+  //     // Android's shouldShowRequestPermissionRationale 
+  //     // returned true. According to Android guidelines
+  //     // your App should show an explanatory UI now.
+  //     return Future.error('Location permissions are denied');
+  //   }
+  // }
+  
+  // if (permission == LocationPermission.deniedForever) {
+  //   // Permissions are denied forever, handle appropriately. 
+  //   return Future.error(
+  //     'Location permissions are permanently denied, we cannot request permissions.');
+  // } 
 
-  permissionGranted = await location.hasPermission();
-  if (permissionGranted == PermissionStatus.denied) {
-    permissionGranted = await location.requestPermission();
-    if (permissionGranted != PermissionStatus.granted) {
-      return null;
-    }
-  }
-
-  return location.getLocation();
+  // // When we reach here, permissions are granted and we can
+  // // continue accessing the position of the device.
+  // return await Geolocator.getCurrentPosition();
+  return '';
 }

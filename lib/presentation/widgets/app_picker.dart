@@ -17,6 +17,7 @@ class AppPicker extends StatelessWidget {
       onTap: onTap,
       child: Container(
         margin: const EdgeInsets.only(bottom: 20),
+        width: MediaQuery.of(context).size.width,
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
         color: kPrimaryColor,
         child: Text(title, style: Theme.of(context).textTheme.bodyLarge),

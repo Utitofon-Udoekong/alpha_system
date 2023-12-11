@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:alpha_system/presentation/constants/enums.dart';
 import 'package:alpha_system/presentation/constants/methods.dart';
 import 'package:alpha_system/presentation/home/cubit/questionnaire_cubit.dart';
@@ -121,13 +122,14 @@ class HealthQuestionnaireTabWidget extends StatelessWidget {
             title: gpsLocation.isEmpty ? 'GPS Location' : gpsLocation,
             onTap: () async {
               final locationData = await getLocation();
-              if (locationData != null) {
                 final gpsCoordinates =
-                    '${locationData.latitude}, ${locationData.longitude}';
+                    'Longitude, Latitude';
+                    // '${locationData.latitude}, ${locationData.longitude}';
                 context
                     .read<QuestionnaireCubit>()
                     .setGpsLocation(gpsCoordinates);
-              }
+              // if (locationData != null) {
+              // }
             },
           ),
           AppPicker(
@@ -138,7 +140,7 @@ class HealthQuestionnaireTabWidget extends StatelessWidget {
               final file = await snapPhoto();
               context
                   .read<QuestionnaireCubit>()
-                  .setPhotoOfSignPost(await file.readAsString());
+                  .setPhotoOfSignPost(File(file.path).readAsStringSync());
             },
           ),
           AppPicker(

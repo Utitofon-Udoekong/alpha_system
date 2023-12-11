@@ -8,23 +8,78 @@ class QuestionnaireState with _$QuestionnaireState {
   const factory QuestionnaireState({
     required bool isLoading,
     // General Values
-    required String name, required String lga, required String ward, ///----------AGRO QUESTIONNAIRE------------///
-    required String gender, required String age, required String educationalLevel, //Contact Information
-    required String village, required String phone, //Farmers Profile
-    required int yearsOfFarming, required String typeofFarming, required double sizeOfFarm, required List<String> cropsGrown, required List<String> livestockRaised, //Agricultural Practices
-    required String methodOfFarming, required List<String> typesOfMachineryNeeded, required String phoneOfNextOfKin, required bool useAgroChemicals, required bool useFertilizer, required List<String> preferredFertilizers, //Additional Information
-    required String nin, required String residentialAddress, required String farmAddress, required String bankName, required String accountNumber, required String bvn, required String farmersGroup, ///------------HEALTH QUESTIONNAIRE--------------///
+    required String name,
+    required String lga,
+    required String ward,
+
+    ///----------AGRO QUESTIONNAIRE------------///
+    required String gender,
+    required String age,
+    required String educationalLevel, //Contact Information
+    required String village,
+    required String phone, //Farmers Profile
+    required int yearsOfFarming,
+    required String typeofFarming,
+    required double sizeOfFarm,
+    required List<String> cropsGrown,
+    required List<String> livestockRaised, //Agricultural Practices
+    required String methodOfFarming,
+    required List<String> typesOfMachineryNeeded,
+    required String phoneOfNextOfKin,
+    required bool useAgroChemicals,
+    required bool useFertilizer,
+    required List<String> preferredFertilizers, //Additional Information
+    required String nin,
+    required String residentialAddress,
+    required String farmAddress,
+    required String bankName,
+    required String accountNumber,
+    required String bvn,
+    required String farmersGroup,
+
+    ///------------HEALTH QUESTIONNAIRE--------------///
 
     //Bio - Data
-    required String gpsLocation, required String photoOfSignPost, required String photoOfFront, required String photoOfSide, required String photoOfReception, required String typeOfCareCenter, required int howManyCareCenters, required String whatTypeOfRoad, required int howManyAmbulances, required String sourceOfPower, //Medical personnel
-    required int numberOfSurgeons, required int numberOfDoctors, required int numberOfNurses, required int numberOfNursingAssistants, required int numberOfPharmacists, required int numberOfLabTechnicians, required int numberOfCleaners, required int numberOfDispensaryAssistant, required int numberOfCommunityHealthOfficers, required int numberOfRecordOfficers, //Disease Control
-    required bool measuresInplaceForDiseaseControl, required bool responseMechanismsToHealthEmergencies, //Community Health Programs
-    required String availabilityOfCommunityHealthPrograms, required String outreachProgramsForRuralAreas, //Health Education
-    required bool presenceOfHealthEducationPrograms, required bool accessibilityOfHealthInformationToThePublic, //Healthcare Accessiblity
-    required String accessibilityOfHealthServicesToDifferentDemographics, //Government Initiatives
+    required String gpsLocation,
+    required String photoOfSignPost,
+    required String photoOfFront,
+    required String photoOfSide,
+    required String photoOfReception,
+    required String typeOfCareCenter,
+    required int howManyCareCenters,
+    required String whatTypeOfRoad,
+    required int howManyAmbulances,
+    required String sourceOfPower, //Medical personnel
+    required int numberOfSurgeons,
+    required int numberOfDoctors,
+    required int numberOfNurses,
+    required int numberOfNursingAssistants,
+    required int numberOfPharmacists,
+    required int numberOfLabTechnicians,
+    required int numberOfCleaners,
+    required int numberOfDispensaryAssistant,
+    required int numberOfCommunityHealthOfficers,
+    required int numberOfRecordOfficers, //Disease Control
+    required bool measuresInplaceForDiseaseControl,
     required bool
-        governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy, required bool investmentsAimedatImprovingHealthcareServices, //Public Health Data
-    required String collectionOfPublicHealthData, required String surveillanceSystemsForMonitoringHealthTrends, required String environmentalHealthManagementFacilities, required bool doYouHaveAWASHProgram, required bool doYouHaveAGoodRefuseDisposalSystemIncenerator, String? success,
+        responseMechanismsToHealthEmergencies, //Community Health Programs
+    required String availabilityOfCommunityHealthPrograms,
+    required String outreachProgramsForRuralAreas, //Health Education
+    required bool presenceOfHealthEducationPrograms,
+    required bool
+        accessibilityOfHealthInformationToThePublic, //Healthcare Accessiblity
+    required String
+        accessibilityOfHealthServicesToDifferentDemographics, //Government Initiatives
+    required bool
+        governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy,
+    required bool
+        investmentsAimedatImprovingHealthcareServices, //Public Health Data
+    required String collectionOfPublicHealthData,
+    required String surveillanceSystemsForMonitoringHealthTrends,
+    required String environmentalHealthManagementFacilities,
+    required bool doYouHaveAWASHProgram,
+    required bool doYouHaveAGoodRefuseDisposalSystemIncenerator,
+    String? success,
     String? failure,
   }) = _QuestionnaireState;
 
@@ -37,7 +92,7 @@ class QuestionnaireState with _$QuestionnaireState {
         gender: 'Male',
         age: '18 - 28',
         educationalLevel: 'Secondary School',
-        lga: '',
+        lga: 'Agaie',
         ward: 'SELECT WARD',
         village: '',
         phone: '',
@@ -103,7 +158,7 @@ class QuestionnaireState with _$QuestionnaireState {
         gender: 'Male',
         age: '18 - 28',
         educationalLevel: 'Secondary School',
-        lga: '',
+        lga: 'Agaie',
         ward: 'SELECT WARD',
         village: '',
         phone: '',

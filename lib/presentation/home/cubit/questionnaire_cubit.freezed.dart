@@ -16,9 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$QuestionnaireState {
-  bool get isLoading => throw _privateConstructorUsedError;
-  String? get success => throw _privateConstructorUsedError;
-  String? get failure => throw _privateConstructorUsedError; // General Values
+  bool get isLoading => throw _privateConstructorUsedError; // General Values
   String get name => throw _privateConstructorUsedError;
   String get lga => throw _privateConstructorUsedError;
   String get ward => throw _privateConstructorUsedError;
@@ -102,6 +100,8 @@ mixin _$QuestionnaireState {
   bool get doYouHaveAWASHProgram => throw _privateConstructorUsedError;
   bool get doYouHaveAGoodRefuseDisposalSystemIncenerator =>
       throw _privateConstructorUsedError;
+  String? get success => throw _privateConstructorUsedError;
+  String? get failure => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $QuestionnaireStateCopyWith<QuestionnaireState> get copyWith =>
@@ -116,8 +116,6 @@ abstract class $QuestionnaireStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isLoading,
-      String? success,
-      String? failure,
       String name,
       String lga,
       String ward,
@@ -177,7 +175,9 @@ abstract class $QuestionnaireStateCopyWith<$Res> {
       String surveillanceSystemsForMonitoringHealthTrends,
       String environmentalHealthManagementFacilities,
       bool doYouHaveAWASHProgram,
-      bool doYouHaveAGoodRefuseDisposalSystemIncenerator});
+      bool doYouHaveAGoodRefuseDisposalSystemIncenerator,
+      String? success,
+      String? failure});
 }
 
 /// @nodoc
@@ -194,8 +194,6 @@ class _$QuestionnaireStateCopyWithImpl<$Res, $Val extends QuestionnaireState>
   @override
   $Res call({
     Object? isLoading = null,
-    Object? success = freezed,
-    Object? failure = freezed,
     Object? name = null,
     Object? lga = null,
     Object? ward = null,
@@ -257,20 +255,14 @@ class _$QuestionnaireStateCopyWithImpl<$Res, $Val extends QuestionnaireState>
     Object? environmentalHealthManagementFacilities = null,
     Object? doYouHaveAWASHProgram = null,
     Object? doYouHaveAGoodRefuseDisposalSystemIncenerator = null,
+    Object? success = freezed,
+    Object? failure = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      success: freezed == success
-          ? _value.success
-          : success // ignore: cast_nullable_to_non_nullable
-              as String?,
-      failure: freezed == failure
-          ? _value.failure
-          : failure // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -522,6 +514,14 @@ class _$QuestionnaireStateCopyWithImpl<$Res, $Val extends QuestionnaireState>
           ? _value.doYouHaveAGoodRefuseDisposalSystemIncenerator
           : doYouHaveAGoodRefuseDisposalSystemIncenerator // ignore: cast_nullable_to_non_nullable
               as bool,
+      success: freezed == success
+          ? _value.success
+          : success // ignore: cast_nullable_to_non_nullable
+              as String?,
+      failure: freezed == failure
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -536,8 +536,6 @@ abstract class _$$QuestionnaireStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {bool isLoading,
-      String? success,
-      String? failure,
       String name,
       String lga,
       String ward,
@@ -597,7 +595,9 @@ abstract class _$$QuestionnaireStateImplCopyWith<$Res>
       String surveillanceSystemsForMonitoringHealthTrends,
       String environmentalHealthManagementFacilities,
       bool doYouHaveAWASHProgram,
-      bool doYouHaveAGoodRefuseDisposalSystemIncenerator});
+      bool doYouHaveAGoodRefuseDisposalSystemIncenerator,
+      String? success,
+      String? failure});
 }
 
 /// @nodoc
@@ -612,8 +612,6 @@ class __$$QuestionnaireStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
-    Object? success = freezed,
-    Object? failure = freezed,
     Object? name = null,
     Object? lga = null,
     Object? ward = null,
@@ -675,20 +673,14 @@ class __$$QuestionnaireStateImplCopyWithImpl<$Res>
     Object? environmentalHealthManagementFacilities = null,
     Object? doYouHaveAWASHProgram = null,
     Object? doYouHaveAGoodRefuseDisposalSystemIncenerator = null,
+    Object? success = freezed,
+    Object? failure = freezed,
   }) {
     return _then(_$QuestionnaireStateImpl(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      success: freezed == success
-          ? _value.success
-          : success // ignore: cast_nullable_to_non_nullable
-              as String?,
-      failure: freezed == failure
-          ? _value.failure
-          : failure // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -940,6 +932,14 @@ class __$$QuestionnaireStateImplCopyWithImpl<$Res>
           ? _value.doYouHaveAGoodRefuseDisposalSystemIncenerator
           : doYouHaveAGoodRefuseDisposalSystemIncenerator // ignore: cast_nullable_to_non_nullable
               as bool,
+      success: freezed == success
+          ? _value.success
+          : success // ignore: cast_nullable_to_non_nullable
+              as String?,
+      failure: freezed == failure
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -949,8 +949,6 @@ class __$$QuestionnaireStateImplCopyWithImpl<$Res>
 class _$QuestionnaireStateImpl implements _QuestionnaireState {
   const _$QuestionnaireStateImpl(
       {required this.isLoading,
-      this.success,
-      this.failure,
       required this.name,
       required this.lga,
       required this.ward,
@@ -1010,7 +1008,9 @@ class _$QuestionnaireStateImpl implements _QuestionnaireState {
       required this.surveillanceSystemsForMonitoringHealthTrends,
       required this.environmentalHealthManagementFacilities,
       required this.doYouHaveAWASHProgram,
-      required this.doYouHaveAGoodRefuseDisposalSystemIncenerator})
+      required this.doYouHaveAGoodRefuseDisposalSystemIncenerator,
+      this.success,
+      this.failure})
       : _cropsGrown = cropsGrown,
         _livestockRaised = livestockRaised,
         _typesOfMachineryNeeded = typesOfMachineryNeeded,
@@ -1018,10 +1018,6 @@ class _$QuestionnaireStateImpl implements _QuestionnaireState {
 
   @override
   final bool isLoading;
-  @override
-  final String? success;
-  @override
-  final String? failure;
 // General Values
   @override
   final String name;
@@ -1186,10 +1182,14 @@ class _$QuestionnaireStateImpl implements _QuestionnaireState {
   final bool doYouHaveAWASHProgram;
   @override
   final bool doYouHaveAGoodRefuseDisposalSystemIncenerator;
+  @override
+  final String? success;
+  @override
+  final String? failure;
 
   @override
   String toString() {
-    return 'QuestionnaireState(isLoading: $isLoading, success: $success, failure: $failure, name: $name, lga: $lga, ward: $ward, gender: $gender, age: $age, educationalLevel: $educationalLevel, village: $village, phone: $phone, yearsOfFarming: $yearsOfFarming, typeofFarming: $typeofFarming, sizeOfFarm: $sizeOfFarm, cropsGrown: $cropsGrown, livestockRaised: $livestockRaised, methodOfFarming: $methodOfFarming, typesOfMachineryNeeded: $typesOfMachineryNeeded, phoneOfNextOfKin: $phoneOfNextOfKin, useAgroChemicals: $useAgroChemicals, useFertilizer: $useFertilizer, preferredFertilizers: $preferredFertilizers, nin: $nin, residentialAddress: $residentialAddress, farmAddress: $farmAddress, bankName: $bankName, accountNumber: $accountNumber, bvn: $bvn, farmersGroup: $farmersGroup, gpsLocation: $gpsLocation, photoOfSignPost: $photoOfSignPost, photoOfFront: $photoOfFront, photoOfSide: $photoOfSide, photoOfReception: $photoOfReception, typeOfCareCenter: $typeOfCareCenter, howManyCareCenters: $howManyCareCenters, whatTypeOfRoad: $whatTypeOfRoad, howManyAmbulances: $howManyAmbulances, sourceOfPower: $sourceOfPower, numberOfSurgeons: $numberOfSurgeons, numberOfDoctors: $numberOfDoctors, numberOfNurses: $numberOfNurses, numberOfNursingAssistants: $numberOfNursingAssistants, numberOfPharmacists: $numberOfPharmacists, numberOfLabTechnicians: $numberOfLabTechnicians, numberOfCleaners: $numberOfCleaners, numberOfDispensaryAssistant: $numberOfDispensaryAssistant, numberOfCommunityHealthOfficers: $numberOfCommunityHealthOfficers, numberOfRecordOfficers: $numberOfRecordOfficers, measuresInplaceForDiseaseControl: $measuresInplaceForDiseaseControl, responseMechanismsToHealthEmergencies: $responseMechanismsToHealthEmergencies, availabilityOfCommunityHealthPrograms: $availabilityOfCommunityHealthPrograms, outreachProgramsForRuralAreas: $outreachProgramsForRuralAreas, presenceOfHealthEducationPrograms: $presenceOfHealthEducationPrograms, accessibilityOfHealthInformationToThePublic: $accessibilityOfHealthInformationToThePublic, accessibilityOfHealthServicesToDifferentDemographics: $accessibilityOfHealthServicesToDifferentDemographics, governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy: $governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy, investmentsAimedatImprovingHealthcareServices: $investmentsAimedatImprovingHealthcareServices, collectionOfPublicHealthData: $collectionOfPublicHealthData, surveillanceSystemsForMonitoringHealthTrends: $surveillanceSystemsForMonitoringHealthTrends, environmentalHealthManagementFacilities: $environmentalHealthManagementFacilities, doYouHaveAWASHProgram: $doYouHaveAWASHProgram, doYouHaveAGoodRefuseDisposalSystemIncenerator: $doYouHaveAGoodRefuseDisposalSystemIncenerator)';
+    return 'QuestionnaireState(isLoading: $isLoading, name: $name, lga: $lga, ward: $ward, gender: $gender, age: $age, educationalLevel: $educationalLevel, village: $village, phone: $phone, yearsOfFarming: $yearsOfFarming, typeofFarming: $typeofFarming, sizeOfFarm: $sizeOfFarm, cropsGrown: $cropsGrown, livestockRaised: $livestockRaised, methodOfFarming: $methodOfFarming, typesOfMachineryNeeded: $typesOfMachineryNeeded, phoneOfNextOfKin: $phoneOfNextOfKin, useAgroChemicals: $useAgroChemicals, useFertilizer: $useFertilizer, preferredFertilizers: $preferredFertilizers, nin: $nin, residentialAddress: $residentialAddress, farmAddress: $farmAddress, bankName: $bankName, accountNumber: $accountNumber, bvn: $bvn, farmersGroup: $farmersGroup, gpsLocation: $gpsLocation, photoOfSignPost: $photoOfSignPost, photoOfFront: $photoOfFront, photoOfSide: $photoOfSide, photoOfReception: $photoOfReception, typeOfCareCenter: $typeOfCareCenter, howManyCareCenters: $howManyCareCenters, whatTypeOfRoad: $whatTypeOfRoad, howManyAmbulances: $howManyAmbulances, sourceOfPower: $sourceOfPower, numberOfSurgeons: $numberOfSurgeons, numberOfDoctors: $numberOfDoctors, numberOfNurses: $numberOfNurses, numberOfNursingAssistants: $numberOfNursingAssistants, numberOfPharmacists: $numberOfPharmacists, numberOfLabTechnicians: $numberOfLabTechnicians, numberOfCleaners: $numberOfCleaners, numberOfDispensaryAssistant: $numberOfDispensaryAssistant, numberOfCommunityHealthOfficers: $numberOfCommunityHealthOfficers, numberOfRecordOfficers: $numberOfRecordOfficers, measuresInplaceForDiseaseControl: $measuresInplaceForDiseaseControl, responseMechanismsToHealthEmergencies: $responseMechanismsToHealthEmergencies, availabilityOfCommunityHealthPrograms: $availabilityOfCommunityHealthPrograms, outreachProgramsForRuralAreas: $outreachProgramsForRuralAreas, presenceOfHealthEducationPrograms: $presenceOfHealthEducationPrograms, accessibilityOfHealthInformationToThePublic: $accessibilityOfHealthInformationToThePublic, accessibilityOfHealthServicesToDifferentDemographics: $accessibilityOfHealthServicesToDifferentDemographics, governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy: $governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy, investmentsAimedatImprovingHealthcareServices: $investmentsAimedatImprovingHealthcareServices, collectionOfPublicHealthData: $collectionOfPublicHealthData, surveillanceSystemsForMonitoringHealthTrends: $surveillanceSystemsForMonitoringHealthTrends, environmentalHealthManagementFacilities: $environmentalHealthManagementFacilities, doYouHaveAWASHProgram: $doYouHaveAWASHProgram, doYouHaveAGoodRefuseDisposalSystemIncenerator: $doYouHaveAGoodRefuseDisposalSystemIncenerator, success: $success, failure: $failure)';
   }
 
   @override
@@ -1199,8 +1199,6 @@ class _$QuestionnaireStateImpl implements _QuestionnaireState {
             other is _$QuestionnaireStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
-            (identical(other.success, success) || other.success == success) &&
-            (identical(other.failure, failure) || other.failure == failure) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.lga, lga) || other.lga == lga) &&
             (identical(other.ward, ward) || other.ward == ward) &&
@@ -1301,15 +1299,15 @@ class _$QuestionnaireStateImpl implements _QuestionnaireState {
             (identical(other.surveillanceSystemsForMonitoringHealthTrends, surveillanceSystemsForMonitoringHealthTrends) || other.surveillanceSystemsForMonitoringHealthTrends == surveillanceSystemsForMonitoringHealthTrends) &&
             (identical(other.environmentalHealthManagementFacilities, environmentalHealthManagementFacilities) || other.environmentalHealthManagementFacilities == environmentalHealthManagementFacilities) &&
             (identical(other.doYouHaveAWASHProgram, doYouHaveAWASHProgram) || other.doYouHaveAWASHProgram == doYouHaveAWASHProgram) &&
-            (identical(other.doYouHaveAGoodRefuseDisposalSystemIncenerator, doYouHaveAGoodRefuseDisposalSystemIncenerator) || other.doYouHaveAGoodRefuseDisposalSystemIncenerator == doYouHaveAGoodRefuseDisposalSystemIncenerator));
+            (identical(other.doYouHaveAGoodRefuseDisposalSystemIncenerator, doYouHaveAGoodRefuseDisposalSystemIncenerator) || other.doYouHaveAGoodRefuseDisposalSystemIncenerator == doYouHaveAGoodRefuseDisposalSystemIncenerator) &&
+            (identical(other.success, success) || other.success == success) &&
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
         isLoading,
-        success,
-        failure,
         name,
         lga,
         ward,
@@ -1369,7 +1367,9 @@ class _$QuestionnaireStateImpl implements _QuestionnaireState {
         surveillanceSystemsForMonitoringHealthTrends,
         environmentalHealthManagementFacilities,
         doYouHaveAWASHProgram,
-        doYouHaveAGoodRefuseDisposalSystemIncenerator
+        doYouHaveAGoodRefuseDisposalSystemIncenerator,
+        success,
+        failure
       ]);
 
   @JsonKey(ignore: true)
@@ -1382,79 +1382,74 @@ class _$QuestionnaireStateImpl implements _QuestionnaireState {
 
 abstract class _QuestionnaireState implements QuestionnaireState {
   const factory _QuestionnaireState(
-          {required final bool isLoading,
-          final String? success,
-          final String? failure,
-          required final String name,
-          required final String lga,
-          required final String ward,
-          required final String gender,
-          required final String age,
-          required final String educationalLevel,
-          required final String village,
-          required final String phone,
-          required final int yearsOfFarming,
-          required final String typeofFarming,
-          required final double sizeOfFarm,
-          required final List<String> cropsGrown,
-          required final List<String> livestockRaised,
-          required final String methodOfFarming,
-          required final List<String> typesOfMachineryNeeded,
-          required final String phoneOfNextOfKin,
-          required final bool useAgroChemicals,
-          required final bool useFertilizer,
-          required final List<String> preferredFertilizers,
-          required final String nin,
-          required final String residentialAddress,
-          required final String farmAddress,
-          required final String bankName,
-          required final String accountNumber,
-          required final String bvn,
-          required final String farmersGroup,
-          required final String gpsLocation,
-          required final String photoOfSignPost,
-          required final String photoOfFront,
-          required final String photoOfSide,
-          required final String photoOfReception,
-          required final String typeOfCareCenter,
-          required final int howManyCareCenters,
-          required final String whatTypeOfRoad,
-          required final int howManyAmbulances,
-          required final String sourceOfPower,
-          required final int numberOfSurgeons,
-          required final int numberOfDoctors,
-          required final int numberOfNurses,
-          required final int numberOfNursingAssistants,
-          required final int numberOfPharmacists,
-          required final int numberOfLabTechnicians,
-          required final int numberOfCleaners,
-          required final int numberOfDispensaryAssistant,
-          required final int numberOfCommunityHealthOfficers,
-          required final int numberOfRecordOfficers,
-          required final bool measuresInplaceForDiseaseControl,
-          required final bool responseMechanismsToHealthEmergencies,
-          required final String availabilityOfCommunityHealthPrograms,
-          required final String outreachProgramsForRuralAreas,
-          required final bool presenceOfHealthEducationPrograms,
-          required final bool accessibilityOfHealthInformationToThePublic,
-          required final String
-              accessibilityOfHealthServicesToDifferentDemographics,
-          required final bool
-              governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy,
-          required final bool investmentsAimedatImprovingHealthcareServices,
-          required final String collectionOfPublicHealthData,
-          required final String surveillanceSystemsForMonitoringHealthTrends,
-          required final String environmentalHealthManagementFacilities,
-          required final bool doYouHaveAWASHProgram,
-          required final bool doYouHaveAGoodRefuseDisposalSystemIncenerator}) =
-      _$QuestionnaireStateImpl;
+      {required final bool isLoading,
+      required final String name,
+      required final String lga,
+      required final String ward,
+      required final String gender,
+      required final String age,
+      required final String educationalLevel,
+      required final String village,
+      required final String phone,
+      required final int yearsOfFarming,
+      required final String typeofFarming,
+      required final double sizeOfFarm,
+      required final List<String> cropsGrown,
+      required final List<String> livestockRaised,
+      required final String methodOfFarming,
+      required final List<String> typesOfMachineryNeeded,
+      required final String phoneOfNextOfKin,
+      required final bool useAgroChemicals,
+      required final bool useFertilizer,
+      required final List<String> preferredFertilizers,
+      required final String nin,
+      required final String residentialAddress,
+      required final String farmAddress,
+      required final String bankName,
+      required final String accountNumber,
+      required final String bvn,
+      required final String farmersGroup,
+      required final String gpsLocation,
+      required final String photoOfSignPost,
+      required final String photoOfFront,
+      required final String photoOfSide,
+      required final String photoOfReception,
+      required final String typeOfCareCenter,
+      required final int howManyCareCenters,
+      required final String whatTypeOfRoad,
+      required final int howManyAmbulances,
+      required final String sourceOfPower,
+      required final int numberOfSurgeons,
+      required final int numberOfDoctors,
+      required final int numberOfNurses,
+      required final int numberOfNursingAssistants,
+      required final int numberOfPharmacists,
+      required final int numberOfLabTechnicians,
+      required final int numberOfCleaners,
+      required final int numberOfDispensaryAssistant,
+      required final int numberOfCommunityHealthOfficers,
+      required final int numberOfRecordOfficers,
+      required final bool measuresInplaceForDiseaseControl,
+      required final bool responseMechanismsToHealthEmergencies,
+      required final String availabilityOfCommunityHealthPrograms,
+      required final String outreachProgramsForRuralAreas,
+      required final bool presenceOfHealthEducationPrograms,
+      required final bool accessibilityOfHealthInformationToThePublic,
+      required final String
+          accessibilityOfHealthServicesToDifferentDemographics,
+      required final bool
+          governmentPoliciesInHealthSectorAccountingForHealthCareAccessibiltiy,
+      required final bool investmentsAimedatImprovingHealthcareServices,
+      required final String collectionOfPublicHealthData,
+      required final String surveillanceSystemsForMonitoringHealthTrends,
+      required final String environmentalHealthManagementFacilities,
+      required final bool doYouHaveAWASHProgram,
+      required final bool doYouHaveAGoodRefuseDisposalSystemIncenerator,
+      final String? success,
+      final String? failure}) = _$QuestionnaireStateImpl;
 
   @override
   bool get isLoading;
-  @override
-  String? get success;
-  @override
-  String? get failure;
   @override // General Values
   String get name;
   @override
@@ -1580,6 +1575,10 @@ abstract class _QuestionnaireState implements QuestionnaireState {
   bool get doYouHaveAWASHProgram;
   @override
   bool get doYouHaveAGoodRefuseDisposalSystemIncenerator;
+  @override
+  String? get success;
+  @override
+  String? get failure;
   @override
   @JsonKey(ignore: true)
   _$$QuestionnaireStateImplCopyWith<_$QuestionnaireStateImpl> get copyWith =>
